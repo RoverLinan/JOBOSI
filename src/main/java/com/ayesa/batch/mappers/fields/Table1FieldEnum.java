@@ -1,0 +1,19 @@
+package com.ayesa.batch.mappers.fields;
+
+public enum Table1FieldEnum {
+    COD_EMPRESA,
+    COD_CANAL,
+    COD_TIP_DOCUMENTO,
+    NRO_DOCTO_IDENT,
+    NOMBRE_RAZON_SOCIAL,
+    APELLIDO_SOLICITANTE,
+    NUM_SUMINISTRO,
+    EMAIL_SOLICITANTE,
+    TELEF_SOLICITANTE,
+    DIRECCION,
+    UBIGEO,
+    COD_ASUNTO,
+    FEC_SOLUCION,
+    DESCRIPCION_RECLAMO
+
+}
