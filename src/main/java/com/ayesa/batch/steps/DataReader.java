@@ -44,9 +44,9 @@ public class DataReader {
         List<Map<String, Object>> data = new ArrayList<>();
 
         try (PreparedStatement preparedStatement = this.dataSourceConnection.getConnection().prepareStatement(queryRead)) {
+            preparedStatement.setInt(1, offset);
+            preparedStatement.setInt(2, chunkSize);
 
-            preparedStatement.setObject(1, chunkSize);
-            preparedStatement.setObject(2, offset);
 
             LOGGER.info("read: query = {}", queryRead);
             try (ResultSet result = preparedStatement.executeQuery()) {

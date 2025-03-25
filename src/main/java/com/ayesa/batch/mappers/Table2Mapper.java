@@ -21,17 +21,16 @@ public class Table2Mapper extends AbstractEntityMapper {
 
         Map<String, Object> entity = new LinkedHashMap<>();
 
-        entity.put(COD_ATENCION.name(), "1");
-        entity.put(COD_ACCION.name(), "2");
-        entity.put(FEC_CREACION.name(), "3");
-        entity.put(DESC_ACCION.name(), "4");
-        entity.put(COD_ESTADO_ATENCION.name(), "5");
-        entity.put(FEC_RESPUESTA.name(), "6");
-        entity.put(NUM_RESOLUCION.name(), "7");
-        entity.put(COMENTARIO_CLIENTE.name(), "8");
-        entity.put(COMENTARIO_USUARIO.name(), "9");
-        entity.put(COD_ESTADO.name(), "10");
-
+        getValueByType(entity, resultSet, COD_ATENCION);
+        getValueByType(entity, resultSet, COD_ACCION);
+        getValueByType(entity, resultSet, FEC_CREACION);
+        getValueByType(entity, resultSet, DESC_ACCION);
+        getValueByType(entity, resultSet, COD_ESTADO_ATENCION);
+        getValueByType(entity, resultSet, FEC_RESPUESTA);
+        getValueByType(entity, resultSet, NUM_RESOLUCION);
+        getValueByType(entity, resultSet, COMENTARIO_CLIENTE);
+        getValueByType(entity, resultSet, COMENTARIO_USUARIO);
+        getValueByType(entity, resultSet, COD_ESTADO);
 
         return entity;
     }

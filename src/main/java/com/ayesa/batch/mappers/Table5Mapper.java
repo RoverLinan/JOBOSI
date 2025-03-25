@@ -20,16 +20,16 @@ public class Table5Mapper extends AbstractEntityMapper{
     public Map<String, Object> toEntity(ResultSet resultSet) {
         Map<String, Object> entity = new LinkedHashMap<>();
 
-        entity.put(COD_ATENCION.name(), "1");
-        entity.put(COD_ACCION.name(), "2");
-        entity.put(COD_SED.name(), "3");
-        entity.put(COD_IRREGULARIDAD.name(), "4");
-        entity.put(ZON_GEOGRAFICA.name(), "5");
-        entity.put(CANT_SUM_AFECTADOS.name(), "6");
-        entity.put(MES_FAC_IRREGULARIDAD.name(), "7");
-        entity.put(MED_CORRECTIVA.name(), "8");
-        entity.put(SUST_TECNICO.name(), "9");
-        entity.put(CANT_ATENCIONES.name(), "10");
+        getValueByType(entity, resultSet, COD_ATENCION);
+        getValueByType(entity, resultSet, COD_ACCION);
+        getValueByType(entity, resultSet, COD_SED);
+        getValueByType(entity, resultSet, COD_IRREGULARIDAD);
+        getValueByType(entity, resultSet, ZON_GEOGRAFICA);
+        getValueByType(entity, resultSet, CANT_SUM_AFECTADOS);
+        getValueByType(entity, resultSet, MES_FAC_IRREGULARIDAD);
+        getValueByType(entity, resultSet, MED_CORRECTIVA);
+        getValueByType(entity, resultSet, SUST_TECNICO);
+        getValueByType(entity, resultSet, CANT_ATENCIONES);
 
         return entity;
     }

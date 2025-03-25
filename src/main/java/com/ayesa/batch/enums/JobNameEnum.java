@@ -8,7 +8,8 @@ public enum JobNameEnum {
     JOB05("TABLE5"),
     JOB06("TABLE6"),
     JOB07("TABLE7"),
-    JOB08("TABLE8");
+    JOB08("TABLE8"),
+    COM_PARAMETERS("OSI_COM_PARAMETROS");
 
     private final String tableName;
     JobNameEnum(String tableName){

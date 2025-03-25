@@ -22,15 +22,15 @@ public class Table8Mapper extends AbstractEntityMapper {
 
         Map<String, Object> entity = new LinkedHashMap<>();
 
-        entity.put(COD_ATENCION.name(), "1");
-        entity.put(COD_ACCION.name(), "2");
-        entity.put(COD_CENTRO_ATENCION.name(), "3");
-        entity.put(COD_PRESUPUESTO.name(), "4");
-        entity.put(TIP_CONEXION.name(), "5");
-        entity.put(TIP_ACOMETIDA.name(), "6");
-        entity.put(COD_TARIF_INI.name(), "7");
-        entity.put(COD_TARIF_FIN.name(), "8");
-        entity.put(POTENCIA.name(), "9");
+        getValueByType(entity, resultSet, COD_ATENCION);
+        getValueByType(entity, resultSet, COD_ACCION);
+        getValueByType(entity, resultSet, COD_CENTRO_ATENCION);
+        getValueByType(entity, resultSet, COD_PRESUPUESTO);
+        getValueByType(entity, resultSet, TIP_CONEXION);
+        getValueByType(entity, resultSet, TIP_ACOMETIDA);
+        getValueByType(entity, resultSet, COD_TARIF_INI);
+        getValueByType(entity, resultSet, COD_TARIF_FIN);
+        getValueByType(entity, resultSet, POTENCIA);
     return entity;
     }
 }

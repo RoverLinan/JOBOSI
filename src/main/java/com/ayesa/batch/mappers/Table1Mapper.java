@@ -19,8 +19,10 @@ import static com.ayesa.batch.mappers.fields.Table1FieldEnum.NUM_SUMINISTRO;
 import static com.ayesa.batch.mappers.fields.Table1FieldEnum.TELEF_SOLICITANTE;
 import static com.ayesa.batch.mappers.fields.Table1FieldEnum.UBIGEO;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ATENCION;
+import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_DISTRITO;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ESTADO;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.FEC_CREACION;
+import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.TIP_ATENCION;
 
 
 public class Table1Mapper extends AbstractEntityMapper{
@@ -31,23 +33,26 @@ public class Table1Mapper extends AbstractEntityMapper{
 
         Map<String, Object> entity = new LinkedHashMap<>();
 
-        entity.put(COD_EMPRESA.name(),"1");
-        entity.put(COD_ATENCION.name(),"2");
-        entity.put(FEC_CREACION.name(),"3");
-        entity.put(COD_CANAL.name(),"4");
-        entity.put(COD_TIP_DOCUMENTO.name(),"5");
-        entity.put(NRO_DOCTO_IDENT.name(),"6");
-        entity.put(NOMBRE_RAZON_SOCIAL.name(),"7");
-        entity.put(APELLIDO_SOLICITANTE.name(),"8");
-        entity.put(NUM_SUMINISTRO.name(),"9");
-        entity.put(EMAIL_SOLICITANTE.name(),"10");
-        entity.put(TELEF_SOLICITANTE.name(),"11");
-        entity.put(DIRECCION.name(), "12");
-        entity.put(UBIGEO.name(), "13");
-        entity.put(COD_ASUNTO.name(), "14");
-        entity.put(FEC_SOLUCION.name(), "15");
-        entity.put(DESCRIPCION_RECLAMO.name(), "16");
-        entity.put(COD_ESTADO.name(), "17");
+        getValueByType(entity, resultSet, COD_EMPRESA);
+        getValueByType(entity, resultSet, COD_ATENCION);
+        getValueByType(entity, resultSet, FEC_CREACION);
+        getValueByType(entity, resultSet, COD_CANAL);
+        getValueByType(entity, resultSet, COD_TIP_DOCUMENTO);
+        getValueByType(entity, resultSet, NRO_DOCTO_IDENT);
+        getValueByType(entity, resultSet, NOMBRE_RAZON_SOCIAL);
+        getValueByType(entity, resultSet, APELLIDO_SOLICITANTE);
+        getValueByType(entity, resultSet, NUM_SUMINISTRO);
+        getValueByType(entity, resultSet, EMAIL_SOLICITANTE);
+        getValueByType(entity, resultSet, TELEF_SOLICITANTE);
+        getValueByType(entity, resultSet, DIRECCION);
+        getValueByType(entity, resultSet, UBIGEO);
+        getValueByType(entity, resultSet, COD_ASUNTO);
+        getValueByType(entity, resultSet, FEC_SOLUCION);
+        getValueByType(entity, resultSet, DESCRIPCION_RECLAMO);
+        getValueByType(entity, resultSet, COD_ESTADO);
+        getValueByType(entity, resultSet, TIP_ATENCION);
+        getValueByType(entity, resultSet, COD_DISTRITO);
+
         return entity;
     }
 

@@ -13,7 +13,7 @@ import java.util.Properties;
 public class DataSourceConnection {
 
     private static DataSourceConnection dataSourceConnection;
-    private final Connection connection;
+    private  Connection connection;
     private final String dbUrl;
     private final String dbUsername;
     private final String dbPassword;
@@ -28,6 +28,7 @@ public class DataSourceConnection {
         try {
             Class.forName("oracle.jdbc.OracleDriver");
             this.connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+
         } catch (ClassNotFoundException | SQLException e) {
             throw new LogicalException("002",Boolean.FALSE,"Error DataSource",e);
         }
@@ -35,11 +36,14 @@ public class DataSourceConnection {
     }
 
     public static synchronized DataSourceConnection getInstance() {
-
-        if(Objects.isNull(dataSourceConnection)){
-           dataSourceConnection = new DataSourceConnection();
+        try {
+            if (Objects.isNull(dataSourceConnection) || dataSourceConnection.connection.isClosed()) {
+                dataSourceConnection = new DataSourceConnection();
+            }
+            return dataSourceConnection;
+        }catch (SQLException e){
+            throw new LogicalException("002",Boolean.FALSE,"Error DataSource",e);
         }
-        return dataSourceConnection;
     }
 
     public Connection getConnection(){

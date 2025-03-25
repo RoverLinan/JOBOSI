@@ -26,7 +26,9 @@ public enum QueryNameEnum {
     SQL_TABLE7_SELECT_COUNT_ALL(        JobNameEnum.JOB07,QueryFunctionEnum.COUNT, "sql.table7.select.count.all"),
 
     SQL_TABLE8_SELECT_ALL(              JobNameEnum.JOB08,QueryFunctionEnum.SELECT, "sql.table8.select.all"),
-    SQL_TABLE8_SELECT_COUNT_ALL(        JobNameEnum.JOB08,QueryFunctionEnum.COUNT, "sql.table8.select.count.all");
+    SQL_TABLE8_SELECT_COUNT_ALL(        JobNameEnum.JOB08,QueryFunctionEnum.COUNT, "sql.table8.select.count.all"),
+
+    SQL_PARAMETERS_SELECT_ALL(        JobNameEnum.COM_PARAMETERS,QueryFunctionEnum.SELECT, "sql.parameters.select.all");
 
 
 

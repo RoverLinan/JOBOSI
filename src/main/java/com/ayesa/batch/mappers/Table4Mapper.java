@@ -27,21 +27,22 @@ public class Table4Mapper extends AbstractEntityMapper{
     public Map<String, Object> toEntity(ResultSet resultSet) {
 
         Map<String, Object> entity = new LinkedHashMap<>();
-        entity.put(COD_ATENCION.name(),"1");
-        entity.put(COD_ACCION.name(), "2");
-        entity.put(COD_ALIMENTADOR.name(), "3");
-        entity.put(COD_SED.name(), "4");
-        entity.put(COD_TIP_CONEX.name(), "5");
-        entity.put(CANT_USU_AFECTADOS.name(), "6");
-        entity.put(SUM_AFECTADOS.name(), "7");
-        entity.put(COD_CAUSA_VAR_TENSION.name(), "8");
-        entity.put(SUST_TEC_ORIGEN.name(), "9");
-        entity.put(COD_MED_ATENCION.name(), "10");
-        entity.put(FEC_ULT_APLICACION.name(), "11");
-        entity.put(SUST_TEC_CONCLUYE.name(), "12");
-        entity.put(COORD_UTM_X.name(), "13");
-        entity.put(COORD_UTM_Y.name(), "14");
-        entity.put(CANT_ATENCIONES.name(), "15");
+
+        getValueByType(entity, resultSet, COD_ATENCION);
+        getValueByType(entity, resultSet, COD_ACCION);
+        getValueByType(entity, resultSet, COD_ALIMENTADOR);
+        getValueByType(entity, resultSet, COD_SED);
+        getValueByType(entity, resultSet, COD_TIP_CONEX);
+        getValueByType(entity, resultSet, CANT_USU_AFECTADOS);
+        getValueByType(entity, resultSet, SUM_AFECTADOS);
+        getValueByType(entity, resultSet, COD_CAUSA_VAR_TENSION);
+        getValueByType(entity, resultSet, SUST_TEC_ORIGEN);
+        getValueByType(entity, resultSet, COD_MED_ATENCION);
+        getValueByType(entity, resultSet, FEC_ULT_APLICACION);
+        getValueByType(entity, resultSet, SUST_TEC_CONCLUYE);
+        getValueByType(entity, resultSet, COORD_UTM_X);
+        getValueByType(entity, resultSet, COORD_UTM_Y);
+        getValueByType(entity, resultSet, CANT_ATENCIONES);
 
         return entity;
     }

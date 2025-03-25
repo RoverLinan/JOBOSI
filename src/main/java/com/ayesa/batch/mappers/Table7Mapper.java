@@ -25,21 +25,22 @@ public class Table7Mapper extends AbstractEntityMapper {
     public Map<String, Object> toEntity(ResultSet resultSet) {
 
         Map<String, Object> entity = new LinkedHashMap<>();
-        entity.put(COD_ATENCION.name(), "1");
-        entity.put(COD_ACCION.name(), "2");
-        entity.put(COD_SIST_ELECTRICO.name(), "3");
-        entity.put(COD_ALIMENTADOR.name(), "4");
-        entity.put(COD_SED.name(), "5");
-        entity.put(TIP_ELE_RIESGOELEC.name(), "6");
-        entity.put(COD_ELE_RIESGOELEC.name(), "7");
-        entity.put(EVA_CAMPO.name(), "8");
-        entity.put(CAUSA_RIESGO.name(), "9");
-        entity.put(DESC_MED_PREVENTIVAS.name(), "10");
-        entity.put(SUBS_RIESGO_ELECTRICO.name(), "11");
-        entity.put(CAUSA_NO_CUMPLIMIENTO.name(), "12");
-        entity.put(COORD_UTM_X.name(), "13");
-        entity.put(COORD_UTM_Y.name(), "14");
-        entity.put(CANT_ATENCIONES.name(), "15");
+
+        getValueByType(entity, resultSet, COD_ATENCION);
+        getValueByType(entity, resultSet, COD_ACCION);
+        getValueByType(entity, resultSet, COD_SIST_ELECTRICO);
+        getValueByType(entity, resultSet, COD_ALIMENTADOR);
+        getValueByType(entity, resultSet, COD_SED);
+        getValueByType(entity, resultSet, TIP_ELE_RIESGOELEC);
+        getValueByType(entity, resultSet, COD_ELE_RIESGOELEC);
+        getValueByType(entity, resultSet, EVA_CAMPO);
+        getValueByType(entity, resultSet, CAUSA_RIESGO);
+        getValueByType(entity, resultSet, DESC_MED_PREVENTIVAS);
+        getValueByType(entity, resultSet, SUBS_RIESGO_ELECTRICO);
+        getValueByType(entity, resultSet, CAUSA_NO_CUMPLIMIENTO);
+        getValueByType(entity, resultSet, COORD_UTM_X);
+        getValueByType(entity, resultSet, COORD_UTM_Y);
+        getValueByType(entity, resultSet, CANT_ATENCIONES);
         return entity;
     }
 }

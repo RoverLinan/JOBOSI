@@ -23,19 +23,18 @@ public class Table6Mapper extends AbstractEntityMapper{
 
         Map<String, Object> entity = new LinkedHashMap<>();
 
-        entity.put(COD_ATENCION.name(), "1");
-        entity.put(COD_ACCION.name(), "2");
-        entity.put(COD_SIST_ELECTRICO.name(), "3");
-        entity.put(COD_SED.name(), "4");
-        entity.put(COD_SECTOR_TIPICO.name(), "5");
-        entity.put(FEC_VER_CAMPO.name(), "6");
-        entity.put(COD_DEF_TIPICA.name(), "7");
-        entity.put(COD_UAP.name(), "8");
-        entity.put(FEC_SUB_DEFICIENCIA.name(), "9");
-        entity.put(NUM_ORD_TRABAJO.name(), "10");
-        entity.put(FEC_APLIACION.name(), "11");
-        entity.put(CANT_ATENCIONES.name(), "12");
-
+        getValueByType(entity, resultSet, COD_ATENCION);
+        getValueByType(entity, resultSet, COD_ACCION);
+        getValueByType(entity, resultSet, COD_SIST_ELECTRICO);
+        getValueByType(entity, resultSet, COD_SED);
+        getValueByType(entity, resultSet, COD_SECTOR_TIPICO);
+        getValueByType(entity, resultSet, FEC_VER_CAMPO);
+        getValueByType(entity, resultSet, COD_DEF_TIPICA);
+        getValueByType(entity, resultSet, COD_UAP);
+        getValueByType(entity, resultSet, FEC_SUB_DEFICIENCIA);
+        getValueByType(entity, resultSet, NUM_ORD_TRABAJO);
+        getValueByType(entity, resultSet, FEC_APLIACION);
+        getValueByType(entity, resultSet, CANT_ATENCIONES);
         return entity;
     }
 }

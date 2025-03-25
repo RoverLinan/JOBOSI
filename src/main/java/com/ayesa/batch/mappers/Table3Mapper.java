@@ -31,26 +31,26 @@ public class Table3Mapper extends AbstractEntityMapper{
     public Map<String, Object> toEntity(ResultSet resultSet) {
 
         Map<String, Object> entity = new LinkedHashMap<>();
-        entity.put(COD_ATENCION.name(),"1");
-        entity.put(COD_ACCION.name(), "2");
-        entity.put(COD_INTERRUPCION.name(), "3");
-        entity.put(FEC_INI_INTERRUPCION.name(), "4");
-        entity.put(FEC_FIN_INTERRUPCION.name(), "5");
-        entity.put(CANT_SUM_AFECTADOS.name(), "6");
-        entity.put(FASE_INTERRUMPIDA.name(), "7");
-        entity.put(POTENCIA_INTERRUMPIDA.name(), "8");
-        entity.put(ENERGIA_NO_SUMINISTRADA.name(), "9");
-        entity.put(COD_MOTIVO_FALLA.name(), "10");
-        entity.put(DESCRIPCION_MOTIVO.name(), "11");
-        entity.put(LOCALIZACION_FALLA.name(), "12");
-        entity.put(SUST_TEC_A_INTERR_4_12.name(), "13");
-        entity.put(SUST_TEC_A_INTERR_MAS_12.name(), "14");
-        entity.put(SUST_TEC_C.name(), "15");
-        entity.put(DESCR_ACC_REALIZADAS.name(), "16");
-        entity.put(CARACT_TEC_PUESTA_OPER.name(), "17");
-        entity.put(ACTA_INSPECCION.name(), "18");
-        entity.put(CANT_ATENCIONES.name(), "19");
 
+        getValueByType(entity, resultSet, COD_ATENCION);
+        getValueByType(entity, resultSet, COD_ACCION);
+        getValueByType(entity, resultSet, COD_INTERRUPCION);
+        getValueByType(entity, resultSet, FEC_INI_INTERRUPCION);
+        getValueByType(entity, resultSet, FEC_FIN_INTERRUPCION);
+        getValueByType(entity, resultSet, CANT_SUM_AFECTADOS);
+        getValueByType(entity, resultSet, FASE_INTERRUMPIDA);
+        getValueByType(entity, resultSet, POTENCIA_INTERRUMPIDA);
+        getValueByType(entity, resultSet, ENERGIA_NO_SUMINISTRADA);
+        getValueByType(entity, resultSet, COD_MOTIVO_FALLA);
+        getValueByType(entity, resultSet, DESCRIPCION_MOTIVO);
+        getValueByType(entity, resultSet, LOCALIZACION_FALLA);
+        getValueByType(entity, resultSet, SUST_TEC_A_INTERR_4_12);
+        getValueByType(entity, resultSet, SUST_TEC_A_INTERR_MAS_12);
+        getValueByType(entity, resultSet, SUST_TEC_C);
+        getValueByType(entity, resultSet, DESCR_ACC_REALIZADAS);
+        getValueByType(entity, resultSet, CARACT_TEC_PUESTA_OPER);
+        getValueByType(entity, resultSet, ACTA_INSPECCION);
+        getValueByType(entity, resultSet, CANT_ATENCIONES);
         return entity;
     }
 }
