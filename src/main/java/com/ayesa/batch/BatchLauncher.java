@@ -2,6 +2,7 @@ package com.ayesa.batch;
 
 import com.ayesa.batch.config.DataSourceConnection;
 import com.ayesa.batch.enums.JobNameEnum;
+import com.ayesa.batch.enums.ParameterKitEnum;
 import com.ayesa.batch.enums.QueryNameEnum;
 import com.ayesa.batch.job.JobExecution;
 import com.ayesa.batch.util.FileUtil;
@@ -19,11 +20,10 @@ public class BatchLauncher {
     public static final String JOB_NAMES = "JOB_NAMES";
     public static final String CHUNK_SIZE = "CHUNK_SIZE";
     public static final String FILE_CREDENTIALS_BD = "FILE_CREDENTIALS_BD";
+    public static final String PERIODO_REMISION = "PERIODO_REMISION";
     public static final String CODIGO = "CODIGO";
     public static final String VALOR_ALF = "VALOR_ALF";
-
     public static final String VALOR_NUM = "VALOR_NUM";
-
 
 
     public static Map<String, Object> JOB_PARAMETERS = new HashMap<>();
@@ -55,24 +55,27 @@ public class BatchLauncher {
 
     private static void  getJobParameters(String[] args) {
         LOGGER.info("getJobParameters: args = {}", Arrays.asList(args));
-        if (args.length < 2) {
-            throw new IllegalArgumentException("Faltan parámetros. Uso: <jobNames> <fileCredentials> ");
+        if (args.length < 3) {
+            throw new IllegalArgumentException("Faltan parámetros. Uso: <jobNames> <periodoRemision> <fileCredentials> ");
         }
 
         String jobNames = args[0];
-        String fileCredentials = args[1];
+        String periodoRemision = args[1];
+        String fileCredentials = args[2];
 
         JOB_PARAMETERS = new HashMap<>();
         JOB_PARAMETERS.put(JOB_NAMES, jobNames);
+        JOB_PARAMETERS.put(PERIODO_REMISION, periodoRemision);
         JOB_PARAMETERS.put(FILE_CREDENTIALS_BD, fileCredentials);
 
-        loadParametersFromDb();
 
+        loadParametersFromDb(ParameterKitEnum.BATCH_OSI_PARAMETERS);
+        loadParametersFromDb(ParameterKitEnum.GENERIC_PARAMETERS);
         LOGGER.info("getJobParameters: parameters = {}", JOB_PARAMETERS);
     }
 
 
-    private static void loadParametersFromDb() {
+    private static void loadParametersFromDb(ParameterKitEnum parameterKitEnum) {
 
         DataSourceConnection dataSource = DataSourceConnection.getInstance();
         String queryRead = FileUtil.getPropertiesFromResources().getProperty(QueryNameEnum.SQL_PARAMETERS_SELECT_ALL.getPropertyName());
@@ -80,8 +83,8 @@ public class BatchLauncher {
             PreparedStatement preparedStatement = connection.prepareStatement(queryRead )) {
 
 
-            preparedStatement.setString(1, "OSINERGMIN");
-            preparedStatement.setString(2, "BATCH_OSI");
+            preparedStatement.setString(1, parameterKitEnum.getParameterFamily());
+            preparedStatement.setString(2, parameterKitEnum.getParameterKit());
 
             List<Map<String, Object>> parameters = new ArrayList<>();
 

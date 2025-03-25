@@ -14,7 +14,7 @@ public class DataWriter {
     }
     public void writer(String fileName) {
         try {
-            publicElectricityService.submitInformationForProcessing();
+            publicElectricityService.submitInformationForProcessing(fileName);
             publicElectricityService.confirmInformationSubmission();
         }catch (Exception e){
             publicElectricityService.revertInformationConfirmation();

@@ -8,7 +8,7 @@ public interface PublicElectricityService {
 
     TableCatalogResponseDTO getTableCatalog();
     TableStructureResponseDTO getTableStructure(String tableCode);
-    AbstractResponseDTO submitInformationForProcessing();
+    AbstractResponseDTO submitInformationForProcessing(final String filePath);
     AbstractResponseDTO confirmInformationSubmission();
     AbstractResponseDTO revertInformationConfirmation();
 

@@ -37,7 +37,7 @@ public class PublicElectricityServiceImpl implements PublicElectricityService{
     }
 
     @Override
-    public AbstractResponseDTO submitInformationForProcessing() {
+    public AbstractResponseDTO submitInformationForProcessing(final String filePath) {
         try (CloseableHttpClient client = HttpClients.createDefault()) {
 
 
