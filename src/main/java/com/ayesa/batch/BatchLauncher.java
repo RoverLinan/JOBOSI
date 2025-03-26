@@ -15,15 +15,16 @@ import java.sql.ResultSet;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static com.ayesa.batch.enums.JobParameterEnum.CHUNK_SIZE;
+import static com.ayesa.batch.enums.JobParameterEnum.CODIGO;
+import static com.ayesa.batch.enums.JobParameterEnum.FILE_CREDENTIALS_BD;
+import static com.ayesa.batch.enums.JobParameterEnum.JOB_NAMES;
+import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
+import static com.ayesa.batch.enums.JobParameterEnum.VALOR_ALF;
+import static com.ayesa.batch.enums.JobParameterEnum.VALOR_NUM;
+
 public class BatchLauncher {
     private static final Logger LOGGER = LoggerFactory.getLogger(BatchLauncher.class);
-    public static final String JOB_NAMES = "JOB_NAMES";
-    public static final String CHUNK_SIZE = "CHUNK_SIZE";
-    public static final String FILE_CREDENTIALS_BD = "FILE_CREDENTIALS_BD";
-    public static final String PERIODO_REMISION = "PERIODO_REMISION";
-    public static final String CODIGO = "CODIGO";
-    public static final String VALOR_ALF = "VALOR_ALF";
-    public static final String VALOR_NUM = "VALOR_NUM";
 
 
     public static Map<String, Object> JOB_PARAMETERS = new HashMap<>();
@@ -33,7 +34,7 @@ public class BatchLauncher {
 
         JobExecution jobExecution = new JobExecution();
         getJobParameters(args);
-        jobExecution.start(getJobNames((String) JOB_PARAMETERS.get(JOB_NAMES)));
+        jobExecution.start(getJobNames((String) JOB_PARAMETERS.get(JOB_NAMES.name())));
 
     }
 
@@ -64,9 +65,9 @@ public class BatchLauncher {
         String fileCredentials = args[2];
 
         JOB_PARAMETERS = new HashMap<>();
-        JOB_PARAMETERS.put(JOB_NAMES, jobNames);
-        JOB_PARAMETERS.put(PERIODO_REMISION, periodoRemision);
-        JOB_PARAMETERS.put(FILE_CREDENTIALS_BD, fileCredentials);
+        JOB_PARAMETERS.put(JOB_NAMES.name(), jobNames);
+        JOB_PARAMETERS.put(PERIODO_REMISION.name(), periodoRemision);
+        JOB_PARAMETERS.put(FILE_CREDENTIALS_BD.name(), fileCredentials);
 
 
         loadParametersFromDb(ParameterKitEnum.BATCH_OSI_PARAMETERS);
@@ -91,19 +92,19 @@ public class BatchLauncher {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Map<String, Object> parameter = new HashMap<>();
-                parameter.put(VALOR_NUM, resultSet.getInt(VALOR_NUM));
-                parameter.put(VALOR_ALF, resultSet.getString(VALOR_ALF));
-                parameter.put(CODIGO, resultSet.getString(CODIGO));
+                parameter.put(VALOR_NUM.name(), resultSet.getInt(VALOR_NUM.name()));
+                parameter.put(VALOR_ALF.name(), resultSet.getString(VALOR_ALF.name()));
+                parameter.put(CODIGO.name(), resultSet.getString(CODIGO.name()));
                 parameters.add(parameter);
             }
 
             parameters.forEach(p -> {
-                String codigo = (String)p.get(CODIGO);
+                String codigo = (String)p.get(CODIGO.name());
                 if(Objects.nonNull(codigo)){
-                    if(CHUNK_SIZE.equals(codigo)){
-                        JOB_PARAMETERS.put(CHUNK_SIZE, p.get(VALOR_NUM));
+                    if(CHUNK_SIZE.name().equals(codigo)){
+                        JOB_PARAMETERS.put(CHUNK_SIZE.name(), p.get(VALOR_NUM.name()));
                     }else{
-                        JOB_PARAMETERS.put(codigo, p.get(VALOR_ALF));
+                        JOB_PARAMETERS.put(codigo, p.get(VALOR_ALF.name()));
                     }
 
                 }

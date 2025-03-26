@@ -14,7 +14,6 @@ public class FileUtil {
     private static final String PATH_RESOURCES = "sql/sql-TABLES.properties";
     public static final String PATH_FILES_UPLOAD = "files/upload";
 
-    public static final String DELIMITER_VALUES_UPLOAD = "|";
     private static final String SEPARATOR_FILE_NAME = "_";
 
     private static Properties propertiesResources;

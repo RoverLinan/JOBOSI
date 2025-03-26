@@ -3,8 +3,9 @@ package com.ayesa.batch.business.dto.osinergmin;
 import java.io.Serializable;
 import java.util.List;
 
-public abstract class AbstractResponseDTO implements Serializable {
-
+public  class AbstractResponseDTO implements Serializable {
+    public AbstractResponseDTO() {
+    }
     private List<ErrorServiceDTO> listaErrores;
     private int valorResultante;
     private String codigoMensaje;

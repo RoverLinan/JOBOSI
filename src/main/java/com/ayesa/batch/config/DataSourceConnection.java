@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.Objects;
 import java.util.Properties;
 
+import static com.ayesa.batch.enums.JobParameterEnum.FILE_CREDENTIALS_BD;
+
 public class DataSourceConnection {
 
     private static DataSourceConnection dataSourceConnection;
@@ -20,7 +22,7 @@ public class DataSourceConnection {
 
 
     private DataSourceConnection() {
-        Properties properties = FileUtil.loadProperties((String) BatchLauncher.JOB_PARAMETERS.get(BatchLauncher.FILE_CREDENTIALS_BD));
+        Properties properties = FileUtil.loadProperties((String) BatchLauncher.JOB_PARAMETERS.get(FILE_CREDENTIALS_BD.name()));
         this.dbUrl = properties.getProperty("db.url");
         this.dbUsername = properties.getProperty("db.username");
         this.dbPassword = properties.getProperty("db.password");

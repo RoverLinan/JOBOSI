@@ -1,6 +1,8 @@
 package com.ayesa.batch.steps;
 
+import com.ayesa.batch.BatchLauncher;
 import com.ayesa.batch.enums.JobNameEnum;
+import com.ayesa.batch.enums.JobParameterEnum;
 import com.ayesa.batch.util.FileUtil;
 
 
@@ -15,6 +17,7 @@ public class DataProcessor {
     }
 
     public void process(List<Map<String, Object>> data, String fileName) {
-        FileUtil.writeMapToFile(data, fileName, FileUtil.DELIMITER_VALUES_UPLOAD);
+        final String delimiter = (String) BatchLauncher.JOB_PARAMETERS.get(JobParameterEnum.CHAR_DELIM.name());
+        FileUtil.writeMapToFile(data, fileName, delimiter);
     }
 }

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.ayesa.batch.BatchLauncher.CHUNK_SIZE;
+import static com.ayesa.batch.enums.JobParameterEnum.CHUNK_SIZE;
 
 
 public class DataReader {
@@ -84,6 +84,6 @@ public class DataReader {
     }
 
     private void calculateBlocks() {
-        TOTAL_BLOCKS = (int) Math.ceil((double) TOTAL_ELEMENTS / (int) BatchLauncher.JOB_PARAMETERS.get(CHUNK_SIZE));
+        TOTAL_BLOCKS = (int) Math.ceil((double) TOTAL_ELEMENTS / (int) BatchLauncher.JOB_PARAMETERS.get(CHUNK_SIZE.name()));
     }
 }
