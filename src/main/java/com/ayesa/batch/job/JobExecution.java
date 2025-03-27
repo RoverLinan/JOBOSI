@@ -17,7 +17,7 @@ public class JobExecution {
 
     public long start(List<JobNameEnum> jobNames) {
         if (!jobNames.isEmpty()) {
-            jobNames.forEach(x -> {
+            jobNames.stream().sorted().forEach(x -> {
                         try {
                             DataSourceConnection dataSourceConnection = DataSourceConnection.getInstance();
                             DataReader dataReader = new DataReader(x,dataSourceConnection);

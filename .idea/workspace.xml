@@ -5,31 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/JobParameterEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.JobExecutableTest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.JobExecutionTest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.JobExecutableTest.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.JobExecutionTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/osinergmin/AbstractResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/osinergmin/AbstractResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/config/DataSourceConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/config/DataSourceConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/JobNameEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/JobNameEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/JobExecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/JobExecutable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/JobExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/JobExecution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/FileUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/job/JobExecutableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/job/JobExecutableTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/job/JobExecutionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/job/JobExecutionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,74 +74,13 @@
     <configuration name="BatchLauncher" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.BatchLauncher" />
       <module name="JOBOSI" />
-      <option name="PROGRAM_PARAMETERS" value="JOB01-JOB02 230126 C:\Users\Rover\OneDrive\Escritorio\AYESA\SDEV_BD_auth.properties " />
+      <option name="PROGRAM_PARAMETERS" value="JOB01-JOB02-JOB05-JOB01-JOB02 230126 C:\Users\Rover\OneDrive\Escritorio\AYESA\SDEV_BD_auth.properties " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.ayesa.batch.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JobExecutableTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JOBOSI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ayesa.batch.job.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ayesa.batch.job" />
-      <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.job.JobExecutableTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JobExecutableTest.runJob01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JOB001" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ayesa.batch.job.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ayesa.batch.job" />
-      <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.job.JobExecutableTest" />
-      <option name="METHOD_NAME" value="runJob01" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JobExecutionTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JOBOSI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ayesa.batch.job.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ayesa.batch.job" />
-      <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.job.JobExecutionTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JobExecutionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JOB001" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ayesa.batch.job.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ayesa.batch.job" />
-      <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.job.JobExecutionTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -176,19 +95,11 @@
     </configuration>
     <list>
       <item itemvalue="Application.BatchLauncher" />
-      <item itemvalue="JUnit.JobExecutableTest (1)" />
-      <item itemvalue="JUnit.JobExecutionTest (1)" />
       <item itemvalue="JUnit.job in JOBOSI" />
-      <item itemvalue="JUnit.JobExecutableTest.runJob01" />
-      <item itemvalue="JUnit.JobExecutionTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.job in JOBOSI" />
-        <item itemvalue="JUnit.JobExecutionTest (1)" />
-        <item itemvalue="JUnit.JobExecutableTest (1)" />
-        <item itemvalue="JUnit.JobExecutionTest" />
-        <item itemvalue="JUnit.JobExecutableTest.runJob01" />
       </list>
     </recent_temporary>
   </component>
@@ -222,14 +133,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/ayesa/batch/job/JobExecutableTest.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="47" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
