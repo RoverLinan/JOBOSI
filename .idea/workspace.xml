@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/JobExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/JobExecution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,11 +128,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java</url>
           <line>62</line>
