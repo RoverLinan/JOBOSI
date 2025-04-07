@@ -3,15 +3,12 @@ package com.ayesa.batch.job;
 import com.ayesa.batch.BatchLauncher;
 import com.ayesa.batch.config.DataSourceConnection;
 import com.ayesa.batch.enums.JobNameEnum;
-import com.ayesa.batch.enums.QueryNameEnum;
 import com.ayesa.batch.steps.DataProcessor;
 import com.ayesa.batch.steps.DataReader;
 import com.ayesa.batch.steps.DataWriter;
-import com.ayesa.batch.util.FileUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
@@ -37,7 +34,7 @@ import static com.ayesa.batch.enums.JobParameterEnum.URL_REVER;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
-public class JobExecutableTest {
+public class FileUploadJobExecutableTest {
 
     @Mock
     private Connection mockConnection;
@@ -51,7 +48,7 @@ public class JobExecutableTest {
     private ResultSet resultSetSelect;
 
 
-    private JobExecutable jobExecutable;
+    private FileUploadJobExecutable fileUploadJobExecutable;
 
     @Before
     public void setUp() throws Exception {
@@ -117,12 +114,12 @@ public class JobExecutableTest {
             DataWriter dataWriter = new DataWriter(jobNameEnum);
 
 
-            jobExecutable = new JobExecutable(jobNameEnum, dataReader, dataProcessor, dataWriter);
+            fileUploadJobExecutable = new FileUploadJobExecutable(jobNameEnum, dataReader, dataProcessor, dataWriter);
         }
 
 
 
-        jobExecutable.run();
+        fileUploadJobExecutable.run();
 
         Mockito.verify(resultSetCount, Mockito.times(2)).next();
         Mockito.verify(resultSetCount, Mockito.times(1)).getInt(anyString());

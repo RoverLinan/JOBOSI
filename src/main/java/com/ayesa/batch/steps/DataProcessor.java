@@ -1,11 +1,15 @@
 package com.ayesa.batch.steps;
 
 import com.ayesa.batch.BatchLauncher;
+import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.enums.JobNameEnum;
 import com.ayesa.batch.enums.JobParameterEnum;
+import com.ayesa.batch.mappers.AbstractEntityMapper;
+import com.ayesa.batch.mappers.Table1Mapper;
 import com.ayesa.batch.util.FileUtil;
 
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -19,5 +23,9 @@ public class DataProcessor {
     public void process(List<Map<String, Object>> data, String fileName) {
         final String delimiter = (String) BatchLauncher.JOB_PARAMETERS.get(JobParameterEnum.CHAR_DELIM.name());
         FileUtil.writeMapToFile(data, fileName, delimiter);
+    }
+
+    public List<Serializable> process(List<Map<String, Object>> data, AbstractEntityMapper mapper) {
+        return mapper.toListDTO(data);
     }
 }

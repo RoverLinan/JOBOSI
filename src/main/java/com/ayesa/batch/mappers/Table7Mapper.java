@@ -1,7 +1,9 @@
 package com.ayesa.batch.mappers;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.ayesa.batch.mappers.fields.Table7FieldEnum.CAUSA_NO_CUMPLIMIENTO;
@@ -42,5 +44,10 @@ public class Table7Mapper extends AbstractEntityMapper {
         getValueByType(entity, resultSet, COORD_UTM_Y);
         getValueByType(entity, resultSet, CANT_ATENCIONES);
         return entity;
+    }
+
+    @Override
+    public List<Serializable> toListDTO(List<Map<String, Object>> data) {
+        throw new UnsupportedOperationException(" toListDTO - Operacion no soportada");
     }
 }

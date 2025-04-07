@@ -23,7 +23,12 @@ public class JobExecution {
                             DataReader dataReader = new DataReader(x,dataSourceConnection);
                             DataProcessor dataProcessor = new DataProcessor(x);
                             DataWriter dataWriter = new DataWriter(x);
-                            Job jobExecute = new JobExecutable(x,dataReader,dataProcessor,dataWriter);
+                            Job jobExecute;
+                            if (JobNameEnum.JOB01.name().equals(x.name())) {
+                                jobExecute = new AttentionRegisterJobExecutable(x,dataReader,dataProcessor,dataWriter);
+                            } else{
+                                jobExecute = new FileUploadJobExecutable(x,dataReader,dataProcessor,dataWriter);
+                            }
                             jobExecute.run();
                         } catch (LogicalException exception) {
                             LOGGER.error("start: Error al ejecutar el job ::: ".concat(x.toString()), exception.getException());

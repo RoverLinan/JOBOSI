@@ -11,6 +11,7 @@ public enum JobParameterEnum {
     VALOR_NUM,
     CHAR_DELIM,
     URL_OSI,
+    URL_ATEN,
     URL_REMI,
     URL_CONFI,
     URL_REVER,

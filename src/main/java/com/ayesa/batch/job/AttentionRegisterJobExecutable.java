@@ -3,26 +3,30 @@ package com.ayesa.batch.job;
 import com.ayesa.batch.BatchLauncher;
 import com.ayesa.batch.enums.JobNameEnum;
 import com.ayesa.batch.enums.JobParameterEnum;
+import com.ayesa.batch.mappers.AbstractEntityMapper;
+import com.ayesa.batch.mappers.EntityMapperCreator;
 import com.ayesa.batch.steps.DataProcessor;
 import com.ayesa.batch.steps.DataReader;
 import com.ayesa.batch.steps.DataWriter;
-import com.ayesa.batch.util.FileUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 
 import java.util.List;
 import java.util.Map;
 
-public class JobExecutable implements Job {
+public class AttentionRegisterJobExecutable implements Job{
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(JobExecutable.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AttentionRegisterJobExecutable.class);
     private final DataReader dataReader;
     private final DataProcessor dataProcessor;
     private final DataWriter dataWriter;
     private final JobNameEnum jobNameEnum;
     private final int CHUNK_SIZE;
 
-    public JobExecutable(JobNameEnum jobNameEnum, DataReader dataReader, DataProcessor dataProcessor, DataWriter dataWriter){
+    public AttentionRegisterJobExecutable(JobNameEnum jobNameEnum, DataReader dataReader, DataProcessor dataProcessor, DataWriter dataWriter){
         LOGGER.info("JobExecutable: jobNameEnum = {}", jobNameEnum);
         this.jobNameEnum = jobNameEnum;
         this.CHUNK_SIZE = (int) BatchLauncher.JOB_PARAMETERS.get(JobParameterEnum.CHUNK_SIZE.name());
@@ -37,17 +41,15 @@ public class JobExecutable implements Job {
     @Override
     public void run(){
         LOGGER.info("JobExecutable: run init");
-        FileUtil.createFolder();
-        final String fileName = FileUtil.createFileName(jobNameEnum.getTableName(), FileUtil.FileTypeEnum.TXT);;
-        boolean hasData = false;
+        List<Serializable>  attentionRegisters = new ArrayList<>();
+        AbstractEntityMapper mapper = EntityMapperCreator.create(jobNameEnum);
         for (int block = 0; block < DataReader.TOTAL_BLOCKS; block++) {
             int offset = block * CHUNK_SIZE;
             List<Map<String, Object>> dataRead =  dataReader.read(offset, CHUNK_SIZE);
-            dataProcessor.process(dataRead,fileName);
-            hasData = true;
+            attentionRegisters = dataProcessor.process(dataRead, mapper);
         }
-        if (hasData){
-            dataWriter.writer(fileName);
+        if (!attentionRegisters.isEmpty()){
+            dataWriter.writer(attentionRegisters);
         }
         LOGGER.info("JobExecutable: run end");
     }

@@ -1,7 +1,9 @@
 package com.ayesa.batch.mappers;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.ayesa.batch.mappers.fields.Table3FieldEnum.ACTA_INSPECCION;
@@ -52,5 +54,10 @@ public class Table3Mapper extends AbstractEntityMapper{
         getValueByType(entity, resultSet, ACTA_INSPECCION);
         getValueByType(entity, resultSet, CANT_ATENCIONES);
         return entity;
+    }
+
+    @Override
+    public List<Serializable> toListDTO(List<Map<String, Object>> data) {
+        throw new UnsupportedOperationException(" toListDTO - Operacion no soportada");
     }
 }

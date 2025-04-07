@@ -28,6 +28,7 @@ public class BatchLauncher {
 
 
     public static Map<String, Object> JOB_PARAMETERS = new HashMap<>();
+    public static Map<JobNameEnum, List<Map<String,Object>>> TABLE_ENTITIES_IN_PROGRESS = new HashMap<>();
 
 
     public static void main(String[] args) {

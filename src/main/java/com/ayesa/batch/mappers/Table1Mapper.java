@@ -1,8 +1,14 @@
 package com.ayesa.batch.mappers;
 
+import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
+
+import java.io.Serializable;
 import java.sql.ResultSet;
+import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static com.ayesa.batch.mappers.fields.Table1FieldEnum.APELLIDO_SOLICITANTE;
 import static com.ayesa.batch.mappers.fields.Table1FieldEnum.COD_ASUNTO;
@@ -54,6 +60,41 @@ public class Table1Mapper extends AbstractEntityMapper{
         getValueByType(entity, resultSet, COD_DISTRITO);
 
         return entity;
+    }
+
+    @Override
+    public List<Serializable> toListDTO(List<Map<String, Object>> data) {
+        if (data == null || data.isEmpty()) {
+            return Collections.emptyList();
+        }
+        return data.stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
+    }
+
+    private AttentionRegisterRequestDTO toDTO(Map<String, Object> data) {
+        if (data == null || data.isEmpty()) {
+            return null;
+        }
+
+        AttentionRegisterRequestDTO dto = new AttentionRegisterRequestDTO();
+        dto.setCodigoEmpresa(       String.valueOf(data.get(COD_EMPRESA.getFieldName())));
+        dto.setCodigoAtencion(      String.valueOf(data.get(COD_ATENCION.getFieldName())));
+        dto.setFechaHoraRecepcion(  String.valueOf(data.get(FEC_CREACION.getFieldName())));
+        dto.setCanalRecepcion(      Integer.parseInt(String.valueOf(data.get(COD_CANAL.getFieldName()))));
+        dto.setTipoDocumento(       Integer.parseInt(String.valueOf(data.get(COD_TIP_DOCUMENTO.getFieldName()))));
+        dto.setNumeroDocumento(     String.valueOf(data.get(NRO_DOCTO_IDENT.getFieldName())));
+        dto.setNombres(             String.valueOf(data.get(NOMBRE_RAZON_SOCIAL.getFieldName())));
+        dto.setApellidos(           String.valueOf(data.get(APELLIDO_SOLICITANTE.getFieldName())));
+        dto.setNumeroSuministro(    String.valueOf(data.get(NUM_SUMINISTRO.getFieldName())));
+        dto.setCorreoElectronico(   String.valueOf(data.get(EMAIL_SOLICITANTE.getFieldName())));
+        dto.setTelefonos(           String.valueOf(data.get(TELEF_SOLICITANTE.getFieldName())));
+        dto.setDireccion(           String.valueOf(data.get(DIRECCION.getFieldName())));
+        dto.setUbigeo(              String.valueOf(data.get(UBIGEO.getFieldName())));
+        dto.setCodigoAsunto(        Integer.parseInt(String.valueOf(data.get(COD_ASUNTO.getFieldName()))));
+        dto.setFechaHoraSolucion(   String.valueOf(data.get(FEC_SOLUCION.getFieldName())));
+        dto.setDescripcion(         String.valueOf(data.get(DESCRIPCION_RECLAMO.getFieldName())));
+        return dto;
     }
 
 }

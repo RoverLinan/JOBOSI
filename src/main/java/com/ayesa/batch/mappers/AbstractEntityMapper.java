@@ -1,9 +1,12 @@
 package com.ayesa.batch.mappers;
 
+import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.mappers.fields.TableField;
 import com.ayesa.batch.mappers.fields.TableFieldTypeEnum;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -12,6 +15,7 @@ public abstract class AbstractEntityMapper {
     public abstract Map<String, Object> toEntity(ResultSet resultSet);
 
 
+    public abstract List<Serializable> toListDTO(List<Map<String, Object>> data);
     public void getValueByType(Map<String, Object> map, ResultSet resultSet, TableField field){
         if(Objects.isNull(resultSet)){
             map.put(field.getFieldName(), null);

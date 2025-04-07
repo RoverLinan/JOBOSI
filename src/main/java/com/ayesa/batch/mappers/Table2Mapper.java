@@ -1,7 +1,9 @@
 package com.ayesa.batch.mappers;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.ayesa.batch.mappers.fields.Table2FieldEnum.COD_ESTADO_ATENCION;
@@ -33,5 +35,10 @@ public class Table2Mapper extends AbstractEntityMapper {
         getValueByType(entity, resultSet, COD_ESTADO);
 
         return entity;
+    }
+
+    @Override
+    public List<Serializable> toListDTO(List<Map<String, Object>> data) {
+        throw new UnsupportedOperationException(" toListDTO - Operacion no soportada");
     }
 }

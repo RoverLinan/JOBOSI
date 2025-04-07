@@ -2,6 +2,7 @@ package com.ayesa.batch.service;
 
 import com.ayesa.batch.BatchLauncher;
 import com.ayesa.batch.business.dto.osinergmin.AbstractResponseDTO;
+import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.business.dto.osinergmin.TableCatalogResponseDTO;
 import com.ayesa.batch.business.dto.osinergmin.TableStructureResponseDTO;
 import com.ayesa.batch.enums.JobNameEnum;
@@ -32,6 +33,8 @@ public abstract class PublicElectricityService {
 
     public abstract TableCatalogResponseDTO getTableCatalog();
     public abstract TableStructureResponseDTO getTableStructure(String tableCode);
+
+    public abstract AbstractResponseDTO submitAttentionRegister(AttentionRegisterRequestDTO attentionRegisterRequestDTO);
     public abstract AbstractResponseDTO submitInformationForProcessing(final String filePath);
     public abstract AbstractResponseDTO confirmInformationSubmission();
     public abstract AbstractResponseDTO revertInformationConfirmation();
