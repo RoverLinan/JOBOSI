@@ -90,21 +90,28 @@ public class DataWriter {
 
 
     private void updateStatusAttention(AttentionRegisterRequestDTO attention, StatusEnum statusEnum) {
+        System.out.println("updateStatusAttention: " + attention.getCodigoEmpresa() + " " +
+                attention.getCodigoAtencion() + " " +
+                attention.getNumeroSuministro() + " " +
+                statusEnum.name());
         TableRepository.update(
                 this.jobNameEnum,
+                statusEnum.name(),
                 attention.getCodigoEmpresa(),
                 attention.getCodigoAtencion(),
-                attention.getNumeroSuministro(),
-                statusEnum.name()
+                attention.getNumeroSuministro()
         );
     }
 
     private void updateStatusEntity(Map<String, Object> register, StatusEnum statusEnum) {
+        System.out.println("updateStatusEntity: " + register.get(COD_ATENCION.getFieldName()) + " " +
+                register.get(COD_ACCION.getFieldName()) + " " +
+                statusEnum.name());
         TableRepository.update(
                 this.jobNameEnum,
+                statusEnum.name(),
                 (String) register.get(COD_ATENCION.getFieldName()),
-                (String) register.get(COD_ACCION.getFieldName()),
-                statusEnum.name()
+                (String) register.get(COD_ACCION.getFieldName())
         );
     }
 }
