@@ -1,8 +1,8 @@
 package com.ayesa.batch.enums;
 
 public enum StatusEnum {
-    PENDING,
+    PENDIENTE,
     ERROR,
-    CONFIRMED,
-    INVALID
+    CONFIRMADO,
+    INVALIDO
 }

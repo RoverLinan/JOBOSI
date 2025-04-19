@@ -9,6 +9,7 @@ public enum JobNameEnum {
     JOB06("TISEC_TT_6"),
     JOB07("TISEC_TT_7"),
     JOB08("TISEC_TT_8"),
+    ERROR_OSI("OSI_ERRORES_REMISION"),
     COM_PARAMETERS("OSI_COM_PARAMETROS");
 
     private final String tableName;

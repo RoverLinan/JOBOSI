@@ -4,6 +4,8 @@ import com.ayesa.batch.business.dto.osinergmin.AbstractResponseDTO;
 import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.enums.JobNameEnum;
 import com.ayesa.batch.enums.StatusEnum;
+import com.ayesa.batch.mappers.error.ErrorOSIMapper;
+import com.ayesa.batch.repository.ErrorOSIRepository;
 import com.ayesa.batch.repository.TableRepository;
 import com.ayesa.batch.service.PublicElectricityService;
 import com.ayesa.batch.service.PublicElectricityServiceImpl;
@@ -40,7 +42,7 @@ public class DataWriter {
                 if (OSI_001.getCode().equals(responseConfirm.getCodigoMensaje())) {
                     System.out.println("Envio y confirmacion exitosa");
                     entities.forEach(entity -> {
-                        updateStatusEntity(entity, StatusEnum.CONFIRMED);
+                        updateStatusEntity(entity, StatusEnum.CONFIRMADO);
                     });
                 } else {
                     System.out.println("Error funcional en la confirmacion");
@@ -51,12 +53,18 @@ public class DataWriter {
 
                 responseSubmit.getListaErrores().forEach(error -> {
                     Map<String, Object> entity = entities.get(Integer.parseInt(error.getLinea()));
-                    updateStatusEntity(entity, StatusEnum.INVALID);
+                    updateStatusEntity(entity, StatusEnum.INVALIDO);
+                    ErrorOSIRepository.insert(
+                            ErrorOSIMapper.mapToUploadFile(this.jobNameEnum, entity, responseSubmit,null,"FUNCIONAL")
+                    );
                 });
 
             }
         } catch (Exception e) {
             System.out.println("Error tecnico al enviar o confirmar: " + e.getMessage());
+            ErrorOSIRepository.insert(
+                    ErrorOSIMapper.mapToUploadFile(this.jobNameEnum, null, null,e,"TECNICO")
+            );
         }
     }
 
@@ -75,14 +83,20 @@ public class DataWriter {
                 AbstractResponseDTO responseSubmit = publicElectricityService.submitAttentionRegister((AttentionRegisterRequestDTO) attention);
 
                 if (OSI_001.getCode().equals(responseSubmit.getCodigoMensaje())) {
-                    updateStatusAttention((AttentionRegisterRequestDTO) attention, StatusEnum.CONFIRMED);
+                    updateStatusAttention((AttentionRegisterRequestDTO) attention, StatusEnum.CONFIRMADO);
                 } else if (OSI_301.getCode().equals(responseSubmit.getCodigoMensaje()) ||
                         OSI_302.getCode().equals(responseSubmit.getCodigoMensaje())) {
-                    updateStatusAttention((AttentionRegisterRequestDTO) attention, StatusEnum.INVALID);
+                    updateStatusAttention((AttentionRegisterRequestDTO) attention, StatusEnum.INVALIDO);
+                    ErrorOSIRepository.insert(
+                            ErrorOSIMapper.mapToAttention(this.jobNameEnum, (AttentionRegisterRequestDTO) attention, responseSubmit,null,"FUNCIONAL")
+                    );
                 }
             } catch (Exception e) {
                 System.out.println("Error tecnico al registrar la atencion: " + e.getMessage());
                 updateStatusAttention((AttentionRegisterRequestDTO) attention, StatusEnum.ERROR);
+                ErrorOSIRepository.insert(
+                        ErrorOSIMapper.mapToAttention(this.jobNameEnum, (AttentionRegisterRequestDTO) attention, null, e, "TECNICO")
+                );
             }
         });
 

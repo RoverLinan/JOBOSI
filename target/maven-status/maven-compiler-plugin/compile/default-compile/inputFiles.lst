@@ -17,6 +17,7 @@ C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batc
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\enums\QueryNameEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\BatchLauncher.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\config\DataSourceConnection.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\repository\ErrorOSIRepository.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\business\exception\LogicalException.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\MapperUtil.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\enums\ParameterKitEnum.java
@@ -36,6 +37,8 @@ C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batc
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\enums\JobNameEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\enums\JobParameterEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\TableFieldTypeEnum.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\util\DateUtil.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\business\bo\ErrorOSIBO.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\Table8FieldEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\service\PublicElectricityServiceImpl.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\repository\TableRepository.java
@@ -43,6 +46,7 @@ C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batc
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\service\PublicElectricityService.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\Table1FieldEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\business\dto\osinergmin\TableStructureResponseDTO.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\error\ErrorOSIMapper.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\Table3Mapper.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\steps\DataProcessor.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\Table4FieldEnum.java

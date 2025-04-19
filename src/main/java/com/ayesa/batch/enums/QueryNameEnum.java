@@ -35,8 +35,9 @@ public enum QueryNameEnum {
     SQL_TABLE8_SELECT_ALL(              JobNameEnum.JOB08,QueryFunctionEnum.SELECT, "sql.table8.select.all"),
     SQL_TABLE8_SELECT_COUNT_ALL(        JobNameEnum.JOB08,QueryFunctionEnum.COUNT, "sql.table8.select.count.all"),
     SQL_TABLE8_UPDATE(                  JobNameEnum.JOB08,QueryFunctionEnum.UPDATE, "sql.table8.update"),
+    SQL_ERROR_INSERT(                   JobNameEnum.ERROR_OSI, QueryFunctionEnum.INSERT, "sql.errorOsi.insert"),
 
-    SQL_PARAMETERS_SELECT_ALL(        JobNameEnum.COM_PARAMETERS,QueryFunctionEnum.SELECT, "sql.parameters.select.all");
+    SQL_PARAMETERS_SELECT_ALL(          JobNameEnum.COM_PARAMETERS,QueryFunctionEnum.SELECT, "sql.parameters.select.all");
 
 
 
