@@ -1,6 +1,7 @@
 package com.ayesa.batch.mappers;
 
 import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
+import com.ayesa.batch.util.DateUtil;
 
 import java.io.Serializable;
 import java.sql.ResultSet;
@@ -80,7 +81,7 @@ public class Table1Mapper extends AbstractEntityMapper{
         AttentionRegisterRequestDTO dto = new AttentionRegisterRequestDTO();
         dto.setCodigoEmpresa(       String.valueOf(data.get(COD_EMPRESA.getFieldName())));
         dto.setCodigoAtencion(      String.valueOf(data.get(COD_ATENCION.getFieldName())));
-        dto.setFechaHoraRecepcion(  String.valueOf(data.get(FEC_CREACION.getFieldName())));
+        dto.setFechaHoraRecepcion(  DateUtil.formatDateTime( String.valueOf(data.get(FEC_CREACION.getFieldName())),DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_2 ));
         dto.setCanalRecepcion(      Integer.parseInt(String.valueOf(data.get(COD_CANAL.getFieldName()))));
         dto.setTipoDocumento(       Integer.parseInt(String.valueOf(data.get(COD_TIP_DOCUMENTO.getFieldName()))));
         dto.setNumeroDocumento(     String.valueOf(data.get(NRO_DOCTO_IDENT.getFieldName())));
@@ -92,7 +93,7 @@ public class Table1Mapper extends AbstractEntityMapper{
         dto.setDireccion(           String.valueOf(data.get(DIRECCION.getFieldName())));
         dto.setUbigeo(              String.valueOf(data.get(UBIGEO.getFieldName())));
         dto.setCodigoAsunto(        Integer.parseInt(String.valueOf(data.get(COD_ASUNTO.getFieldName()))));
-        dto.setFechaHoraSolucion(   String.valueOf(data.get(FEC_SOLUCION.getFieldName())));
+        dto.setFechaHoraSolucion(   DateUtil.formatDateTime( String.valueOf(data.get(FEC_SOLUCION.getFieldName())),DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_2 ));
         dto.setDescripcion(         String.valueOf(data.get(DESCRIPCION_RECLAMO.getFieldName())));
         return dto;
     }

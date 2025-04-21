@@ -7,6 +7,9 @@ import java.time.format.DateTimeFormatter;
 
 public class DateUtil {
 
+    public static String FORMAT_DATETIME_1 = "yyyy-MM-dd HH:mm:ss.S";
+    public static String FORMAT_DATETIME_2 = "dd/MM/yyyy HH:mm";
+
 
     public static String getCurrentDateTime(String format) {
         // Zona horaria de Perú
@@ -17,5 +20,13 @@ public class DateUtil {
         LocalDateTime currentDate = zonedDateTime.toLocalDateTime();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
         return currentDate.format(formatter);
+    }
+
+    public static String formatDateTime(String dateTime, String inputFormat, String outputFormat) {
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern(inputFormat);
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern(outputFormat);
+
+        LocalDateTime parsedDateTime = LocalDateTime.parse(dateTime, inputFormatter);
+        return parsedDateTime.format(outputFormatter);
     }
 }

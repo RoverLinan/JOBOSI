@@ -18,6 +18,7 @@ import static com.ayesa.batch.BatchLauncher.TABLE_ENTITIES_IN_PROGRESS;
 import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_001;
 import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_301;
 import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_302;
+import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_308;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ACCION;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ATENCION;
 
@@ -85,7 +86,8 @@ public class DataWriter {
                 if (OSI_001.getCode().equals(responseSubmit.getCodigoMensaje())) {
                     updateStatusAttention((AttentionRegisterRequestDTO) attention, StatusEnum.CONFIRMADO);
                 } else if (OSI_301.getCode().equals(responseSubmit.getCodigoMensaje()) ||
-                        OSI_302.getCode().equals(responseSubmit.getCodigoMensaje())) {
+                        OSI_302.getCode().equals(responseSubmit.getCodigoMensaje()) ||
+                        OSI_308.getCode().equals(responseSubmit.getCodigoMensaje())) {
                     updateStatusAttention((AttentionRegisterRequestDTO) attention, StatusEnum.INVALIDO);
                     ErrorOSIRepository.insert(
                             ErrorOSIMapper.mapToAttention(this.jobNameEnum, (AttentionRegisterRequestDTO) attention, responseSubmit,null,"FUNCIONAL")

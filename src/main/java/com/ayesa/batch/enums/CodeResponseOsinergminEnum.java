@@ -9,6 +9,7 @@ public enum CodeResponseOsinergminEnum {
     OSI_305("OSI-305", "Ocurrió un error en la carga"),
     OSI_306("OSI-306", "El archivo zip supera el tamaño máximo permitido(10MB)"),
     OSI_307("OSI-307", "Usuario o clave no válidos"),
+    OSI_308("OSI-308", "Ya existe la atencion comercial"),
     OSI_901("OSI-901", "Ha ocurrido una excepción en la operación");
 
     private final String code;

@@ -32,10 +32,8 @@ public class BatchLauncher {
 
 
     public static void main(String[] args) {
-
-        JobExecution jobExecution = new JobExecution();
         getJobParameters(args);
-        jobExecution.start(getJobNames((String) JOB_PARAMETERS.get(JOB_NAMES.name())));
+        new JobExecution().start(getJobNames((String) JOB_PARAMETERS.get(JOB_NAMES.name())));
 
     }
 

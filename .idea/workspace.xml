@@ -6,18 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1744053913.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1744053916.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/JobNameEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/JobNameEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/QueryNameEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/QueryNameEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/StatusEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/StatusEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/TableRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/TableRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1745076391.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1745087524.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1745089598.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1745090084.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1745090225.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1745090345.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1745076394.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1745087527.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1745089600.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1745090087.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1745090227.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1745090347.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/CodeResponseOsinergminEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/CodeResponseOsinergminEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table1Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table1Mapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.FileUploadJobExecutableTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.FileUploadJobExecutableTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.JobExecutionTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.JobExecutionTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.FileUploadJobExecutableTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.FileUploadJobExecutableTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.JobExecutionTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.JobExecutionTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/DateUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +163,7 @@
       <workItem from="1744316300469" duration="4142000" />
       <workItem from="1744379066463" duration="1005000" />
       <workItem from="1745074548839" duration="283000" />
-      <workItem from="1745074836713" duration="11012000" />
+      <workItem from="1745074836713" duration="14034000" />
     </task>
     <servers />
   </component>
@@ -169,12 +175,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java</url>
-          <line>95</line>
+          <line>97</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java</url>
-          <line>36</line>
+          <line>37</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

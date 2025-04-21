@@ -5,7 +5,6 @@ import com.ayesa.batch.business.dto.osinergmin.AbstractResponseDTO;
 import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.business.dto.osinergmin.TableCatalogResponseDTO;
 import com.ayesa.batch.business.dto.osinergmin.TableStructureResponseDTO;
-import com.ayesa.batch.enums.JobNameEnum;
 import com.ayesa.batch.enums.JobParameterEnum;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
@@ -22,7 +21,6 @@ import java.io.IOException;
 import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
 import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
 import static com.ayesa.batch.enums.JobParameterEnum.URL_OSI;
-import static com.ayesa.batch.enums.JobParameterEnum.URL_REMI;
 
 public abstract class PublicElectricityService {
 

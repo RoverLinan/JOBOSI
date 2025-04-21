@@ -18,6 +18,8 @@ public class ErrorOSIMapper {
         ErrorOSIBO errorOSIBO = new ErrorOSIBO(jobNameEnum.getTableName(), attentionRegisterRequestDTO.getCodigoAtencion(),errorType);
         if(Objects.nonNull(abstractResponseDTO)){
             errorOSIBO.setComentariosAdicionales(abstractResponseDTO.toString());
+        } else if (Objects.nonNull(exception)) {
+            errorOSIBO.setComentariosAdicionales(exception.toString());
         }
         return errorOSIBO;
     }
