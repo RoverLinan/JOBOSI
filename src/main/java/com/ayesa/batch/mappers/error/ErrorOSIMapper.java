@@ -30,8 +30,8 @@ public class ErrorOSIMapper {
             errorOSIBO = new ErrorOSIBO(jobNameEnum.getTableName(), (String) entity.get(COD_ATENCION.getFieldName()),errorType);
             errorOSIBO.setCodAccion((String) entity.get(COD_ACCION.getFieldName()));
         }else{
-            errorOSIBO = new ErrorOSIBO(jobNameEnum.getTableName(), "NA",errorType);
-            errorOSIBO.setCodAccion("NA");
+            errorOSIBO = new ErrorOSIBO(jobNameEnum.getTableName(), "ALL",errorType);
+            errorOSIBO.setCodAccion("ALL");
         }
 
         if(Objects.nonNull(abstractResponseDTO)){

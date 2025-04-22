@@ -1,5 +1,7 @@
 package com.ayesa.batch.util;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -20,6 +22,18 @@ public class DateUtil {
         LocalDateTime currentDate = zonedDateTime.toLocalDateTime();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
         return currentDate.format(formatter);
+    }
+
+    public static Timestamp getCurrentDateTimeSql(String format) {
+        // Zona horaria de Perú
+        ZoneId zonaPeru = ZoneId.of("America/Lima");
+
+        ZonedDateTime zonedDateTime = ZonedDateTime.now(zonaPeru);
+        LocalDateTime currentDate = zonedDateTime.toLocalDateTime();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
+        String formattedDate = currentDate.format(formatter);
+        return Timestamp.valueOf(formattedDate);
     }
 
     public static String formatDateTime(String dateTime, String inputFormat, String outputFormat) {

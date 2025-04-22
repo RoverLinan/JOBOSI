@@ -9,16 +9,20 @@ import com.ayesa.batch.repository.ErrorOSIRepository;
 import com.ayesa.batch.repository.TableRepository;
 import com.ayesa.batch.service.PublicElectricityService;
 import com.ayesa.batch.service.PublicElectricityServiceImpl;
+import com.ayesa.batch.util.DateUtil;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
 import static com.ayesa.batch.BatchLauncher.TABLE_ENTITIES_IN_PROGRESS;
 import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_001;
 import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_301;
 import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_302;
 import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_308;
+import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_414;
+import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ACCION;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ATENCION;
 
@@ -60,6 +64,13 @@ public class DataWriter {
                     );
                 });
 
+            } else if (OSI_414.getCode().equals(responseSubmit.getCodigoMensaje())) {
+                StringBuilder sb = new StringBuilder(responseSubmit.getMensajeResultante());
+                sb.append(" - Periodo ").append(JOB_PARAMETERS.get(PERIODO_REMISION.name()));
+                responseSubmit.setMensajeResultante(sb.toString());
+                ErrorOSIRepository.insert(
+                        ErrorOSIMapper.mapToUploadFile(this.jobNameEnum, null, responseSubmit,null,"FUNCIONAL")
+                );
             }
         } catch (Exception e) {
             System.out.println("Error tecnico al enviar o confirmar: " + e.getMessage());
@@ -113,6 +124,7 @@ public class DataWriter {
         TableRepository.update(
                 this.jobNameEnum,
                 statusEnum.name(),
+                DateUtil.getCurrentDateTimeSql(DateUtil.FORMAT_DATETIME_1),
                 attention.getCodigoEmpresa(),
                 attention.getCodigoAtencion(),
                 attention.getNumeroSuministro()
@@ -126,8 +138,9 @@ public class DataWriter {
         TableRepository.update(
                 this.jobNameEnum,
                 statusEnum.name(),
-                (String) register.get(COD_ATENCION.getFieldName()),
-                (String) register.get(COD_ACCION.getFieldName())
+                DateUtil.getCurrentDateTimeSql(DateUtil.FORMAT_DATETIME_1),
+                register.get(COD_ATENCION.getFieldName()),
+                register.get(COD_ACCION.getFieldName())
         );
     }
 }

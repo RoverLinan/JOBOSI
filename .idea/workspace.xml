@@ -6,24 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1745076391.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1745087524.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1745089598.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1745090084.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1745090225.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1745090345.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1745076394.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1745087527.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1745089600.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1745090087.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1745090227.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1745090347.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/CodeResponseOsinergminEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/CodeResponseOsinergminEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table1Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table1Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorOSIMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorOSIMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/TableRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/TableRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/DateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sql/sql-TABLES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sql/sql-TABLES.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +78,7 @@
     <configuration name="BatchLauncher" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.BatchLauncher" />
       <module name="JOBOSI" />
-      <option name="PROGRAM_PARAMETERS" value="JOB01 250408 C:\Users\Rover\OneDrive\Escritorio\AYESA\SDEV_BD_auth.properties " />
+      <option name="PROGRAM_PARAMETERS" value="JOB01-JOB02 250408 C:\Users\Rover\OneDrive\Escritorio\AYESA\SDEV_BD_auth.properties " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.ayesa.batch.*" />
@@ -163,7 +152,7 @@
       <workItem from="1744316300469" duration="4142000" />
       <workItem from="1744379066463" duration="1005000" />
       <workItem from="1745074548839" duration="283000" />
-      <workItem from="1745074836713" duration="14034000" />
+      <workItem from="1745074836713" duration="22918000" />
     </task>
     <servers />
   </component>
@@ -175,12 +164,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java</url>
-          <line>37</line>
+          <line>41</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
