@@ -11,6 +11,7 @@ public class DateUtil {
 
     public static String FORMAT_DATETIME_1 = "yyyy-MM-dd HH:mm:ss.S";
     public static String FORMAT_DATETIME_2 = "dd/MM/yyyy HH:mm";
+    public static String FORMAT_DATETIME_3 = "dd/MM/yyyy";
 
 
     public static String getCurrentDateTime(String format) {

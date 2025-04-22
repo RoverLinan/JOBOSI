@@ -3,9 +3,11 @@ package com.ayesa.batch.mappers;
 import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.mappers.fields.TableField;
 import com.ayesa.batch.mappers.fields.TableFieldTypeEnum;
+import com.ayesa.batch.util.DateUtil;
 
 import java.io.Serializable;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -48,5 +50,12 @@ public abstract class AbstractEntityMapper {
             return null;
         }
         return value.trim();
+    }
+
+    protected void changeFormatDate(Map<String, Object> entity, TableField field, String formatSource, String formatTarget) {
+
+        if (Objects.nonNull(entity.get(field.getFieldName()))) {
+            entity.replace(field.getFieldName(), DateUtil.formatDateTime( entity.get(field.getFieldName()).toString(), formatSource, formatTarget));
+        }
     }
 }

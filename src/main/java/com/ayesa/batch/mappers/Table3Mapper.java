@@ -1,11 +1,15 @@
 package com.ayesa.batch.mappers;
 
+import com.ayesa.batch.util.DateUtil;
+
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
+import static com.ayesa.batch.mappers.fields.Table2FieldEnum.FEC_RESPUESTA;
 import static com.ayesa.batch.mappers.fields.Table3FieldEnum.ACTA_INSPECCION;
 import static com.ayesa.batch.mappers.fields.Table3FieldEnum.CANT_SUM_AFECTADOS;
 import static com.ayesa.batch.mappers.fields.Table3FieldEnum.CARACT_TEC_PUESTA_OPER;
@@ -25,6 +29,7 @@ import static com.ayesa.batch.mappers.fields.Table3FieldEnum.SUST_TEC_C;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.CANT_ATENCIONES;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ACCION;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ATENCION;
+import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.FEC_CREACION;
 
 public class Table3Mapper extends AbstractEntityMapper{
 
@@ -53,8 +58,12 @@ public class Table3Mapper extends AbstractEntityMapper{
         getValueByType(entity, resultSet, CARACT_TEC_PUESTA_OPER);
         getValueByType(entity, resultSet, ACTA_INSPECCION);
         getValueByType(entity, resultSet, CANT_ATENCIONES);
+
+        changeFormatDate(entity, FEC_INI_INTERRUPCION, DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_2);
+        changeFormatDate(entity, FEC_FIN_INTERRUPCION, DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_2);
         return entity;
     }
+
 
     @Override
     public List<Serializable> toListDTO(List<Map<String, Object>> data) {

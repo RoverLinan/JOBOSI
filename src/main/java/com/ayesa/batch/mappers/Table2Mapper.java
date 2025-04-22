@@ -1,10 +1,13 @@
 package com.ayesa.batch.mappers;
 
+import com.ayesa.batch.util.DateUtil;
+
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static com.ayesa.batch.mappers.fields.Table2FieldEnum.COD_ESTADO_ATENCION;
 import static com.ayesa.batch.mappers.fields.Table2FieldEnum.COMENTARIO_CLIENTE;
@@ -33,6 +36,9 @@ public class Table2Mapper extends AbstractEntityMapper {
         getValueByType(entity, resultSet, COMENTARIO_CLIENTE);
         getValueByType(entity, resultSet, COMENTARIO_USUARIO);
         getValueByType(entity, resultSet, COD_ESTADO);
+
+        changeFormatDate(entity, FEC_CREACION, DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_2);
+        changeFormatDate(entity, FEC_RESPUESTA, DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_3);
 
         return entity;
     }

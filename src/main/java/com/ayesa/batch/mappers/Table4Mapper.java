@@ -1,5 +1,7 @@
 package com.ayesa.batch.mappers;
 
+import com.ayesa.batch.util.DateUtil;
+
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.util.LinkedHashMap;
@@ -21,6 +23,7 @@ import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ATENCION;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_SED;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COORD_UTM_X;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COORD_UTM_Y;
+
 
 public class Table4Mapper extends AbstractEntityMapper{
 
@@ -45,6 +48,8 @@ public class Table4Mapper extends AbstractEntityMapper{
         getValueByType(entity, resultSet, COORD_UTM_X);
         getValueByType(entity, resultSet, COORD_UTM_Y);
         getValueByType(entity, resultSet, CANT_ATENCIONES);
+
+        changeFormatDate(entity, FEC_ULT_APLICACION, DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_3);
 
         return entity;
     }

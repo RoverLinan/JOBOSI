@@ -1,11 +1,15 @@
 package com.ayesa.batch.mappers;
 
+import com.ayesa.batch.util.DateUtil;
+
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
+import static com.ayesa.batch.mappers.fields.Table4FieldEnum.FEC_ULT_APLICACION;
 import static com.ayesa.batch.mappers.fields.Table6FieldEnum.COD_DEF_TIPICA;
 import static com.ayesa.batch.mappers.fields.Table6FieldEnum.COD_SECTOR_TIPICO;
 import static com.ayesa.batch.mappers.fields.Table6FieldEnum.COD_UAP;
@@ -37,8 +41,14 @@ public class Table6Mapper extends AbstractEntityMapper{
         getValueByType(entity, resultSet, NUM_ORD_TRABAJO);
         getValueByType(entity, resultSet, FEC_APLIACION);
         getValueByType(entity, resultSet, CANT_ATENCIONES);
+
+        changeFormatDate(entity, FEC_VER_CAMPO, DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_3);
+        changeFormatDate(entity, FEC_SUB_DEFICIENCIA, DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_3);
+        changeFormatDate(entity, FEC_APLIACION, DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_3);
+
         return entity;
     }
+
 
     @Override
     public List<Serializable> toListDTO(List<Map<String, Object>> data) {
