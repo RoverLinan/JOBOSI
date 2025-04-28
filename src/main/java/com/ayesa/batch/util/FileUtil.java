@@ -47,7 +47,11 @@ public class FileUtil {
                     if (line.length() > 0) {
                         line.append(delimiter);
                     }
-                    line.append(row.get(key));
+
+                    if(Objects.nonNull(row.get(key))) {
+                        line.append( row.get(key));
+                    }
+
                 }
                 writer.write(line.toString());
                 writer.newLine();

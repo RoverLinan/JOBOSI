@@ -36,6 +36,8 @@ public class ErrorOSIMapper {
 
         if(Objects.nonNull(abstractResponseDTO)){
             errorOSIBO.setComentariosAdicionales(abstractResponseDTO.toString());
+        } else if (Objects.nonNull(exception)) {
+            errorOSIBO.setComentariosAdicionales(exception.toString());
         }
         return errorOSIBO;
     }

@@ -17,11 +17,7 @@ import java.util.Map;
 
 import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
 import static com.ayesa.batch.BatchLauncher.TABLE_ENTITIES_IN_PROGRESS;
-import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_001;
-import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_301;
-import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_302;
-import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_308;
-import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_414;
+import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.*;
 import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ACCION;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ATENCION;
@@ -60,9 +56,17 @@ public class DataWriter {
                     Map<String, Object> entity = entities.get(Integer.parseInt(error.getLinea()));
                     updateStatusEntity(entity, StatusEnum.INVALIDO);
                     ErrorOSIRepository.insert(
-                            ErrorOSIMapper.mapToUploadFile(this.jobNameEnum, entity, responseSubmit,null,"FUNCIONAL")
+                            ErrorOSIMapper.mapToUploadFile(this.jobNameEnum, entity, responseSubmit, null, "FUNCIONAL")
                     );
                 });
+
+            }else if ( OSI_305.getCode().equals(responseSubmit.getCodigoMensaje()) ||
+                    OSI_301.getCode().equals(responseSubmit.getCodigoMensaje())) {
+
+                entities.forEach(entity -> updateStatusEntity(entity, StatusEnum.ERROR));
+                ErrorOSIRepository.insert(
+                        ErrorOSIMapper.mapToUploadFile(this.jobNameEnum, null, responseSubmit,null,"FUNCIONAL")
+                );
 
             } else if (OSI_414.getCode().equals(responseSubmit.getCodigoMensaje())) {
                 StringBuilder sb = new StringBuilder(responseSubmit.getMensajeResultante());
