@@ -33,8 +33,6 @@ public class Table2Mapper extends AbstractEntityMapper {
         getValueByType(entity, resultSet, COD_ESTADO_ATENCION);
         getValueByType(entity, resultSet, FEC_RESPUESTA);
         getValueByType(entity, resultSet, NUM_RESOLUCION);
-        getValueByType(entity, resultSet, COMENTARIO_CLIENTE);
-        getValueByType(entity, resultSet, COMENTARIO_USUARIO);
         getValueByType(entity, resultSet, COD_ESTADO);
 
         changeFormatDate(entity, FEC_CREACION, DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_2);

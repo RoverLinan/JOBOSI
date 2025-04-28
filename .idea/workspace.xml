@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorOSIMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorOSIMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/FileUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +71,7 @@
     <configuration name="BatchLauncher" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.BatchLauncher" />
       <module name="JOBOSI" />
-      <option name="PROGRAM_PARAMETERS" value="JOB01-JOB02 250423 C:\Users\Rover\OneDrive\Escritorio\AYESA\SDEV_BD_auth.properties " />
+      <option name="PROGRAM_PARAMETERS" value="JOB01-JOB02 250427 C:\Users\Rover\OneDrive\Escritorio\AYESA\SDEV_BD_auth.properties " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.ayesa.batch.*" />
@@ -151,7 +147,7 @@
       <workItem from="1745074548839" duration="283000" />
       <workItem from="1745074836713" duration="29341000" />
       <workItem from="1745851037975" duration="735000" />
-      <workItem from="1745853379723" duration="4658000" />
+      <workItem from="1745853379723" duration="8426000" />
     </task>
     <servers />
   </component>
