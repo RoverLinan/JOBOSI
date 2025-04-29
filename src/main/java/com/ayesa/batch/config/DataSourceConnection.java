@@ -22,7 +22,11 @@ public class DataSourceConnection {
 
 
     private DataSourceConnection() {
-        Properties properties = FileUtil.loadProperties((String) BatchLauncher.JOB_PARAMETERS.get(FILE_CREDENTIALS_BD.name()));
+        String path = (String) BatchLauncher.JOB_PARAMETERS.get(FILE_CREDENTIALS_BD.name());
+        if(Objects.isNull(path)){
+            path = "../config/datasource_jobosi.properties";
+        }
+        Properties properties = FileUtil.loadProperties(path);
         this.dbUrl = properties.getProperty("db.url");
         this.dbUsername = properties.getProperty("db.username");
         this.dbPassword = properties.getProperty("db.password");

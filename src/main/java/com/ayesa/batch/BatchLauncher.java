@@ -55,19 +55,21 @@ public class BatchLauncher {
 
     private static void  getJobParameters(String[] args) {
         LOGGER.info("getJobParameters: args = {}", Arrays.asList(args));
-        if (args.length < 3) {
-            throw new IllegalArgumentException("Faltan parámetros. Uso: <jobNames> <periodoRemision> <fileCredentials> ");
+        if (args.length < 2) {
+            throw new IllegalArgumentException("Faltan parámetros. Uso: <jobNames> <periodoRemision> <fileCredentials>[Optional] ");
         }
 
         String jobNames = args[0];
         String periodoRemision = args[1];
-        String fileCredentials = args[2];
 
         JOB_PARAMETERS = new HashMap<>();
         JOB_PARAMETERS.put(JOB_NAMES.name(), jobNames);
         JOB_PARAMETERS.put(PERIODO_REMISION.name(), periodoRemision);
-        JOB_PARAMETERS.put(FILE_CREDENTIALS_BD.name(), fileCredentials);
 
+        if(args.length == 3){
+            String fileCredentials = args[2];
+            JOB_PARAMETERS.put(FILE_CREDENTIALS_BD.name(), fileCredentials);
+        }
 
         loadParametersFromDb(ParameterKitEnum.BATCH_OSI_PARAMETERS);
         loadParametersFromDb(ParameterKitEnum.GENERIC_PARAMETERS);

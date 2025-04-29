@@ -78,7 +78,8 @@ public class FileUtil {
 
     public static Properties loadProperties(String path){
         Properties properties = new Properties();
-        try (FileInputStream input = new FileInputStream(path)) {
+        File file = new File(path);
+        try (FileInputStream input = new FileInputStream(file)) {
             properties.load(input);
         }catch (IOException io){
             throw new LogicalException("OO1",Boolean.FALSE, io.getLocalizedMessage(), io );
