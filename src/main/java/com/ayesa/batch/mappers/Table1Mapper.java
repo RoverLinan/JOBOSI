@@ -2,13 +2,14 @@ package com.ayesa.batch.mappers;
 
 import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.util.DateUtil;
+import org.apache.hc.client5.http.classic.HttpClient;
+import org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder;
+import org.apache.hc.client5.http.entity.mime.StringBody;
+import org.apache.hc.core5.http.ContentType;
 
 import java.io.Serializable;
 import java.sql.ResultSet;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.ayesa.batch.mappers.fields.Table1FieldEnum.APELLIDO_SOLICITANTE;
@@ -60,6 +61,9 @@ public class Table1Mapper extends AbstractEntityMapper{
         getValueByType(entity, resultSet, TIP_ATENCION);
         getValueByType(entity, resultSet, COD_DISTRITO);
 
+
+        changeFormatDate(entity, FEC_CREACION, DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_2);
+        changeFormatDate(entity, FEC_SOLUCION, DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_2);
         return entity;
     }
 
@@ -79,23 +83,68 @@ public class Table1Mapper extends AbstractEntityMapper{
         }
 
         AttentionRegisterRequestDTO dto = new AttentionRegisterRequestDTO();
-        dto.setCodigoEmpresa(       String.valueOf(data.get(COD_EMPRESA.getFieldName())));
-        dto.setCodigoAtencion(      String.valueOf(data.get(COD_ATENCION.getFieldName())));
-        dto.setFechaHoraRecepcion(  DateUtil.formatDateTime( String.valueOf(data.get(FEC_CREACION.getFieldName())),DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_2 ));
+        dto.setCodigoEmpresa(       (String)data.get(COD_EMPRESA.getFieldName()));
+        dto.setCodigoAtencion(      (String)data.get(COD_ATENCION.getFieldName()));
+        dto.setFechaHoraRecepcion(  (String)data.get(FEC_CREACION.getFieldName()));
         dto.setCanalRecepcion(      Integer.parseInt(String.valueOf(data.get(COD_CANAL.getFieldName()))));
         dto.setTipoDocumento(       Integer.parseInt(String.valueOf(data.get(COD_TIP_DOCUMENTO.getFieldName()))));
-        dto.setNumeroDocumento(     String.valueOf(data.get(NRO_DOCTO_IDENT.getFieldName())));
-        dto.setNombres(             String.valueOf(data.get(NOMBRE_RAZON_SOCIAL.getFieldName())));
-        dto.setApellidos(           String.valueOf(data.get(APELLIDO_SOLICITANTE.getFieldName())));
-        dto.setNumeroSuministro(    String.valueOf(data.get(NUM_SUMINISTRO.getFieldName())));
-        dto.setCorreoElectronico(   String.valueOf(data.get(EMAIL_SOLICITANTE.getFieldName())));
-        dto.setTelefonos(           String.valueOf(data.get(TELEF_SOLICITANTE.getFieldName())));
-        dto.setDireccion(           String.valueOf(data.get(DIRECCION.getFieldName())));
-        dto.setUbigeo(              String.valueOf(data.get(UBIGEO.getFieldName())));
+        dto.setNumeroDocumento(     (String)data.get(NRO_DOCTO_IDENT.getFieldName()));
+        dto.setNombres(             (String)data.get(NOMBRE_RAZON_SOCIAL.getFieldName()));
+        dto.setApellidos(           (String)data.get(APELLIDO_SOLICITANTE.getFieldName()));
+        dto.setNumeroSuministro(    (String)data.get(NUM_SUMINISTRO.getFieldName()));
+        dto.setCorreoElectronico(   (String)data.get(EMAIL_SOLICITANTE.getFieldName()));
+        dto.setTelefonos(           (String)data.get(TELEF_SOLICITANTE.getFieldName()));
+        dto.setDireccion(           (String)data.get(DIRECCION.getFieldName()));
+        dto.setUbigeo(              (String)data.get(UBIGEO.getFieldName()));
         dto.setCodigoAsunto(        Integer.parseInt(String.valueOf(data.get(COD_ASUNTO.getFieldName()))));
-        dto.setFechaHoraSolucion(   DateUtil.formatDateTime( String.valueOf(data.get(FEC_SOLUCION.getFieldName())),DateUtil.FORMAT_DATETIME_1, DateUtil.FORMAT_DATETIME_2 ));
-        dto.setDescripcion(         String.valueOf(data.get(DESCRIPCION_RECLAMO.getFieldName())));
+        dto.setFechaHoraSolucion(   (String)data.get(FEC_SOLUCION.getFieldName()));
+        dto.setDescripcion(         (String)data.get(DESCRIPCION_RECLAMO.getFieldName()));
+
+
         return dto;
+    }
+
+
+    public static MultipartEntityBuilder mapToRequestMultipart(AttentionRegisterRequestDTO attentionRegisterRequestDTO) {
+        MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+        builder.addPart("codigoEmpresa", new StringBody(attentionRegisterRequestDTO.getCodigoEmpresa(), ContentType.APPLICATION_FORM_URLENCODED));
+        builder.addPart("codigoAtencion", new StringBody(attentionRegisterRequestDTO.getCodigoAtencion(), ContentType.APPLICATION_FORM_URLENCODED));
+        builder.addPart("fechaHoraRecepcion", new StringBody(attentionRegisterRequestDTO.getFechaHoraRecepcion(), ContentType.APPLICATION_FORM_URLENCODED));
+        builder.addPart("canalRecepcion", new StringBody(String.valueOf(attentionRegisterRequestDTO.getCanalRecepcion()), ContentType.APPLICATION_FORM_URLENCODED));
+        builder.addPart("tipoDocumento", new StringBody(String.valueOf(attentionRegisterRequestDTO.getTipoDocumento()), ContentType.APPLICATION_FORM_URLENCODED));
+        builder.addPart("numeroDocumento", new StringBody(attentionRegisterRequestDTO.getNumeroDocumento(), ContentType.APPLICATION_FORM_URLENCODED));
+        builder.addPart("nombres", new StringBody(attentionRegisterRequestDTO.getNombres(), ContentType.APPLICATION_FORM_URLENCODED));
+        if(Objects.nonNull(attentionRegisterRequestDTO.getApellidos())){
+            builder.addPart("apellidos", new StringBody(attentionRegisterRequestDTO.getApellidos(), ContentType.APPLICATION_FORM_URLENCODED));
+        }else{
+            builder.addPart("apellidos", new StringBody("", ContentType.APPLICATION_FORM_URLENCODED));
+        }
+
+        if(Objects.nonNull(attentionRegisterRequestDTO.getNumeroSuministro())){
+            builder.addPart("numeroSuministro", new StringBody(attentionRegisterRequestDTO.getNumeroSuministro(), ContentType.APPLICATION_FORM_URLENCODED));
+        }else {
+            builder.addPart("numeroSuministro", new StringBody("", ContentType.APPLICATION_FORM_URLENCODED));
+        }
+
+        if (Objects.nonNull(attentionRegisterRequestDTO.getCorreoElectronico())){
+            builder.addPart("correoElectronico", new StringBody(attentionRegisterRequestDTO.getCorreoElectronico(), ContentType.APPLICATION_FORM_URLENCODED));
+        }else {
+            builder.addPart("correoElectronico", new StringBody("", ContentType.APPLICATION_FORM_URLENCODED));
+        }
+
+        if(Objects.nonNull(attentionRegisterRequestDTO.getTelefonos())){
+            builder.addPart("telefonos", new StringBody(attentionRegisterRequestDTO.getTelefonos(), ContentType.APPLICATION_FORM_URLENCODED));
+        }else {
+            builder.addPart("telefonos", new StringBody("", ContentType.APPLICATION_FORM_URLENCODED));
+        }
+
+        builder.addPart("direccion", new StringBody(attentionRegisterRequestDTO.getDireccion(), ContentType.APPLICATION_FORM_URLENCODED));
+        builder.addPart("ubigeo", new StringBody(attentionRegisterRequestDTO.getUbigeo(), ContentType.APPLICATION_FORM_URLENCODED));
+        builder.addPart("codigoAsunto", new StringBody(String.valueOf(attentionRegisterRequestDTO.getCodigoAsunto()), ContentType.APPLICATION_FORM_URLENCODED));
+        builder.addPart("fechaHoraSolucion", new StringBody(attentionRegisterRequestDTO.getFechaHoraSolucion(), ContentType.APPLICATION_FORM_URLENCODED));
+        builder.addPart("descripcion", new StringBody(attentionRegisterRequestDTO.getDescripcion(), ContentType.APPLICATION_FORM_URLENCODED));
+
+        return builder;
     }
 
 }

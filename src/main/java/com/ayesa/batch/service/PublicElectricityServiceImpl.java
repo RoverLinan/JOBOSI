@@ -6,6 +6,7 @@ import com.ayesa.batch.business.dto.osinergmin.TableCatalogResponseDTO;
 import com.ayesa.batch.business.dto.osinergmin.TableStructureResponseDTO;
 import com.ayesa.batch.enums.JobNameEnum;
 import com.ayesa.batch.enums.JobParameterEnum;
+import com.ayesa.batch.mappers.Table1Mapper;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.classic.methods.HttpPut;
 import org.apache.hc.client5.http.entity.mime.FileBody;
@@ -20,6 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.util.Objects;
 
 import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
 import static com.ayesa.batch.enums.JobParameterEnum.URL_ATEN;
@@ -56,23 +58,8 @@ public class PublicElectricityServiceImpl extends PublicElectricityService {
             HttpPost post = createHttpPost(URL_ATEN);
             LOGGER.info("submitInformationForProcessing: request dto = {}", attentionRegisterRequestDTO);
             LOGGER.info("submitInformationForProcessing: request usuario = {}", usuario);
-            MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-            builder.addPart("codigoEmpresa", new StringBody(attentionRegisterRequestDTO.getCodigoEmpresa(), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("codigoAtencion", new StringBody(attentionRegisterRequestDTO.getCodigoAtencion(), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("fechaHoraRecepcion", new StringBody(attentionRegisterRequestDTO.getFechaHoraRecepcion(), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("canalRecepcion", new StringBody(String.valueOf(attentionRegisterRequestDTO.getCanalRecepcion()), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("tipoDocumento", new StringBody(String.valueOf(attentionRegisterRequestDTO.getTipoDocumento()), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("numeroDocumento", new StringBody(attentionRegisterRequestDTO.getNumeroDocumento(), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("nombres", new StringBody(attentionRegisterRequestDTO.getNombres(), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("apellidos", new StringBody(attentionRegisterRequestDTO.getApellidos(), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("numeroSuministro", new StringBody(attentionRegisterRequestDTO.getNumeroSuministro(), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("correoElectronico", new StringBody(attentionRegisterRequestDTO.getCorreoElectronico(), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("telefonos", new StringBody(attentionRegisterRequestDTO.getTelefonos(), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("direccion", new StringBody(attentionRegisterRequestDTO.getDireccion(), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("ubigeo", new StringBody(attentionRegisterRequestDTO.getUbigeo(), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("codigoAsunto", new StringBody(String.valueOf(attentionRegisterRequestDTO.getCodigoAsunto()), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("fechaHoraSolucion", new StringBody(attentionRegisterRequestDTO.getFechaHoraSolucion(), ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("descripcion", new StringBody(attentionRegisterRequestDTO.getDescripcion(), ContentType.APPLICATION_FORM_URLENCODED));
+
+            MultipartEntityBuilder builder = Table1Mapper.mapToRequestMultipart(attentionRegisterRequestDTO);
             builder.addPart("usuario", new StringBody(usuario, ContentType.APPLICATION_FORM_URLENCODED));
             builder.addPart("clave", new StringBody(clave, ContentType.APPLICATION_FORM_URLENCODED));
 

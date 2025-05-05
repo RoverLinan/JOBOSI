@@ -24,7 +24,7 @@ public class DataSourceConnection {
     private DataSourceConnection() {
         String path = (String) BatchLauncher.JOB_PARAMETERS.get(FILE_CREDENTIALS_BD.name());
         if(Objects.isNull(path)){
-            path = "../config/datasource_jobosi.properties";
+            path = "config/datasource_jobosi.properties";
         }
         Properties properties = FileUtil.loadProperties(path);
         this.dbUrl = properties.getProperty("db.url");

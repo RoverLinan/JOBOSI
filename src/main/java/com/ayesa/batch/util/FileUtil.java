@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.Properties;
 
 public class FileUtil {
-    private static final String PATH_RESOURCES = "sql/sql-TABLES.properties";
+    private static final String PATH_RESOURCES_SQL_QUERIES = "sql/sql-TABLES.properties";
     public static final String PATH_FILES_UPLOAD = "files/upload";
 
     private static final String SEPARATOR_FILE_NAME = "_";
@@ -21,7 +21,7 @@ public class FileUtil {
 
         if(Objects.isNull(propertiesResources)) {
             Properties properties = new Properties();
-            try (InputStream input = FileUtil.class.getClassLoader().getResourceAsStream(PATH_RESOURCES)) {
+            try (InputStream input = FileUtil.class.getClassLoader().getResourceAsStream(PATH_RESOURCES_SQL_QUERIES)) {
                 properties.load(input);
             } catch (IOException e) {
                 throw new RuntimeException(e);
