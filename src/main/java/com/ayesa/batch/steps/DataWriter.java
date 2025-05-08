@@ -1,12 +1,17 @@
 package com.ayesa.batch.steps;
 
+import com.ayesa.batch.business.dto.notification.NotificationParameterDTO;
+import com.ayesa.batch.business.dto.notification.MailParameterDTO;
 import com.ayesa.batch.business.dto.osinergmin.AbstractResponseDTO;
 import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.enums.JobNameEnum;
 import com.ayesa.batch.enums.StatusEnum;
+import com.ayesa.batch.mappers.error.ErrorNotificationMapper;
 import com.ayesa.batch.mappers.error.ErrorOSIMapper;
 import com.ayesa.batch.repository.ErrorOSIRepository;
 import com.ayesa.batch.repository.TableRepository;
+import com.ayesa.batch.service.NotificationService;
+import com.ayesa.batch.service.OutlookNotification;
 import com.ayesa.batch.service.PublicElectricityService;
 import com.ayesa.batch.service.PublicElectricityServiceImpl;
 import com.ayesa.batch.util.DateUtil;
@@ -14,6 +19,7 @@ import com.ayesa.batch.util.DateUtil;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
 import static com.ayesa.batch.BatchLauncher.TABLE_ENTITIES_IN_PROGRESS;
@@ -24,13 +30,14 @@ import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ATENCION;
 
 
 public class DataWriter {
-
+    private final NotificationService notificationService;
     private final PublicElectricityService publicElectricityService;
     private final JobNameEnum jobNameEnum;
 
     public DataWriter(JobNameEnum jobNameEnum) {
         this.jobNameEnum = jobNameEnum;
         publicElectricityService = new PublicElectricityServiceImpl(this.jobNameEnum);
+        notificationService = new OutlookNotification();
     }
 
     public void writer(String fileName) {
@@ -92,30 +99,50 @@ public class DataWriter {
      * @param attentionRegisters la lista de registros de atención a procesar
      */
     public void writer(List<Serializable> attentionRegisters) {
+        List<AttentionRegisterRequestDTO> attentionRegisterRequestCasted = attentionRegisters.stream()
+                        .map(x -> (AttentionRegisterRequestDTO) x)
+                        .collect(Collectors.toList());
 
-        attentionRegisters.forEach(attention -> {
-
+        attentionRegisterRequestCasted.forEach( attentionRegister -> {
             try {
-                AbstractResponseDTO responseSubmit = publicElectricityService.submitAttentionRegister((AttentionRegisterRequestDTO) attention);
+                AbstractResponseDTO responseSubmit = publicElectricityService.submitAttentionRegister(attentionRegister);
 
                 if (OSI_001.getCode().equals(responseSubmit.getCodigoMensaje())) {
-                    updateStatusAttention((AttentionRegisterRequestDTO) attention, StatusEnum.CONFIRMADO);
+                    updateStatusAttention(attentionRegister, StatusEnum.CONFIRMADO);
+                    attentionRegister.setStatusProcessing(StatusEnum.CONFIRMADO);
                 } else if (OSI_301.getCode().equals(responseSubmit.getCodigoMensaje()) ||
                         OSI_302.getCode().equals(responseSubmit.getCodigoMensaje()) ||
                         OSI_308.getCode().equals(responseSubmit.getCodigoMensaje())) {
-                    updateStatusAttention((AttentionRegisterRequestDTO) attention, StatusEnum.INVALIDO);
+                    updateStatusAttention(attentionRegister, StatusEnum.INVALIDO);
                     ErrorOSIRepository.insert(
-                            ErrorOSIMapper.mapToAttention(this.jobNameEnum, (AttentionRegisterRequestDTO) attention, responseSubmit,null,"FUNCIONAL")
+                            ErrorOSIMapper.mapToAttention(this.jobNameEnum, attentionRegister, responseSubmit,null,"FUNCIONAL")
                     );
+                    attentionRegister.setStatusProcessing(StatusEnum.INVALIDO);
                 }
             } catch (Exception e) {
                 System.out.println("Error tecnico al registrar la atencion: " + e.getMessage());
-                updateStatusAttention((AttentionRegisterRequestDTO) attention, StatusEnum.ERROR);
+                updateStatusAttention(attentionRegister, StatusEnum.ERROR);
                 ErrorOSIRepository.insert(
-                        ErrorOSIMapper.mapToAttention(this.jobNameEnum, (AttentionRegisterRequestDTO) attention, null, e, "TECNICO")
+                        ErrorOSIMapper.mapToAttention(this.jobNameEnum, attentionRegister, null, e, "TECNICO")
                 );
+                attentionRegister.setStatusProcessing(StatusEnum.ERROR);
             }
         });
+
+        if(!attentionRegisterRequestCasted.isEmpty()){
+
+            List<Serializable> attentionRegisterWithErrors = attentionRegisterRequestCasted.stream()
+                    .filter(
+                            x -> StatusEnum.ERROR.equals(x.getStatusProcessing())
+                                    || StatusEnum.INVALIDO.equals(x.getStatusProcessing()))
+                    .collect(Collectors.toList());
+
+            sendNotificationError(ErrorNotificationMapper.mapToAttentionErrors(
+                    attentionRegisterWithErrors,
+                    this.jobNameEnum,
+                    attentionRegisterRequestCasted
+            ));
+        }
 
     }
 
@@ -130,8 +157,7 @@ public class DataWriter {
                 statusEnum.name(),
                 DateUtil.getCurrentDateTimeSql(DateUtil.FORMAT_DATETIME_1),
                 attention.getCodigoEmpresa(),
-                attention.getCodigoAtencion(),
-                attention.getNumeroSuministro()
+                attention.getCodigoAtencion()
         );
     }
 
@@ -146,6 +172,11 @@ public class DataWriter {
                 register.get(COD_ATENCION.getFieldName()),
                 register.get(COD_ACCION.getFieldName())
         );
+    }
+
+
+    public void sendNotificationError( NotificationParameterDTO notificationParameterDTO) {
+        notificationService.send(notificationParameterDTO);
     }
 }
 

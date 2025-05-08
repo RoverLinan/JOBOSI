@@ -17,5 +17,11 @@ public enum JobParameterEnum {
     URL_REVER,
     OSI_PASS,
     OSI_USER,
-    CODEMP
+    CODEMP,
+    EMAIL_NOT,
+    SRV_ID_NOT,
+    TEM_ID_NOT,
+    USR_ID_NOT,
+    AC_TK_NOT,
+    URL_NOT
     }

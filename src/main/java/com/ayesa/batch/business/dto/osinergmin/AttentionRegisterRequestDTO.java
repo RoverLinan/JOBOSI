@@ -1,5 +1,7 @@
 package com.ayesa.batch.business.dto.osinergmin;
 
+import com.ayesa.batch.enums.StatusEnum;
+
 import java.io.Serializable;
 
 public class AttentionRegisterRequestDTO implements Serializable {
@@ -20,6 +22,9 @@ public class AttentionRegisterRequestDTO implements Serializable {
     private int codigoAsunto;
     private String fechaHoraSolucion;
     private String descripcion;
+
+    private StatusEnum statusProcessing;
+
 
     public String getCodigoEmpresa() {
         return codigoEmpresa;
@@ -149,6 +154,14 @@ public class AttentionRegisterRequestDTO implements Serializable {
         this.descripcion = descripcion;
     }
 
+    public StatusEnum getStatusProcessing() {
+        return statusProcessing;
+    }
+
+    public void setStatusProcessing(StatusEnum statusProcessing) {
+        this.statusProcessing = statusProcessing;
+    }
+
     @Override
     public String toString() {
         return "AttentionRegisterRequestDTO{" +
@@ -168,6 +181,7 @@ public class AttentionRegisterRequestDTO implements Serializable {
                 ", codigoAsunto=" + codigoAsunto +
                 ", fechaHoraSolucion='" + fechaHoraSolucion + '\'' +
                 ", descripcion='" + descripcion + '\'' +
+                ", statusProcessing=" + statusProcessing +
                 '}';
     }
 }
