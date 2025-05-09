@@ -1,113 +1,107 @@
 package com.ayesa.batch.business.dto.notification;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.List;
 
 public class ParameterTemplateDTO implements Serializable {
-    private String C001;
-    private String C002;
-    private String C003;
-    private String C004;
-    private String C005;
-    private String C006;
-    private String C007;
-    private String C008;
+    private String title;
+    private String mailTo;
+    private String tableName;
+    private String countErrors;
+    private String countProcessed;
+    private String date;
+    private String userId;
+    private String period;
 
-    private String C009;
-    private String C010;
+    private List<DetailErrorMailDTO> details;
 
-    public String getC001() {
-        return C001;
+
+    public String getTitle() {
+        return title;
     }
 
-    public void setC001(String c001) {
-        C001 = c001;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getC002() {
-        return C002;
+    public String getMailTo() {
+        return mailTo;
     }
 
-    public void setC002(String c002) {
-        C002 = c002;
+    public void setMailTo(String mailTo) {
+        this.mailTo = mailTo;
     }
 
-    public String getC003() {
-        return C003;
+    public String getTableName() {
+        return tableName;
     }
 
-    public void setC003(String c003) {
-        C003 = c003;
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
     }
 
-    public String getC004() {
-        return C004;
+    public String getCountErrors() {
+        return countErrors;
     }
 
-    public void setC004(String c004) {
-        C004 = c004;
+    public void setCountErrors(String countErrors) {
+        this.countErrors = countErrors;
     }
 
-    public String getC005() {
-        return C005;
+    public String getCountProcessed() {
+        return countProcessed;
     }
 
-    public void setC005(String c005) {
-        C005 = c005;
+    public void setCountProcessed(String countProcessed) {
+        this.countProcessed = countProcessed;
     }
 
-    public String getC006() {
-        return C006;
+    public String getDate() {
+        return date;
     }
 
-    public void setC006(String c006) {
-        C006 = c006;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getC007() {
-        return C007;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setC007(String c007) {
-        C007 = c007;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getC008() {
-        return C008;
+    public String getPeriod() {
+        return period;
     }
 
-    public void setC008(String c008) {
-        C008 = c008;
+    public void setPeriod(String period) {
+        this.period = period;
     }
 
-    public String getC009() {
-        return C009;
+    public List<DetailErrorMailDTO> getDetails() {
+        return details;
     }
 
-    public void setC009(String c009) {
-        C009 = c009;
+    public void setDetails(List<DetailErrorMailDTO> details) {
+        this.details = details;
     }
 
-    public String getC010() {
-        return C010;
-    }
-
-    public void setC010(String c010) {
-        C010 = c010;
-    }
 
     @Override
     public String toString() {
         return "ParameterTemplateDTO{" +
-                "C001='" + C001 + '\'' +
-                ", C002='" + C002 + '\'' +
-                ", C003='" + C003 + '\'' +
-                ", C004='" + C004 + '\'' +
-                ", C005='" + C005 + '\'' +
-                ", C006='" + C006 + '\'' +
-                ", C007='" + C007 + '\'' +
-                ", C008='" + C008 + '\'' +
-                ", C009='" + C009 + '\'' +
-                ", C010='" + C010 + '\'' +
+                "title='" + title + '\'' +
+                ", mailTo='" + mailTo + '\'' +
+                ", tableName='" + tableName + '\'' +
+                ", countErrors='" + countErrors + '\'' +
+                ", countProcessed='" + countProcessed + '\'' +
+                ", date='" + date + '\'' +
+                ", userId='" + userId + '\'' +
+                ", period='" + period + '\'' +
+                ", details=" + details +
                 '}';
     }
 }

@@ -6,12 +6,15 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class DateUtil {
 
     public static String FORMAT_DATETIME_1 = "yyyy-MM-dd HH:mm:ss.S";
     public static String FORMAT_DATETIME_2 = "dd/MM/yyyy HH:mm";
     public static String FORMAT_DATETIME_3 = "dd/MM/yyyy";
+
+    public static String FORMAT_DATETIME_4 = "d 'de' MMMM 'del' yyyy hh:mm:ss a";
 
 
     public static String getCurrentDateTime(String format) {
@@ -21,7 +24,7 @@ public class DateUtil {
         ZonedDateTime zonedDateTime = ZonedDateTime.now(zonaPeru);
 
         LocalDateTime currentDate = zonedDateTime.toLocalDateTime();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format, new Locale("es-PE"));
         return currentDate.format(formatter);
     }
 
@@ -44,4 +47,5 @@ public class DateUtil {
         LocalDateTime parsedDateTime = LocalDateTime.parse(dateTime, inputFormatter);
         return parsedDateTime.format(outputFormatter);
     }
+
 }

@@ -131,7 +131,7 @@ public class DataWriter {
 
         if(!attentionRegisterRequestCasted.isEmpty()){
 
-            List<Serializable> attentionRegisterWithErrors = attentionRegisterRequestCasted.stream()
+            List<AttentionRegisterRequestDTO> attentionRegisterWithErrors = attentionRegisterRequestCasted.stream()
                     .filter(
                             x -> StatusEnum.ERROR.equals(x.getStatusProcessing())
                                     || StatusEnum.INVALIDO.equals(x.getStatusProcessing()))
