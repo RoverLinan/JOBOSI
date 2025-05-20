@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="" />
+    <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +75,7 @@
     <configuration name="BatchLauncher" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.BatchLauncher" />
       <module name="JOBOSI" />
-      <option name="PROGRAM_PARAMETERS" value="JOB01 250429" />
+      <option name="PROGRAM_PARAMETERS" value="JOB01-JOB02 250429" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.ayesa.batch.*" />
@@ -153,6 +155,7 @@
       <workItem from="1746736504225" duration="5000" />
       <workItem from="1746737568261" duration="642000" />
       <workItem from="1746760956763" duration="6393000" />
+      <workItem from="1747750018822" duration="2401000" />
     </task>
     <servers />
   </component>
