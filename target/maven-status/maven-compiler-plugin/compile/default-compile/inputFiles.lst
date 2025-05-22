@@ -1,8 +1,12 @@
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\business\dto\notification\NotificationParameterDTO.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\TableCommonFieldEnum.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\enums\error\ErrorTypeEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\business\dto\osinergmin\TableCatalogResponseDTO.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\Table5FieldEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\steps\DataWriter.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\Table5Mapper.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\service\OutlookNotification.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\error\ErrorNotificationMapper.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\EntityMapperCreator.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\enums\CodeResponseOsinergminEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\job\Job.java
@@ -14,8 +18,10 @@ C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batc
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\steps\DataReader.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\Table6FieldEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\Table3FieldEnum.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\business\dto\notification\DetailErrorMailDTO.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\enums\QueryNameEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\BatchLauncher.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\business\dto\notification\ParameterTemplateDTO.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\config\DataSourceConnection.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\repository\ErrorOSIRepository.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\business\exception\LogicalException.java
@@ -28,6 +34,7 @@ C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batc
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\job\AttentionRegisterJobExecutable.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\util\FileUtil.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\business\dto\osinergmin\ErrorServiceDTO.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\service\NotificationService.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\Table8Mapper.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\Table7FieldEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\enums\StatusEnum.java
@@ -52,3 +59,4 @@ C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batc
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\Table4FieldEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\enums\error\ErrorCodeEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\Table4Mapper.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\business\dto\notification\MailParameterDTO.java
