@@ -6,16 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1747753462.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1747753531.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorOSIMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorOSIMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.FileUploadJobExecutableTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.FileUploadJobExecutableTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.JobExecutionTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.JobExecutionTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.FileUploadJobExecutableTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.FileUploadJobExecutableTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.JobExecutionTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.JobExecutionTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/notification/MailParameterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/notification/MailParameterDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/JobNameEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/JobNameEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/JobParameterEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/JobParameterEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/QueryNameEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/QueryNameEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/ErrorOSIRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/ErrorOSIRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/TableRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/TableRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/OutlookNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/OutlookNotification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/FileUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +29,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit4 Test Class" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -78,6 +82,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.ayesa.batch.mappers.error" />
       <recent name="com.ayesa.batch.job" />
     </key>
   </component>
@@ -92,6 +97,37 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ErrorNotificationMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JOBOSI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ayesa.batch.mappers.error.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ayesa.batch.mappers.error" />
+      <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.mappers.error.ErrorNotificationMapperTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ErrorNotificationMapperTest.mapToAttentionErrors" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JOBOSI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ayesa.batch.mappers.error.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ayesa.batch.mappers.error" />
+      <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.mappers.error.ErrorNotificationMapperTest" />
+      <option name="METHOD_NAME" value="mapToAttentionErrors" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,11 +158,15 @@
     </configuration>
     <list>
       <item itemvalue="Application.BatchLauncher" />
+      <item itemvalue="JUnit.ErrorNotificationMapperTest" />
+      <item itemvalue="JUnit.ErrorNotificationMapperTest.mapToAttentionErrors" />
       <item itemvalue="JUnit.FileUploadJobExecutableTest.runJob01" />
       <item itemvalue="JUnit.job in JOBOSI" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ErrorNotificationMapperTest" />
+        <item itemvalue="JUnit.ErrorNotificationMapperTest.mapToAttentionErrors" />
         <item itemvalue="JUnit.FileUploadJobExecutableTest.runJob01" />
         <item itemvalue="JUnit.job in JOBOSI" />
       </list>
@@ -166,7 +206,10 @@
       <workItem from="1746737568261" duration="642000" />
       <workItem from="1746760956763" duration="6393000" />
       <workItem from="1747750018822" duration="2401000" />
-      <workItem from="1747928036241" duration="5788000" />
+      <workItem from="1747928036241" duration="6883000" />
+      <workItem from="1748446341548" duration="1405000" />
+      <workItem from="1748468226827" duration="166000" />
+      <workItem from="1749047464446" duration="16277000" />
     </task>
     <servers />
   </component>
@@ -177,14 +220,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/OutlookNotification.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/OutlookNotification.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="18" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

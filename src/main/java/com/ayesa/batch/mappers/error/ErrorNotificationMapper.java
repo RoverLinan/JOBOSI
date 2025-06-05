@@ -1,51 +1,66 @@
 package com.ayesa.batch.mappers.error;
 
 import com.ayesa.batch.BatchLauncher;
-import com.ayesa.batch.business.dto.notification.DetailErrorMailDTO;
 import com.ayesa.batch.business.dto.notification.MailParameterDTO;
-import com.ayesa.batch.business.dto.notification.ParameterTemplateDTO;
 import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.enums.JobNameEnum;
+import com.ayesa.batch.enums.notification.TemplateNameEnum;
+import com.ayesa.batch.mappers.fields.MailTemplateFieldEnum;
 import com.ayesa.batch.util.DateUtil;
+import com.ayesa.batch.util.FileUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 import static com.ayesa.batch.enums.JobParameterEnum.*;
+import static com.ayesa.batch.util.FileUtil.PATH_RESOURCE_TEMPLATE_MAIL;
 
 public class ErrorNotificationMapper {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ErrorNotificationMapper.class);
+
     public static MailParameterDTO mapToAttentionErrors(List<AttentionRegisterRequestDTO> attentionRegisterWithErrors, JobNameEnum jobNameEnum, List<AttentionRegisterRequestDTO> attentionRegisterRequestCasted) {
-        ParameterTemplateDTO parameters = new ParameterTemplateDTO();
 
-        parameters.setMailTo((String) BatchLauncher.JOB_PARAMETERS.get(EMAIL_NOT.name()));
-        parameters.setTableName(jobNameEnum.getTableName());
-        parameters.setPeriod((String) BatchLauncher.JOB_PARAMETERS.get(PERIODO_REMISION.name()));
-        parameters.setCountErrors(String.valueOf(attentionRegisterWithErrors.size()));
+        Map<MailTemplateFieldEnum, Object> parameters = new HashMap<>();
 
-        List<DetailErrorMailDTO> errorAttentionDetails = attentionRegisterWithErrors.stream()
-                .map(attentionRegister -> {
-                    DetailErrorMailDTO detailErrorMailDTO = new DetailErrorMailDTO();
-                    detailErrorMailDTO.setAttentionId(attentionRegister.getCodigoAtencion());
-                    detailErrorMailDTO.setActionId("N/A");
-                    detailErrorMailDTO.setDescription(attentionRegister.getStatusProcessing().name());
-                    return detailErrorMailDTO;
-                })
-                .collect(Collectors.toList());
-        parameters.setDetails(errorAttentionDetails);
-        parameters.setCountProcessed(String.valueOf(attentionRegisterRequestCasted.size()));
-        parameters.setDate(DateUtil.getCurrentDateTime(DateUtil.FORMAT_DATETIME_4));
-        parameters.setUserId((String) BatchLauncher.JOB_PARAMETERS.get(OSI_USER.name()));
+
+        parameters.put(MailTemplateFieldEnum.TABLE_NAME_FIELD, jobNameEnum.getTableName());
+        parameters.put(MailTemplateFieldEnum.PERIOD_FIELD, BatchLauncher.JOB_PARAMETERS.get(PERIODO_REMISION.name()));
+        parameters.put(MailTemplateFieldEnum.COUNT_ERRORS_FIELD, attentionRegisterWithErrors.size());
+        parameters.put(MailTemplateFieldEnum.COUNT_PROCESSED_FIELD, attentionRegisterRequestCasted.size());
+        parameters.put(MailTemplateFieldEnum.DATE_FIELD, DateUtil.getCurrentDateTime(DateUtil.FORMAT_DATETIME_4));
+        parameters.put(MailTemplateFieldEnum.USER_ID_FIELD, BatchLauncher.JOB_PARAMETERS.get(OSI_USER.name()));
 
 
         MailParameterDTO mailParameterDTO = new MailParameterDTO();
-        mailParameterDTO.setService_id((String)BatchLauncher.JOB_PARAMETERS.get(SRV_ID_NOT.name()));
-        mailParameterDTO.setTemplate_id((String)BatchLauncher.JOB_PARAMETERS.get(TEM_ID_NOT.name()));
-        mailParameterDTO.setUser_id((String)BatchLauncher.JOB_PARAMETERS.get(USR_ID_NOT.name()));
-        mailParameterDTO.setAccessToken((String)BatchLauncher.JOB_PARAMETERS.get(AC_TK_NOT.name()));
-        mailParameterDTO.setTemplate_params(parameters);
-
+        mailParameterDTO.setHost((String) BatchLauncher.JOB_PARAMETERS.get(HOST_NOT.name()));
+        mailParameterDTO.setPort((String) BatchLauncher.JOB_PARAMETERS.get(PORT_NOT.name()));
+        mailParameterDTO.setMailFrom((String) BatchLauncher.JOB_PARAMETERS.get(EMAIL1_NOT.name()));
+        mailParameterDTO.setMailTo((String) BatchLauncher.JOB_PARAMETERS.get(EMAIL2_NOT.name()));
+        mailParameterDTO.setCc((String) BatchLauncher.JOB_PARAMETERS.get(COPIA_NOT.name()));
+        mailParameterDTO.setSubject((String) BatchLauncher.JOB_PARAMETERS.get(ASUNTO_NOT.name()));
+        mailParameterDTO.setType((String) BatchLauncher.JOB_PARAMETERS.get(TYPE_NOT.name()));
+        mailParameterDTO.setMessage( replaceParameterInTemplate((String) BatchLauncher.JOB_PARAMETERS.get(KIT_NOT.name()), parameters));
 
         return mailParameterDTO;
     }
+
+
+    private static String replaceParameterInTemplate(String kitName, Map<MailTemplateFieldEnum, Object> parameters) {
+
+        TemplateNameEnum templateNameEnum = TemplateNameEnum.fromKitName(kitName);
+
+        String templateMail = FileUtil.getPropertiesFromResources(PATH_RESOURCE_TEMPLATE_MAIL).getProperty(templateNameEnum.getPropertyName());
+        LOGGER.info("replaceParameterInTemplate: templateNameEnum = {}, templateMail = {}", templateNameEnum, templateMail);
+        for (Map.Entry<MailTemplateFieldEnum, Object> entry : parameters.entrySet()) {
+            String placeholder = "{{" + entry.getKey().getFieldName() + "}}";
+            templateMail = templateMail.replace(placeholder, entry.getValue() != null ?   entry.getValue().toString() : "");
+        }
+        return templateMail;
+    }
+
+
 }

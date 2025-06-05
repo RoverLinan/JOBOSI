@@ -37,7 +37,9 @@ public enum QueryNameEnum {
     SQL_TABLE8_UPDATE(                  JobNameEnum.JOB08,QueryFunctionEnum.UPDATE, "sql.table8.update"),
     SQL_ERROR_INSERT(                   JobNameEnum.ERROR_OSI, QueryFunctionEnum.INSERT, "sql.errorOsi.insert"),
 
-    SQL_PARAMETERS_SELECT_ALL(          JobNameEnum.COM_PARAMETERS,QueryFunctionEnum.SELECT, "sql.parameters.select.all");
+    SQL_PARAMETERS_SELECT_ALL(          JobNameEnum.COM_PARAMETERS,QueryFunctionEnum.SELECT, "sql.parameters.select.all"),
+
+    SQL_PQ_CORREO_NOTIFICATION(         JobNameEnum.PACKAGE_CORREO_NOTIFICATION, QueryFunctionEnum.CALL, "sql.package.pqcorreo");
 
 
 
@@ -83,7 +85,8 @@ public enum QueryNameEnum {
         COUNT,
         GROUP,
         ORDER_ASC,
-        ORDER_DESC
+        ORDER_DESC,
+        CALL
 
 
 

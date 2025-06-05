@@ -1,6 +1,8 @@
 package com.ayesa.batch.util;
 
 import com.ayesa.batch.business.exception.LogicalException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.time.Instant;
@@ -11,24 +13,25 @@ import java.util.Objects;
 import java.util.Properties;
 
 public class FileUtil {
-    private static final String PATH_RESOURCES_SQL_QUERIES = "sql/sql-TABLES.properties";
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(FileUtil.class);
+    public static final String PATH_RESOURCES_SQL_QUERIES = "sql/sql-TABLES.properties";
     public static final String PATH_FILES_UPLOAD = "files/upload";
+
+    public static final String PATH_RESOURCE_TEMPLATE_MAIL = "templates/mail-error.properties";
 
     private static final String SEPARATOR_FILE_NAME = "_";
 
-    private static Properties propertiesResources;
-    public static Properties getPropertiesFromResources(){
 
-        if(Objects.isNull(propertiesResources)) {
-            Properties properties = new Properties();
-            try (InputStream input = FileUtil.class.getClassLoader().getResourceAsStream(PATH_RESOURCES_SQL_QUERIES)) {
-                properties.load(input);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            propertiesResources = properties;
+    public static Properties getPropertiesFromResources(String path) {
+
+        Properties properties = new Properties();
+        try (InputStream input = FileUtil.class.getClassLoader().getResourceAsStream(path)) {
+            properties.load(input);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        return propertiesResources;
+        return properties;
     }
 
     public static void createFolder(){
@@ -56,9 +59,9 @@ public class FileUtil {
                 writer.write(line.toString());
                 writer.newLine();
             }
-            System.out.println("Datos escritos correctamente en el archivo.");
+            LOGGER.info("Archivo {} creado exitosamente.", fileName);
         } catch (IOException e) {
-            System.err.println("Error al escribir en el archivo: " + e.getMessage());
+            LOGGER.error("Error al escribir en el archivo {}: {}", fileName, e.getMessage());
         }
     }
 

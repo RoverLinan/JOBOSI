@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import static com.ayesa.batch.enums.JobParameterEnum.CHUNK_SIZE;
+import static com.ayesa.batch.util.FileUtil.PATH_RESOURCES_SQL_QUERIES;
 
 
 public class DataReader {
@@ -40,7 +41,7 @@ public class DataReader {
     public List<Map<String, Object>> read(int offset, int chunkSize) {
         LOGGER.info("read: offset = {}, chunkSize = {}", offset, chunkSize);
         QueryNameEnum queryNameEnum = QueryNameEnum.inverse(jobName, QueryNameEnum.QueryFunctionEnum.SELECT);
-        String queryRead = FileUtil.getPropertiesFromResources().getProperty(queryNameEnum.getPropertyName());
+        String queryRead = FileUtil.getPropertiesFromResources(PATH_RESOURCES_SQL_QUERIES).getProperty(queryNameEnum.getPropertyName());
         List<Map<String, Object>> data = new ArrayList<>();
 
         try (PreparedStatement preparedStatement = this.dataSourceConnection.getConnection().prepareStatement(queryRead)) {
@@ -66,7 +67,7 @@ public class DataReader {
 
     public void countElements() {
         QueryNameEnum queryNameEnum = QueryNameEnum.inverse(jobName, QueryNameEnum.QueryFunctionEnum.COUNT);
-        String queryCount = FileUtil.getPropertiesFromResources().getProperty(queryNameEnum.getPropertyName());
+        String queryCount = FileUtil.getPropertiesFromResources(PATH_RESOURCES_SQL_QUERIES).getProperty(queryNameEnum.getPropertyName());
         LOGGER.info("countElements: query count = {} ", queryCount);
 
         try (Statement statement = this.dataSourceConnection.getConnection().createStatement();

@@ -12,6 +12,7 @@ import java.sql.Timestamp;
 
 import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
 import static com.ayesa.batch.enums.JobParameterEnum.OSI_USER;
+import static com.ayesa.batch.util.FileUtil.PATH_RESOURCES_SQL_QUERIES;
 
 public class ErrorOSIRepository {
 
@@ -19,7 +20,7 @@ public class ErrorOSIRepository {
     public static void insert(ErrorOSIBO errorOSIBO) {
 
 
-        String queryUpdate = FileUtil.getPropertiesFromResources().getProperty(QueryNameEnum.SQL_ERROR_INSERT.getPropertyName());
+        String queryUpdate = FileUtil.getPropertiesFromResources(PATH_RESOURCES_SQL_QUERIES).getProperty(QueryNameEnum.SQL_ERROR_INSERT.getPropertyName());
 
         try (PreparedStatement preparedStatement = DataSourceConnection.getInstance().getConnection().prepareStatement(queryUpdate)) {
 
@@ -41,10 +42,6 @@ public class ErrorOSIRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
-
-
     }
 
 }

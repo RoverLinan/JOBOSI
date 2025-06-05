@@ -18,10 +18,14 @@ public enum JobParameterEnum {
     OSI_PASS,
     OSI_USER,
     CODEMP,
-    EMAIL_NOT,
-    SRV_ID_NOT,
-    TEM_ID_NOT,
-    USR_ID_NOT,
-    AC_TK_NOT,
-    URL_NOT
+    EMAIL1_NOT,
+    EMAIL2_NOT,
+
+    ASUNTO_NOT,
+    COPIA_NOT,
+    ATTACH_NOT,
+    HOST_NOT,
+    PORT_NOT,
+    TYPE_NOT,
+    KIT_NOT
     }

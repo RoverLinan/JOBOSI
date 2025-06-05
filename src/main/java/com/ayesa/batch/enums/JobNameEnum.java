@@ -10,7 +10,9 @@ public enum JobNameEnum {
     JOB07("TISEC_TT_7"),
     JOB08("TISEC_TT_8"),
     ERROR_OSI("OSI_ERRORES_REMISION"),
-    COM_PARAMETERS("OSI_COM_PARAMETROS");
+    COM_PARAMETERS("OSI_COM_PARAMETROS"),
+
+    PACKAGE_CORREO_NOTIFICATION("OSI_PQ_CORREO_NOTIFICATION");
 
     private final String tableName;
     JobNameEnum(String tableName){

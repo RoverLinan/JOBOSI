@@ -1,7 +1,9 @@
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\business\dto\notification\NotificationParameterDTO.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\TableCommonFieldEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\enums\error\ErrorTypeEnum.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\repository\NotificationRepository.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\business\dto\osinergmin\TableCatalogResponseDTO.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\MailTemplateFieldEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\Table5FieldEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\steps\DataWriter.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\Table5Mapper.java
@@ -58,5 +60,7 @@ C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batc
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\steps\DataProcessor.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\fields\Table4FieldEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\enums\error\ErrorCodeEnum.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\enums\notification\ParameterTemplateEnum.java
+C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\enums\notification\TemplateNameEnum.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\mappers\Table4Mapper.java
 C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\src\main\java\com\ayesa\batch\business\dto\notification\MailParameterDTO.java

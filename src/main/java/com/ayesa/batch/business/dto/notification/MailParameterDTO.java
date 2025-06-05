@@ -1,62 +1,127 @@
 package com.ayesa.batch.business.dto.notification;
 
-import java.util.List;
+import java.util.Objects;
 
 public class MailParameterDTO extends NotificationParameterDTO {
-    private String service_id;
-    private String template_id;
-    private String user_id;
-    private String accessToken;
-    private ParameterTemplateDTO template_params;
+    private String host;
+    private String port;
+    private String mailFrom;
+    private String mailTo;
+    private String cc;
+    private String subject;
+    private String type;
+    private String option;
+    private String message;
+    private String attachmentDirectory;
 
-    public String getService_id() {
-        return service_id;
+    public String getHost() {
+        return host;
     }
 
-    public void setService_id(String service_id) {
-        this.service_id = service_id;
+    public void setHost(String host) {
+        this.host = host;
     }
 
-    public String getTemplate_id() {
-        return template_id;
+    public String getPort() {
+        return port;
     }
 
-    public void setTemplate_id(String template_id) {
-        this.template_id = template_id;
+    public void setPort(String port) {
+        this.port = port;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getMailFrom() {
+        return mailFrom;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setMailFrom(String mailFrom) {
+        this.mailFrom = mailFrom;
     }
 
-    public String getAccessToken() {
-        return accessToken;
+    public String getMailTo() {
+        return mailTo;
     }
 
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
+    public void setMailTo(String mailTo) {
+        this.mailTo = mailTo;
     }
 
-    public ParameterTemplateDTO getTemplate_params() {
-        return template_params;
+    public String getCc() {
+        return cc;
     }
 
-    public void setTemplate_params(ParameterTemplateDTO template_params) {
-        this.template_params = template_params;
+    public void setCc(String cc) {
+        this.cc = cc;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getOption() {
+        return option;
+    }
+
+    public void setOption(String option) {
+        this.option = option;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getAttachmentDirectory() {
+        return attachmentDirectory;
+    }
+
+    public void setAttachmentDirectory(String attachmentDirectory) {
+        this.attachmentDirectory = attachmentDirectory;
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MailParameterDTO that = (MailParameterDTO) o;
+        return Objects.equals(host, that.host) && Objects.equals(port, that.port) && Objects.equals(mailFrom, that.mailFrom) && Objects.equals(mailTo, that.mailTo) && Objects.equals(cc, that.cc) && Objects.equals(subject, that.subject) && Objects.equals(type, that.type) && Objects.equals(option, that.option) && Objects.equals(message, that.message) && Objects.equals(attachmentDirectory, that.attachmentDirectory);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(host, port, mailFrom, mailTo, cc, subject, type, option, message, attachmentDirectory);
+    }
+
+
+    @Override
     public String toString() {
-        return "MailParameterDTO{" +
-                "service_id='" + service_id + '\'' +
-                ", template_id='" + template_id + '\'' +
-                ", user_id='" + user_id + '\'' +
-                ", accessToken='" + accessToken + '\'' +
-                ", template_params=" + template_params +
-                "} " + super.toString();
+        final StringBuilder sb = new StringBuilder("MailParameterDTO{");
+        sb.append("host='").append(host).append('\'');
+        sb.append(", port='").append(port).append('\'');
+        sb.append(", mailFrom='").append(mailFrom).append('\'');
+        sb.append(", mailTo='").append(mailTo).append('\'');
+        sb.append(", cc='").append(cc).append('\'');
+        sb.append(", subject='").append(subject).append('\'');
+        sb.append(", type='").append(type).append('\'');
+        sb.append(", option='").append(option).append('\'');
+        sb.append(", message='").append(message).append('\'');
+        sb.append(", attachmentDirectory='").append(attachmentDirectory).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }
