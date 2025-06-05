@@ -5,16 +5,25 @@ import com.ayesa.batch.business.dto.osinergmin.AbstractResponseDTO;
 import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.business.dto.osinergmin.TableCatalogResponseDTO;
 import com.ayesa.batch.business.dto.osinergmin.TableStructureResponseDTO;
+import com.ayesa.batch.enums.HttpMethodEnum;
 import com.ayesa.batch.enums.JobParameterEnum;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.internal.http.HttpMethod;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.classic.methods.HttpPut;
 import org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder;
 import org.apache.hc.client5.http.entity.mime.StringBody;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.core5.http.ContentType;
+import org.apache.hc.core5.http.Method;
 import org.apache.hc.core5.http.ParseException;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.io.entity.HttpEntities;
 
 import java.io.IOException;
 
@@ -60,9 +69,36 @@ public abstract class PublicElectricityService {
         return builder;
     }
 
-    protected AbstractResponseDTO processResponse(CloseableHttpResponse response) throws IOException, ParseException {
-        String responseString = EntityUtils.toString(response.getEntity());
-        return new ObjectMapper().readValue(responseString, AbstractResponseDTO.class);
+    protected MultipartBody.Builder createCommonOkHttpRequest() {
+        return new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("codigoPeriodoRemision", codigoPeriodoRemision)
+                .addFormDataPart("codigoEmpresa", codigoEmpresa)
+                .addFormDataPart("usuario", usuario)
+                .addFormDataPart("clave", clave);
+    }
+
+    protected Response executeRequest(RequestBody body, JobParameterEnum parameter, HttpMethodEnum httpMethod) throws IOException {
+        Request request = new Request.Builder()
+                .url(getURL(parameter))
+                .method(httpMethod.toString(), body)
+                .build();
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        return client.newCall(request).execute();
+    }
+
+    protected AbstractResponseDTO processResponse(Response response) throws IOException {
+
+        if (response.isSuccessful()) {
+            if(response.body() == null) {
+                throw new RuntimeException("Response body is null");
+            }
+            String responseString = response.body().string();
+            responseString = responseString.replace("\\r", " "); // Normalize line endings
+            return new ObjectMapper().readValue(responseString, AbstractResponseDTO.class);
+        }else {
+            throw new RuntimeException("Error in response: " + response.code() + " - " + response.message());
+        }
     }
 
 }

@@ -4,9 +4,16 @@ import com.ayesa.batch.business.dto.osinergmin.AbstractResponseDTO;
 import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.business.dto.osinergmin.TableCatalogResponseDTO;
 import com.ayesa.batch.business.dto.osinergmin.TableStructureResponseDTO;
+import com.ayesa.batch.enums.HttpMethodEnum;
 import com.ayesa.batch.enums.JobNameEnum;
 import com.ayesa.batch.enums.JobParameterEnum;
 import com.ayesa.batch.mappers.Table1Mapper;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.classic.methods.HttpPut;
 import org.apache.hc.client5.http.entity.mime.FileBody;
@@ -20,6 +27,7 @@ import org.apache.hc.core5.http.HttpEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.Objects;
 
@@ -53,20 +61,16 @@ public class PublicElectricityServiceImpl extends PublicElectricityService {
     @Override
     public AbstractResponseDTO submitAttentionRegister(AttentionRegisterRequestDTO attentionRegisterRequestDTO) {
         AbstractResponseDTO abstractResponseDTO;
-        try (CloseableHttpClient client = HttpClients.createDefault()) {
+        try  {
 
-            HttpPost post = createHttpPost(URL_ATEN);
             LOGGER.info("submitInformationForProcessing: request dto = {}", attentionRegisterRequestDTO);
             LOGGER.info("submitInformationForProcessing: request usuario = {}", usuario);
 
-            MultipartEntityBuilder builder = Table1Mapper.mapToRequestMultipart(attentionRegisterRequestDTO);
-            builder.addPart("usuario", new StringBody(usuario, ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("clave", new StringBody(clave, ContentType.APPLICATION_FORM_URLENCODED));
+            MultipartBody.Builder builder = Table1Mapper.mapToRequestMultipartBody(attentionRegisterRequestDTO);
+            builder.addFormDataPart("usuario", usuario);
+            builder.addFormDataPart("clave", clave);
 
-            HttpEntity entity = builder.build();
-            post.setEntity(entity);
-
-            CloseableHttpResponse response = client.execute(post);
+            Response response = executeRequest(builder.build(), URL_ATEN, HttpMethodEnum.POST);
             abstractResponseDTO = processResponse(response);
             LOGGER.info("submitInformationForProcessing: response = {}", abstractResponseDTO);
             return abstractResponseDTO;
@@ -79,8 +83,8 @@ public class PublicElectricityServiceImpl extends PublicElectricityService {
     @Override
     public AbstractResponseDTO submitInformationForProcessing(final String filePath) {
         AbstractResponseDTO abstractResponseDTO;
-        try (CloseableHttpClient client = HttpClients.createDefault()) {
-            HttpPost post = createHttpPost(URL_REMI);
+        try {
+
 
             final String codigoTabla = jobNameEnum.getTableName();
             final String delimitador = (String) JOB_PARAMETERS.get(JobParameterEnum.CHAR_DELIM.name());
@@ -90,18 +94,17 @@ public class PublicElectricityServiceImpl extends PublicElectricityService {
             LOGGER.info("submitInformationForProcessing: request delimitador = {}", delimitador);
             LOGGER.info("submitInformationForProcessing: request usuario = {}", usuario);
 
-            MultipartEntityBuilder builder = createCommonMultipartEntityBuilder();
-            builder.addPart("codigoTabla", new StringBody(codigoTabla, ContentType.APPLICATION_FORM_URLENCODED));
-            builder.addPart("delimitador", new StringBody(delimitador, ContentType.APPLICATION_FORM_URLENCODED));
 
             File file = new File(filePath);
-            builder.addPart("informacionARemitir", new FileBody(file));
-            LOGGER.info("submitInformationForProcessing: request filePath = {}", filePath);
+            MultipartBody.Builder builder = createCommonOkHttpRequest();
+            builder.addFormDataPart("codigoTabla", codigoTabla);
+            builder.addFormDataPart("delimitador", delimitador);
+            builder.addFormDataPart("informacionARemitir", file.getName(),
+                    RequestBody.create(MediaType.parse("application/octet-stream"),
+                            file));
 
+            Response response = executeRequest(builder.build(), URL_REMI, HttpMethodEnum.POST);
 
-            HttpEntity entity = builder.build();
-            post.setEntity(entity);
-            CloseableHttpResponse response = client.execute(post);
             abstractResponseDTO = processResponse(response);
 
             LOGGER.info("submitInformationForProcessing: response = {}", abstractResponseDTO);
@@ -115,16 +118,14 @@ public class PublicElectricityServiceImpl extends PublicElectricityService {
     @Override
     public AbstractResponseDTO confirmInformationSubmission() {
         AbstractResponseDTO abstractResponseDTO;
-        try (CloseableHttpClient client = HttpClients.createDefault()) {
-            HttpPut put = createHttpPut(URL_CONFI);
+        try {
 
             LOGGER.info("confirmInformationSubmission: request codigoPeriodoRemision = {}", codigoPeriodoRemision);
             LOGGER.info("confirmInformationSubmission: request codigoEmpresa = {}", codigoEmpresa);
             LOGGER.info("confirmInformationSubmission: request usuario = {}", usuario);
 
-            HttpEntity entity = createCommonMultipartEntityBuilder().build();
-            put.setEntity(entity);
-            CloseableHttpResponse response = client.execute(put);
+            RequestBody body = createCommonOkHttpRequest().build();
+            Response response = executeRequest(body, URL_CONFI, HttpMethodEnum.PUT);
             abstractResponseDTO = processResponse(response);
 
             LOGGER.info("confirmInformationSubmission: response = {}", abstractResponseDTO);
@@ -138,16 +139,15 @@ public class PublicElectricityServiceImpl extends PublicElectricityService {
     @Override
     public AbstractResponseDTO revertInformationConfirmation() {
         AbstractResponseDTO abstractResponseDTO;
-        try (CloseableHttpClient client = HttpClients.createDefault()) {
-            HttpPut put = createHttpPut(URL_REVER);
+        try {
 
             LOGGER.info("revertInformationConfirmation: request codigoPeriodoRemision = {}", codigoPeriodoRemision);
             LOGGER.info("revertInformationConfirmation: request codigoEmpresa = {}", codigoEmpresa);
             LOGGER.info("revertInformationConfirmation: request usuario = {}", usuario);
 
-            HttpEntity entity = createCommonMultipartEntityBuilder().build();
-            put.setEntity(entity);
-            CloseableHttpResponse response = client.execute(put);
+
+            RequestBody body = createCommonOkHttpRequest().build();
+            Response response = executeRequest(body, URL_REVER, HttpMethodEnum.PUT);
             abstractResponseDTO = processResponse(response);
 
             LOGGER.info("revertInformationConfirmation: response = {}", abstractResponseDTO);

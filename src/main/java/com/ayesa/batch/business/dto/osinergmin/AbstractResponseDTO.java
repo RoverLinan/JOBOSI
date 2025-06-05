@@ -46,11 +46,12 @@ public  class AbstractResponseDTO implements Serializable {
 
     @Override
     public String toString() {
-        return "AbstractResponseDTO{" +
-                "listaErrores=" + listaErrores +
-                ", valorResultante=" + valorResultante +
-                ", codigoMensaje='" + codigoMensaje + '\'' +
-                ", mensajeResultante='" + mensajeResultante + '\'' +
-                '}';
+        final StringBuilder sb = new StringBuilder("AbstractResponseDTO{");
+        sb.append("listaErrores=").append(listaErrores);
+        sb.append(", valorResultante=").append(valorResultante);
+        sb.append(", codigoMensaje='").append(codigoMensaje).append('\'');
+        sb.append(", mensajeResultante='").append(mensajeResultante).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

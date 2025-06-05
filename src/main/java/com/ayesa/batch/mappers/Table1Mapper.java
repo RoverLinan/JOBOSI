@@ -2,6 +2,7 @@ package com.ayesa.batch.mappers;
 
 import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.util.DateUtil;
+import okhttp3.MultipartBody;
 import org.apache.hc.client5.http.classic.HttpClient;
 import org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder;
 import org.apache.hc.client5.http.entity.mime.StringBody;
@@ -143,6 +144,53 @@ public class Table1Mapper extends AbstractEntityMapper{
         builder.addPart("codigoAsunto", new StringBody(String.valueOf(attentionRegisterRequestDTO.getCodigoAsunto()), ContentType.APPLICATION_FORM_URLENCODED));
         builder.addPart("fechaHoraSolucion", new StringBody(attentionRegisterRequestDTO.getFechaHoraSolucion(), ContentType.APPLICATION_FORM_URLENCODED));
         builder.addPart("descripcion", new StringBody(attentionRegisterRequestDTO.getDescripcion(), ContentType.APPLICATION_FORM_URLENCODED));
+
+        return builder;
+    }
+
+
+    public static MultipartBody.Builder mapToRequestMultipartBody(AttentionRegisterRequestDTO attentionRegisterRequestDTO) {
+        MultipartBody.Builder builder = new  MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("codigoEmpresa", attentionRegisterRequestDTO.getCodigoEmpresa())
+                .addFormDataPart("codigoAtencion", attentionRegisterRequestDTO.getCodigoAtencion())
+                .addFormDataPart("fechaHoraRecepcion", attentionRegisterRequestDTO.getFechaHoraRecepcion())
+                .addFormDataPart("canalRecepcion", String.valueOf(attentionRegisterRequestDTO.getCanalRecepcion()))
+                .addFormDataPart("tipoDocumento", String.valueOf(attentionRegisterRequestDTO.getTipoDocumento()))
+                .addFormDataPart("numeroDocumento", attentionRegisterRequestDTO.getNumeroDocumento())
+                .addFormDataPart("nombres", attentionRegisterRequestDTO.getNombres());
+
+
+        if(Objects.nonNull(attentionRegisterRequestDTO.getApellidos())){
+            builder.addFormDataPart("apellidos", attentionRegisterRequestDTO.getApellidos());
+        }else{
+            builder.addFormDataPart("apellidos", "");
+        }
+
+        if(Objects.nonNull(attentionRegisterRequestDTO.getNumeroSuministro())){
+            builder.addFormDataPart("numeroSuministro", attentionRegisterRequestDTO.getNumeroSuministro());
+
+        }else {
+            builder.addFormDataPart("numeroSuministro", "");
+        }
+
+        if (Objects.nonNull(attentionRegisterRequestDTO.getCorreoElectronico())){
+            builder.addFormDataPart("correoElectronico", attentionRegisterRequestDTO.getCorreoElectronico());
+        }else {
+            builder.addFormDataPart("correoElectronico", "");
+        }
+
+        if(Objects.nonNull(attentionRegisterRequestDTO.getTelefonos())){
+            builder.addFormDataPart("telefonos", attentionRegisterRequestDTO.getTelefonos());
+        }else {
+            builder.addFormDataPart("telefonos", "");
+        }
+
+        builder.addFormDataPart("direccion", attentionRegisterRequestDTO.getDireccion());
+        builder.addFormDataPart("ubigeo", attentionRegisterRequestDTO.getUbigeo());
+        builder.addFormDataPart("codigoAsunto", String.valueOf(attentionRegisterRequestDTO.getCodigoAsunto()));
+        builder.addFormDataPart("fechaHoraSolucion", attentionRegisterRequestDTO.getFechaHoraSolucion());
+        builder.addFormDataPart("descripcion", attentionRegisterRequestDTO.getDescripcion());
 
         return builder;
     }

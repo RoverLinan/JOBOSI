@@ -56,7 +56,7 @@ public class FileUtil {
                     }
 
                 }
-                writer.write(line.toString());
+                writer.write(line.append(delimiter).toString());
                 writer.newLine();
             }
             LOGGER.info("Archivo {} creado exitosamente.", fileName);

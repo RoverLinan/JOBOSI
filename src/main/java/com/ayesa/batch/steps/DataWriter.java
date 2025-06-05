@@ -67,7 +67,7 @@ public class DataWriter {
             } else if ( OSI_302.getCode().equals(responseSubmit.getCodigoMensaje())) {
                 LOGGER.error("{} ERROR EN LA REMISION: {}", this.jobNameEnum.getTableName(), responseSubmit.getMensajeResultante());
                 responseSubmit.getListaErrores().forEach(error -> {
-                    Map<String, Object> entity = entities.get(Integer.parseInt(error.getLinea()));
+                    Map<String, Object> entity = entities.get(Integer.parseInt(error.getLinea()) - 1 );
                     updateStatusEntity(entity, StatusEnum.INVALIDO);
                     ErrorOSIRepository.insert(
                             ErrorOSIMapper.mapToUploadFile(this.jobNameEnum, entity, responseSubmit, null, FUNCIONAL)
@@ -93,6 +93,7 @@ public class DataWriter {
                 );
             }
         } catch (Exception e) {
+            LOGGER.info("Error al enviar la remisión del archivo: {}", fileName, e);
             LOGGER.error(" ERROR EN LA REMISION: {}", this.jobNameEnum.getTableName(), e.getCause());
             ErrorOSIRepository.insert(
                     ErrorOSIMapper.mapToUploadFile(this.jobNameEnum, null, null,e,TECNICO)

@@ -31,13 +31,13 @@ public class ErrorServiceDTO implements Serializable {
         this.linea = linea;
     }
 
-
     @Override
     public String toString() {
-        return "ErrorServiceDTO{" +
-                "codigo='" + codigo + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", linea='" + linea + '\'' +
-                '}';
+        final StringBuilder sb = new StringBuilder("ErrorServiceDTO{");
+        sb.append("codigo='").append(codigo).append('\'');
+        sb.append(", descripcion='").append(descripcion).append('\'');
+        sb.append(", linea='").append(linea).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }
