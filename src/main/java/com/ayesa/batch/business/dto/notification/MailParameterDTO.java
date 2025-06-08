@@ -4,13 +4,13 @@ import java.util.Objects;
 
 public class MailParameterDTO extends NotificationParameterDTO {
     private String host;
-    private String port;
+    private int port;
     private String mailFrom;
     private String mailTo;
     private String cc;
     private String subject;
     private String type;
-    private String option;
+    private int option;
     private String message;
     private String attachmentDirectory;
 
@@ -22,11 +22,11 @@ public class MailParameterDTO extends NotificationParameterDTO {
         this.host = host;
     }
 
-    public String getPort() {
+    public int getPort() {
         return port;
     }
 
-    public void setPort(String port) {
+    public void setPort(int port) {
         this.port = port;
     }
 
@@ -70,11 +70,11 @@ public class MailParameterDTO extends NotificationParameterDTO {
         this.type = type;
     }
 
-    public String getOption() {
+    public int getOption() {
         return option;
     }
 
-    public void setOption(String option) {
+    public void setOption(int option) {
         this.option = option;
     }
 
@@ -99,7 +99,7 @@ public class MailParameterDTO extends NotificationParameterDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MailParameterDTO that = (MailParameterDTO) o;
-        return Objects.equals(host, that.host) && Objects.equals(port, that.port) && Objects.equals(mailFrom, that.mailFrom) && Objects.equals(mailTo, that.mailTo) && Objects.equals(cc, that.cc) && Objects.equals(subject, that.subject) && Objects.equals(type, that.type) && Objects.equals(option, that.option) && Objects.equals(message, that.message) && Objects.equals(attachmentDirectory, that.attachmentDirectory);
+        return port == that.port && option == that.option && Objects.equals(host, that.host) && Objects.equals(mailFrom, that.mailFrom) && Objects.equals(mailTo, that.mailTo) && Objects.equals(cc, that.cc) && Objects.equals(subject, that.subject) && Objects.equals(type, that.type) && Objects.equals(message, that.message) && Objects.equals(attachmentDirectory, that.attachmentDirectory);
     }
 
     @Override
@@ -112,13 +112,13 @@ public class MailParameterDTO extends NotificationParameterDTO {
     public String toString() {
         final StringBuilder sb = new StringBuilder("MailParameterDTO{");
         sb.append("host='").append(host).append('\'');
-        sb.append(", port='").append(port).append('\'');
+        sb.append(", port=").append(port);
         sb.append(", mailFrom='").append(mailFrom).append('\'');
         sb.append(", mailTo='").append(mailTo).append('\'');
         sb.append(", cc='").append(cc).append('\'');
         sb.append(", subject='").append(subject).append('\'');
         sb.append(", type='").append(type).append('\'');
-        sb.append(", option='").append(option).append('\'');
+        sb.append(", option=").append(option);
         sb.append(", message='").append(message).append('\'');
         sb.append(", attachmentDirectory='").append(attachmentDirectory).append('\'');
         sb.append('}');

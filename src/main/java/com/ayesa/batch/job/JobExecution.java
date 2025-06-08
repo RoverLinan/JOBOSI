@@ -30,8 +30,8 @@ public class JobExecution {
                                 jobExecute = new FileUploadJobExecutable(x,dataReader,dataProcessor,dataWriter);
                             }
                             jobExecute.run();
-                        } catch (LogicalException exception) {
-                            LOGGER.error("start: Error al ejecutar el job ::: ".concat(x.toString()), exception.getException());
+                        } catch (Exception exception) {
+                            LOGGER.error("start: Error al ejecutar el job ::: ".concat(x.toString()), exception);
                         }
                     }
             );

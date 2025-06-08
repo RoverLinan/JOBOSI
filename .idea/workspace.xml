@@ -6,41 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1749144279.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1749144706.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1749145124.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1749145458.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1749145579.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1749149241.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749145660.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749145931.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749146833.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749147367.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749147389.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749147473.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749147649.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749147721.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749147749.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749147808.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749148430.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749148866.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749148933.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1749149110.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1749144282.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1749144709.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1749145126.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1749145461.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1749145581.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1749149244.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/osinergmin/AbstractResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/osinergmin/AbstractResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/osinergmin/ErrorServiceDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/osinergmin/ErrorServiceDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/MapperUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table1Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table1Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/FileUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/datasource_jobosi.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config/datasource_jobosi.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/notification/MailParameterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/notification/MailParameterDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/JobExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/JobExecution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/NotificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/NotificationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sql/sql-TABLES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sql/sql-TABLES.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +221,7 @@
       <workItem from="1747928036241" duration="6883000" />
       <workItem from="1748446341548" duration="1405000" />
       <workItem from="1748468226827" duration="166000" />
-      <workItem from="1749047464446" duration="26612000" />
+      <workItem from="1749047464446" duration="30411000" />
     </task>
     <servers />
   </component>
@@ -259,11 +231,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/ayesa/batch/service/PublicElectricityServiceTest.java</url>
           <line>37</line>

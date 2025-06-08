@@ -22,7 +22,7 @@ public class NotificationRepository {
         try (CallableStatement callableStatement = DataSourceConnection.getInstance().getConnection().prepareCall(packageCall)) {
 
             callableStatement.setString(1, mailParameterDTO.getHost());
-            callableStatement.setInt(2, Integer.parseInt(mailParameterDTO.getPort()));
+            callableStatement.setInt(2, mailParameterDTO.getPort());
             callableStatement.setString(3, mailParameterDTO.getMailFrom());
             callableStatement.setString(4, mailParameterDTO.getMailTo());
             callableStatement.setString(5, mailParameterDTO.getCc());
@@ -30,7 +30,7 @@ public class NotificationRepository {
             callableStatement.setString(7, mailParameterDTO.getMessage());
             callableStatement.setString(8, null);
             callableStatement.setString(9, mailParameterDTO.getType());
-            callableStatement.setInt(10, Integer.parseInt(mailParameterDTO.getOption()));
+            callableStatement.setInt(10, mailParameterDTO.getOption());
             callableStatement.registerOutParameter(11, Types.VARCHAR);
 
             callableStatement.execute();
