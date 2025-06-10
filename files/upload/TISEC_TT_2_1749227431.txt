@@ -1,9 +1,0 @@
-121017039|109|21/09/2020 16:53|Registro de atención comercial|1|21/09/2020|
-121017039|121|21/09/2020 16:53|En proceso de Atención|3|21/09/2020|
-121020442|110|21/09/2020 17:06|Registro de atención comercial|1|21/09/2020|
-121020442|122|21/09/2020 17:06|En proceso de Atención|3|21/09/2020|
-121041113|111|21/09/2020 18:35|Registro de atención comercial|1|21/09/2020|
-121041113|123|21/09/2020 18:35|En proceso de Atención|3|21/09/2020|
-120735034|85|20/09/2020 12:27|En proceso de Atención|3|20/09/2020|
-120735034|98|20/09/2020 12:28|Atención comercial atendida|5|20/09/2020|
-120735034|72|20/09/2020 12:26|Registro de atención comercial|1|20/09/2020|

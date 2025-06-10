@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/datasource_jobosi.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config/datasource_jobosi.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/notification/MailParameterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/notification/MailParameterDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/JobExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/JobExecution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/NotificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/NotificationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sql/sql-TABLES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sql/sql-TABLES.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +215,9 @@
       <workItem from="1747928036241" duration="6883000" />
       <workItem from="1748446341548" duration="1405000" />
       <workItem from="1748468226827" duration="166000" />
-      <workItem from="1749047464446" duration="30411000" />
+      <workItem from="1749047464446" duration="32021000" />
+      <workItem from="1749480285472" duration="665000" />
+      <workItem from="1749485327374" duration="3643000" />
     </task>
     <servers />
   </component>
