@@ -7,7 +7,6 @@ com\ayesa\batch\job\FileUploadJobExecutable.class
 com\ayesa\batch\enums\CodeResponseOsinergminEnum.class
 com\ayesa\batch\business\bo\ErrorOSIBO.class
 com\ayesa\batch\business\dto\osinergmin\AbstractResponseDTO.class
-com\ayesa\batch\enums\notification\ParameterTemplateEnum.class
 com\ayesa\batch\mappers\fields\Table8FieldEnum.class
 com\ayesa\batch\enums\QueryNameEnum.class
 com\ayesa\batch\mappers\fields\Table3FieldEnum.class
@@ -15,6 +14,7 @@ com\ayesa\batch\steps\DataReader.class
 com\ayesa\batch\repository\TableRepository.class
 com\ayesa\batch\mappers\Table2Mapper.class
 com\ayesa\batch\mappers\Table3Mapper.class
+com\ayesa\batch\enums\HttpMethodEnum.class
 com\ayesa\batch\enums\StatusEnum.class
 com\ayesa\batch\mappers\fields\Table7FieldEnum.class
 com\ayesa\batch\enums\error\ErrorTypeEnum.class
@@ -56,13 +56,13 @@ com\ayesa\batch\mappers\Table7Mapper.class
 com\ayesa\batch\service\PublicElectricityServiceImpl.class
 com\ayesa\batch\business\dto\osinergmin\ErrorServiceDTO.class
 com\ayesa\batch\business\dto\osinergmin\TableStructureResponseDTO.class
+com\ayesa\batch\enums\error\CommonErrorEnum.class
 com\ayesa\batch\enums\ParameterKitEnum.class
 com\ayesa\batch\business\dto\osinergmin\TableStructureDTO.class
 com\ayesa\batch\mappers\AbstractEntityMapper$1.class
 com\ayesa\batch\mappers\fields\Table2FieldEnum.class
 com\ayesa\batch\repository\NotificationRepository.class
 com\ayesa\batch\steps\DataProcessor.class
-com\ayesa\batch\mappers\MapperUtil.class
 com\ayesa\batch\util\DateUtil.class
 com\ayesa\batch\mappers\AbstractEntityMapper.class
 com\ayesa\batch\business\dto\osinergmin\TableCatalogDTO.class

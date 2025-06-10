@@ -44,7 +44,7 @@ public class ErrorNotificationMapperTest {
         JOB_PARAMETERS.put(JOB_NAMES.name(), "JOB01");
         JOB_PARAMETERS.put(PERIODO_REMISION.name(), "202503");
         JOB_PARAMETERS.put(HOST_NOT.name(), "smtp.example.com");
-        JOB_PARAMETERS.put(PORT_NOT.name(), "587");
+        JOB_PARAMETERS.put(PORT_NOT.name(), 587);
         JOB_PARAMETERS.put(KIT_NOT.name(), "KITERR-01");
 
 

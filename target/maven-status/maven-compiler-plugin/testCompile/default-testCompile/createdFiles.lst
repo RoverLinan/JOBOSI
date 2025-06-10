@@ -1,3 +1,4 @@
 com\ayesa\batch\job\FileUploadJobExecutableTest.class
-com\ayesa\batch\mappers\error\ErrorNotificationMapperTest.class
 com\ayesa\batch\job\JobExecutionTest.class
+com\ayesa\batch\service\PublicElectricityServiceTest.class
+com\ayesa\batch\mappers\error\ErrorNotificationMapperTest.class

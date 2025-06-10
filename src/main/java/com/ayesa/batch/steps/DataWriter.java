@@ -5,6 +5,7 @@ import com.ayesa.batch.business.dto.osinergmin.AbstractResponseDTO;
 import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.enums.JobNameEnum;
 import com.ayesa.batch.enums.StatusEnum;
+import com.ayesa.batch.enums.error.ErrorTypeEnum;
 import com.ayesa.batch.mappers.error.ErrorNotificationMapper;
 import com.ayesa.batch.mappers.error.ErrorOSIMapper;
 import com.ayesa.batch.repository.ErrorOSIRepository;
@@ -46,9 +47,9 @@ public class DataWriter {
     }
 
     public void writer(String fileName) {
+        List<Map<String, Object>> entities = TABLE_ENTITIES_IN_PROGRESS.get(this.jobNameEnum);
         try {
             AbstractResponseDTO responseSubmit = publicElectricityService.submitInformationForProcessing(fileName);
-            List<Map<String, Object>> entities = TABLE_ENTITIES_IN_PROGRESS.get(this.jobNameEnum);
 
             if (OSI_001.getCode().equals(responseSubmit.getCodigoMensaje())) {
                 AbstractResponseDTO responseConfirm = publicElectricityService.confirmInformationSubmission();
@@ -57,12 +58,26 @@ public class DataWriter {
                     entities.forEach(entity -> {
                         updateStatusEntity(entity, StatusEnum.CONFIRMADO);
                     });
+                    sendNotificationError(ErrorNotificationMapper.mapToUploadFileErrors(
+                            entities,
+                            this.jobNameEnum,
+                            responseSubmit,
+                            ErrorTypeEnum.NOT_ERROR
+                    ));
+
                 } else {
                     LOGGER.error("{} ERROR EN LA CONFIRMACION: {}", this.jobNameEnum.getTableName(), responseConfirm.getMensajeResultante());
                     entities.forEach(entity -> updateStatusEntity(entity, StatusEnum.ERROR));
                     ErrorOSIRepository.insert(
                             ErrorOSIMapper.mapToUploadFile(this.jobNameEnum, null, responseConfirm,null,FUNCIONAL)
                     );
+                    sendNotificationError(ErrorNotificationMapper.mapToUploadFileErrors(
+                            entities,
+                            this.jobNameEnum,
+                            responseSubmit,
+                            ErrorTypeEnum.FUNCIONAL
+                    ));
+
                 }
             } else if ( OSI_302.getCode().equals(responseSubmit.getCodigoMensaje())) {
                 LOGGER.error("{} ERROR EN LA REMISION: {}", this.jobNameEnum.getTableName(), responseSubmit.getMensajeResultante());
@@ -74,6 +89,13 @@ public class DataWriter {
                     );
                 });
 
+                sendNotificationError(ErrorNotificationMapper.mapToUploadFileErrors(
+                        entities,
+                        this.jobNameEnum,
+                        responseSubmit,
+                        ErrorTypeEnum.FUNCIONAL
+                ));
+
             }else if ( OSI_305.getCode().equals(responseSubmit.getCodigoMensaje()) ||
                     OSI_301.getCode().equals(responseSubmit.getCodigoMensaje())) {
                 LOGGER.error("{} ERROR EN LA REMISION: {}", this.jobNameEnum.getTableName(), responseSubmit.getMensajeResultante());
@@ -81,6 +103,13 @@ public class DataWriter {
                 ErrorOSIRepository.insert(
                         ErrorOSIMapper.mapToUploadFile(this.jobNameEnum, null, responseSubmit,null,FUNCIONAL)
                 );
+
+                sendNotificationError(ErrorNotificationMapper.mapToUploadFileErrors(
+                        entities,
+                        this.jobNameEnum,
+                        responseSubmit,
+                        ErrorTypeEnum.FUNCIONAL
+                ));
 
             } else if (OSI_414.getCode().equals(responseSubmit.getCodigoMensaje())) {
 
@@ -91,6 +120,13 @@ public class DataWriter {
                 ErrorOSIRepository.insert(
                         ErrorOSIMapper.mapToUploadFile(this.jobNameEnum, null, responseSubmit,null,FUNCIONAL)
                 );
+
+                sendNotificationError(ErrorNotificationMapper.mapToUploadFileErrors(
+                        entities,
+                        this.jobNameEnum,
+                        responseSubmit,
+                        ErrorTypeEnum.FUNCIONAL
+                ));
             }
         } catch (Exception e) {
             LOGGER.info("Error al enviar la remisión del archivo: {}", fileName, e);
@@ -98,6 +134,13 @@ public class DataWriter {
             ErrorOSIRepository.insert(
                     ErrorOSIMapper.mapToUploadFile(this.jobNameEnum, null, null,e,TECNICO)
             );
+
+            sendNotificationError(ErrorNotificationMapper.mapToUploadFileErrors(
+                    entities,
+                    this.jobNameEnum,
+                    null,
+                    ErrorTypeEnum.TECNICO
+            ));
         }
     }
 

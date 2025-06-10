@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/error/CommonErrorEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/error/ErrorTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/error/ErrorTypeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/notification/ParameterTemplateEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/fields/MailTemplateFieldEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/fields/MailTemplateFieldEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/mappers/error/ErrorNotificationMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/mappers/error/ErrorNotificationMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +24,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -74,7 +81,7 @@
       <recent name="com.ayesa.batch.job" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BatchLauncher">
+  <component name="RunManager" selected="JUnit.FileUploadJobExecutableTest">
     <configuration name="BatchLauncher" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.BatchLauncher" />
       <module name="JOBOSI" />
@@ -120,6 +127,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FileUploadJobExecutableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JOBOSI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ayesa.batch.job.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ayesa.batch.job" />
+      <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.job.FileUploadJobExecutableTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FileUploadJobExecutableTest.runJob01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JOBOSI" />
       <extension name="coverage">
@@ -152,29 +174,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="job in JOBOSI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JOBOSI" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/com/ayesa/batch/job" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.BatchLauncher" />
+      <item itemvalue="JUnit.FileUploadJobExecutableTest" />
       <item itemvalue="JUnit.PublicElectricityServiceTest.testGetTableCatalog" />
       <item itemvalue="JUnit.ErrorNotificationMapperTest" />
       <item itemvalue="JUnit.ErrorNotificationMapperTest.mapToAttentionErrors" />
       <item itemvalue="JUnit.FileUploadJobExecutableTest.runJob01" />
-      <item itemvalue="JUnit.job in JOBOSI" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FileUploadJobExecutableTest" />
         <item itemvalue="JUnit.PublicElectricityServiceTest.testGetTableCatalog" />
         <item itemvalue="JUnit.ErrorNotificationMapperTest" />
         <item itemvalue="JUnit.ErrorNotificationMapperTest.mapToAttentionErrors" />
         <item itemvalue="JUnit.FileUploadJobExecutableTest.runJob01" />
-        <item itemvalue="JUnit.job in JOBOSI" />
       </list>
     </recent_temporary>
   </component>
@@ -217,7 +231,7 @@
       <workItem from="1748468226827" duration="166000" />
       <workItem from="1749047464446" duration="32021000" />
       <workItem from="1749480285472" duration="665000" />
-      <workItem from="1749485327374" duration="3643000" />
+      <workItem from="1749485327374" duration="8691000" />
     </task>
     <servers />
   </component>

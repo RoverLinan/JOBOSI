@@ -23,10 +23,13 @@ import static com.ayesa.batch.enums.JobParameterEnum.CHAR_DELIM;
 import static com.ayesa.batch.enums.JobParameterEnum.CHUNK_SIZE;
 import static com.ayesa.batch.enums.JobParameterEnum.CODEMP;
 import static com.ayesa.batch.enums.JobParameterEnum.FILE_CREDENTIALS_BD;
+import static com.ayesa.batch.enums.JobParameterEnum.HOST_NOT;
 import static com.ayesa.batch.enums.JobParameterEnum.JOB_NAMES;
+import static com.ayesa.batch.enums.JobParameterEnum.KIT_NOT;
 import static com.ayesa.batch.enums.JobParameterEnum.OSI_PASS;
 import static com.ayesa.batch.enums.JobParameterEnum.OSI_USER;
 import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
+import static com.ayesa.batch.enums.JobParameterEnum.PORT_NOT;
 import static com.ayesa.batch.enums.JobParameterEnum.URL_CONFI;
 import static com.ayesa.batch.enums.JobParameterEnum.URL_OSI;
 import static com.ayesa.batch.enums.JobParameterEnum.URL_REMI;
@@ -40,6 +43,8 @@ public class FileUploadJobExecutableTest {
     private Connection mockConnection;
     @Mock
     private PreparedStatement mockPreparedStatement;
+    @Mock
+    private CallableStatement mockCallableStatement;
     @Mock
     private Statement mockStatement;
     @Mock
@@ -67,6 +72,9 @@ public class FileUploadJobExecutableTest {
         JOB_PARAMETERS.put(OSI_USER.name(), "user");
         JOB_PARAMETERS.put(OSI_PASS.name(), "pass");
         JOB_PARAMETERS.put(CODEMP.name(), "0001");
+        JOB_PARAMETERS.put(HOST_NOT.name(), "smtp.example.com");
+        JOB_PARAMETERS.put(PORT_NOT.name(), 587);
+        JOB_PARAMETERS.put(KIT_NOT.name(), "KITERR-01");
 
         BatchLauncher.JOB_PARAMETERS.put(FILE_CREDENTIALS_BD.name(), "C:\\Users\\Rover\\OneDrive\\Escritorio\\AYESA\\SDEV_BD_auth.properties");// update your local path
     }
@@ -92,6 +100,9 @@ public class FileUploadJobExecutableTest {
 
             mockedDriverManager.when(() -> mockConnection.prepareStatement(anyString()))
                     .thenReturn(mockPreparedStatement);
+
+            mockedDriverManager.when(() -> mockConnection.prepareCall(anyString()))
+                    .thenReturn(mockCallableStatement);
 
 
             mockedDriverManager.when(() -> mockStatement.executeQuery(anyString()))
