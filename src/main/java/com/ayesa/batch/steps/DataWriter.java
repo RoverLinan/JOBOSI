@@ -27,6 +27,7 @@ import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
 import static com.ayesa.batch.BatchLauncher.TABLE_ENTITIES_IN_PROGRESS;
 import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.*;
 import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
+import static com.ayesa.batch.enums.error.CommonErrorEnum.STATUS_PROCESSING;
 import static com.ayesa.batch.enums.error.ErrorTypeEnum.FUNCIONAL;
 import static com.ayesa.batch.enums.error.ErrorTypeEnum.TECNICO;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ACCION;
@@ -87,6 +88,7 @@ public class DataWriter {
                     ErrorOSIRepository.insert(
                             ErrorOSIMapper.mapToUploadFile(this.jobNameEnum, entity, responseSubmit, null, FUNCIONAL)
                     );
+                    entity.put(STATUS_PROCESSING.name(), StatusEnum.INVALIDO);
                 });
 
                 sendNotificationError(ErrorNotificationMapper.mapToUploadFileErrors(

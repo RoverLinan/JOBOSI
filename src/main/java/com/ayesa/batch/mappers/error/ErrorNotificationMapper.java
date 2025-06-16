@@ -117,10 +117,9 @@ public class ErrorNotificationMapper {
 
         Map<MailTemplateFieldEnum, Object> parameters = new HashMap<>();
 
-        parameters.put(MailTemplateFieldEnum.TABLE_NAME_FIELD, jobNameEnum.getTableName());
+        parameters.put(MailTemplateFieldEnum.TABLE_NAME_FIELD, jobNameEnum.getTableName().concat("( ").concat(jobNameEnum.getTableNameBD()).concat(" )"));
         parameters.put(MailTemplateFieldEnum.PERIOD_FIELD, BatchLauncher.JOB_PARAMETERS.get(PERIODO_REMISION.name()));
         parameters.put(MailTemplateFieldEnum.DATE_FIELD, DateUtil.getCurrentDateTime(DateUtil.FORMAT_DATETIME_4));
-        parameters.put(MailTemplateFieldEnum.USER_ID_FIELD, BatchLauncher.JOB_PARAMETERS.get(OSI_USER.name()));
         parameters.put(MailTemplateFieldEnum.ERROR_TYPE_FIELD, errorTypeEnum.name());
         parameters.put(MailTemplateFieldEnum.ERROR_CODE_FIELD, errorCode);
 
