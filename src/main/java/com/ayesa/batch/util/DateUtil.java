@@ -1,12 +1,17 @@
 package com.ayesa.batch.util;
 
-import java.sql.Date;
+import org.jetbrains.annotations.NotNull;
+
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DateUtil {
 
@@ -47,5 +52,73 @@ public class DateUtil {
         LocalDateTime parsedDateTime = LocalDateTime.parse(dateTime, inputFormatter);
         return parsedDateTime.format(outputFormatter);
     }
+
+
+
+    public static LocalDate getBusinessDay(String holidayDatesInYear, String period) {
+        // This method should return the next business day after a given holiday date in the year.
+        // For simplicity, let's assume the holidayDateInYear is a string in the format "dd/MM/yyyy;dd/MM/yyyy;..."
+        LocalDate periodDate = parseFromString(period, FORMAT_DATETIME_3);
+        periodDate = adjustForWeekend(periodDate);
+
+        List<LocalDate> holidays = parseFromStringList(holidayDatesInYear, FORMAT_DATETIME_3);
+        while (isHoliday(periodDate, holidays)) {
+            // If it's a holiday, move to the before day
+            periodDate = periodDate.minusDays(1);
+        }
+
+        return periodDate;
+    }
+
+
+
+    public static LocalDate parseFromString( String date, String format) {
+        return LocalDate.parse(date, DateTimeFormatter.ofPattern(format));
+    }
+
+    public static List<LocalDate> parseFromStringList(String dates, String format) {
+        return Stream.of(dates.split(";"))
+                .map(date -> parseFromString(date, format))
+                .collect(Collectors.toList());
+    }
+    public static LocalDate parseDateFromPeriod(String input) {
+        if (input.length() != 6) {
+            throw new IllegalArgumentException("Formato incorrecto. Debe tener 6 dígitos: yymmdd.");
+        }
+
+        int year = 2000 + Integer.parseInt(input.substring(0, 2));
+        int month = Integer.parseInt(input.substring(2, 4));
+        int day = Integer.parseInt(input.substring(4, 6));
+
+        return LocalDate.of(year, month, day);
+    }
+
+    public static String parseDateToPeriod(LocalDate input) {
+        if (input == null) {
+            throw new IllegalArgumentException("La fecha de entrada no puede ser nula.");
+        }
+
+        String year = String.format("%02d", input.getYear() % 100);
+        String month = String.format("%02d", input.getMonthValue());
+        String day = String.format("%02d", input.getDayOfMonth());
+
+        return year + month + day;
+    }
+
+    @NotNull
+    private static LocalDate adjustForWeekend(LocalDate periodDate) {
+        while (periodDate.getDayOfWeek().getValue() >= 6) {
+            // If it's a weekend, move to the before day
+            periodDate = periodDate.minusDays(1);
+        }
+        return periodDate;
+    }
+
+    private static boolean isHoliday(LocalDate date, List<LocalDate> holidays) {
+        return holidays.contains(date);
+    }
+
+
+
 
 }

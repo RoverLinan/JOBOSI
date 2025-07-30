@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/JobNameEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/enums/JobNameEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/mail-error.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/mail-error.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.FileUploadJobExecutableTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.FileUploadJobExecutableTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.JobExecutionTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.ayesa.batch.job.JobExecutionTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.FileUploadJobExecutableTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.FileUploadJobExecutableTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.JobExecutionTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.ayesa.batch.job.JobExecutionTest.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,11 +73,11 @@
       <recent name="com.ayesa.batch.job" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ErrorNotificationMapperTest.mapToAttentionErrors">
+  <component name="RunManager" selected="Application.BatchLauncher">
     <configuration name="BatchLauncher" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.BatchLauncher" />
       <module name="JOBOSI" />
-      <option name="PROGRAM_PARAMETERS" value="JOB01-JOB02 250610" />
+      <option name="PROGRAM_PARAMETERS" value="JOB02 250710" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.ayesa.batch.*" />
@@ -235,7 +227,12 @@
       <workItem from="1749574144716" duration="5196000" />
       <workItem from="1749748846365" duration="36000" />
       <workItem from="1749758035223" duration="44000" />
-      <workItem from="1750089064172" duration="1063000" />
+      <workItem from="1750089064172" duration="1871000" />
+      <workItem from="1752261775089" duration="5073000" />
+      <workItem from="1752505069682" duration="133000" />
+      <workItem from="1752524608761" duration="16000" />
+      <workItem from="1752853238426" duration="29000" />
+      <workItem from="1753212248642" duration="1443000" />
     </task>
     <servers />
   </component>

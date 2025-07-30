@@ -7,6 +7,7 @@ import com.ayesa.batch.business.dto.osinergmin.TableCatalogResponseDTO;
 import com.ayesa.batch.business.dto.osinergmin.TableStructureResponseDTO;
 import com.ayesa.batch.enums.HttpMethodEnum;
 import com.ayesa.batch.enums.JobParameterEnum;
+import com.ayesa.batch.util.DateUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -26,6 +27,7 @@ import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.io.entity.HttpEntities;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
 import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
@@ -33,7 +35,7 @@ import static com.ayesa.batch.enums.JobParameterEnum.URL_OSI;
 
 public abstract class PublicElectricityService {
 
-     String codigoPeriodoRemision = (String)JOB_PARAMETERS.get(PERIODO_REMISION.name());
+     String codigoPeriodoRemision = DateUtil.parseDateToPeriod((LocalDate) JOB_PARAMETERS.get(PERIODO_REMISION.name()));
      String codigoEmpresa = (String)JOB_PARAMETERS.get(JobParameterEnum.CODEMP.name());
      String usuario = (String)JOB_PARAMETERS.get(JobParameterEnum.OSI_USER.name());
      String clave = (String)JOB_PARAMETERS.get(JobParameterEnum.OSI_PASS.name());

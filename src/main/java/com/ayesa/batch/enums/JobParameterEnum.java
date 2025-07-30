@@ -27,5 +27,6 @@ public enum JobParameterEnum {
     HOST_NOT,
     PORT_NOT,
     TYPE_NOT,
-    KIT_NOT
+    KIT_NOT,
+    HOLIDAYS
     }
