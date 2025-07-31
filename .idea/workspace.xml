@@ -5,40 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_1_1752266451.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1752267543.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1752268069.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_2_1753942137.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/upload/TISEC_TT_3_1752266462.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/notification/NotificationParameterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/notification/NotificationParameterDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/notification/ParameterTemplateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/business/dto/notification/ParameterTemplateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/AttentionRegisterJobExecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/AttentionRegisterJobExecutable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/FileUploadJobExecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/FileUploadJobExecutable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/JobExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/JobExecution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/AbstractEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/AbstractEntityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table1Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table1Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table2Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table2Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table3Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table3Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table6Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table6Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table8Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table8Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/error/ErrorNotificationMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/TableRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/repository/TableRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/OutlookNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/OutlookNotification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/FileUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/job/FileUploadJobExecutableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/job/FileUploadJobExecutableTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/job/JobExecutionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/job/JobExecutionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/mappers/error/ErrorNotificationMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/mappers/error/ErrorNotificationMapperTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +17,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -104,12 +71,13 @@
       <recent name="C:\Users\Rover\OneDrive\Escritorio\AYESA\GIT\JOBOSI\shell" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.ayesa.batch.util" />
       <recent name="com.ayesa.batch.service" />
       <recent name="com.ayesa.batch.mappers.error" />
       <recent name="com.ayesa.batch.job" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BatchLauncher">
+  <component name="RunManager" selected="JUnit.DateUtilTest">
     <configuration name="BatchLauncher" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.BatchLauncher" />
       <module name="JOBOSI" />
@@ -124,17 +92,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ErrorNotificationMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DateUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JOBOSI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ayesa.batch.mappers.error.*" />
+          <option name="PATTERN" value="com.ayesa.batch.util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.ayesa.batch.mappers.error" />
-      <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.mappers.error.ErrorNotificationMapperTest" />
+      <option name="PACKAGE_NAME" value="com.ayesa.batch.util" />
+      <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.util.DateUtilTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DateUtilTest.adjustPeriodForBusinessDay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JOBOSI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ayesa.batch.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ayesa.batch.util" />
+      <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.util.DateUtilTest" />
+      <option name="METHOD_NAME" value="adjustPeriodForBusinessDay" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -186,37 +170,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PublicElectricityServiceTest.testGetTableCatalog" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JOBOSI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ayesa.batch.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ayesa.batch.service" />
-      <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.service.PublicElectricityServiceTest" />
-      <option name="METHOD_NAME" value="testGetTableCatalog" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.BatchLauncher" />
+      <item itemvalue="JUnit.DateUtilTest" />
+      <item itemvalue="JUnit.DateUtilTest.adjustPeriodForBusinessDay" />
       <item itemvalue="JUnit.FileUploadJobExecutableTest" />
-      <item itemvalue="JUnit.PublicElectricityServiceTest.testGetTableCatalog" />
-      <item itemvalue="JUnit.ErrorNotificationMapperTest" />
       <item itemvalue="JUnit.ErrorNotificationMapperTest.mapToAttentionErrors" />
       <item itemvalue="JUnit.FileUploadJobExecutableTest.runJob01" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DateUtilTest" />
+        <item itemvalue="JUnit.DateUtilTest.adjustPeriodForBusinessDay" />
         <item itemvalue="JUnit.FileUploadJobExecutableTest.runJob01" />
         <item itemvalue="JUnit.FileUploadJobExecutableTest" />
         <item itemvalue="JUnit.ErrorNotificationMapperTest.mapToAttentionErrors" />
-        <item itemvalue="JUnit.PublicElectricityServiceTest.testGetTableCatalog" />
-        <item itemvalue="JUnit.ErrorNotificationMapperTest" />
       </list>
     </recent_temporary>
   </component>
@@ -270,7 +238,7 @@
       <workItem from="1752853238426" duration="29000" />
       <workItem from="1753212248642" duration="1443000" />
       <workItem from="1753902402612" duration="22848000" />
-      <workItem from="1753990603876" duration="810000" />
+      <workItem from="1753990603876" duration="2716000" />
     </task>
     <servers />
   </component>
