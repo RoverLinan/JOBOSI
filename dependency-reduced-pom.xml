@@ -3,8 +3,9 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ayesa</groupId>
   <artifactId>JOBOSI</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <build>
+    <finalName>${project.artifactId}-${project.version}${build.version}</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>
@@ -34,6 +35,20 @@
       </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>release</id>
+      <properties>
+        <build.version>-RELEASE</build.version>
+      </properties>
+    </profile>
+    <profile>
+      <id>snapshot</id>
+      <properties>
+        <build.version>-SNAPSHOT</build.version>
+      </properties>
+    </profile>
+  </profiles>
   <dependencies>
     <dependency>
       <groupId>org.slf4j</groupId>

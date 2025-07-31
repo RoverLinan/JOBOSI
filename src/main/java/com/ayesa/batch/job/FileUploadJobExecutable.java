@@ -26,7 +26,7 @@ public class FileUploadJobExecutable implements Job {
     private final int CHUNK_SIZE;
 
     public FileUploadJobExecutable(JobNameEnum jobNameEnum, DataReader dataReader, DataProcessor dataProcessor, DataWriter dataWriter){
-        LOGGER.info("JobExecutable: jobNameEnum = {}", jobNameEnum);
+        LOGGER.debug("JobExecutable: jobNameEnum = {}", jobNameEnum);
         this.jobNameEnum = jobNameEnum;
         this.CHUNK_SIZE = (int) BatchLauncher.JOB_PARAMETERS.get(JobParameterEnum.CHUNK_SIZE.name());
         this.dataReader = dataReader;

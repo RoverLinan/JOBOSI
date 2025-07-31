@@ -19,14 +19,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
 import static com.ayesa.batch.BatchLauncher.TABLE_ENTITIES_IN_PROGRESS;
-import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.*;
+import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_001;
+import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_301;
+import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_302;
+import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_305;
+import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_308;
+import static com.ayesa.batch.enums.CodeResponseOsinergminEnum.OSI_414;
 import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
 import static com.ayesa.batch.enums.error.CommonErrorEnum.STATUS_PROCESSING;
 import static com.ayesa.batch.enums.error.ErrorTypeEnum.FUNCIONAL;

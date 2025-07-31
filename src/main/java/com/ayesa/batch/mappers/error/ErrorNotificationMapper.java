@@ -14,14 +14,21 @@ import com.ayesa.batch.util.FileUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static com.ayesa.batch.enums.JobParameterEnum.*;
+import static com.ayesa.batch.enums.JobParameterEnum.ASUNTO_NOT;
+import static com.ayesa.batch.enums.JobParameterEnum.COPIA_NOT;
+import static com.ayesa.batch.enums.JobParameterEnum.EMAIL1_NOT;
+import static com.ayesa.batch.enums.JobParameterEnum.EMAIL2_NOT;
+import static com.ayesa.batch.enums.JobParameterEnum.HOST_NOT;
+import static com.ayesa.batch.enums.JobParameterEnum.KIT_NOT;
+import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
+import static com.ayesa.batch.enums.JobParameterEnum.PORT_NOT;
+import static com.ayesa.batch.enums.JobParameterEnum.TYPE_NOT;
 import static com.ayesa.batch.enums.error.CommonErrorEnum.STATUS_PROCESSING;
 import static com.ayesa.batch.util.FileUtil.PATH_RESOURCE_TEMPLATE_MAIL;
 
@@ -59,7 +66,7 @@ public class ErrorNotificationMapper {
         TemplateNameEnum templateNameEnum = TemplateNameEnum.fromKitName(kitName);
 
         String templateMail = FileUtil.getPropertiesFromResources(PATH_RESOURCE_TEMPLATE_MAIL).getProperty(templateNameEnum.getPropertyName());
-        LOGGER.info("replaceParameterInTemplate: templateNameEnum = {}, templateMail = {}", templateNameEnum, templateMail);
+        LOGGER.debug("replaceParameterInTemplate: templateNameEnum = {}, templateMail = {}", templateNameEnum, templateMail);
         return replaceParameter(templateMail, parameters);
     }
 

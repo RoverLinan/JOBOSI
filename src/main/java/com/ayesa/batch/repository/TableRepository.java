@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -93,7 +92,7 @@ public class TableRepository {
         } catch (Exception e) {
             LOGGER.error("Error loading parameters from DB", e);
         }
-        LOGGER.info("getJobParameters: parameters = {}", parametersResult);
+        LOGGER.debug("getJobParameters: parameters = {}", parametersResult);
         return parametersResult;
 
     }

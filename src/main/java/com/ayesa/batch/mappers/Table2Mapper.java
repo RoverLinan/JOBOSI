@@ -7,17 +7,12 @@ import java.sql.ResultSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 import static com.ayesa.batch.mappers.fields.Table2FieldEnum.COD_ESTADO_ATENCION;
-import static com.ayesa.batch.mappers.fields.Table2FieldEnum.COMENTARIO_CLIENTE;
-import static com.ayesa.batch.mappers.fields.Table2FieldEnum.COMENTARIO_USUARIO;
 import static com.ayesa.batch.mappers.fields.Table2FieldEnum.DESC_ACCION;
 import static com.ayesa.batch.mappers.fields.Table2FieldEnum.FEC_RESPUESTA;
-import static com.ayesa.batch.mappers.fields.Table2FieldEnum.NUM_RESOLUCION;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ACCION;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ATENCION;
-import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ESTADO;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.FEC_CREACION;
 
 public class Table2Mapper extends AbstractEntityMapper {

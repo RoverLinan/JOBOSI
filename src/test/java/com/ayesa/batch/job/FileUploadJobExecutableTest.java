@@ -16,6 +16,7 @@ import org.mockito.MockitoAnnotations;
 
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.Collections;
 
 import static com.ayesa.batch.BatchLauncher.*;
@@ -67,16 +68,14 @@ public class FileUploadJobExecutableTest {
         BatchLauncher.JOB_PARAMETERS.put(URL_CONFI.name(), "/tisec-ws/remote/rest/remisionDatos/confirmar");
         BatchLauncher.JOB_PARAMETERS.put(URL_REVER.name(), "/tisec-ws/remote/rest/remisionDatos/revertir");
         BatchLauncher.JOB_PARAMETERS.put(CHAR_DELIM.name(), "|");
-        BatchLauncher.JOB_PARAMETERS.put(FILE_CREDENTIALS_BD.name(), "C:\\Users\\Rover\\OneDrive\\Escritorio\\AYESA\\SDEV_BD_auth.properties");// update your local path
-        JOB_PARAMETERS.put(PERIODO_REMISION.name(), "202101");
+        BatchLauncher.JOB_PARAMETERS.put(FILE_CREDENTIALS_BD.name(), "C:\\Users\\Rover\\OneDrive\\Escritorio\\AYESA\\GIT\\JOBOSI\\config\\datasource_jobosi.properties");// update your local path
+        JOB_PARAMETERS.put(PERIODO_REMISION.name(), LocalDate.now());
         JOB_PARAMETERS.put(OSI_USER.name(), "user");
         JOB_PARAMETERS.put(OSI_PASS.name(), "pass");
         JOB_PARAMETERS.put(CODEMP.name(), "0001");
         JOB_PARAMETERS.put(HOST_NOT.name(), "smtp.example.com");
         JOB_PARAMETERS.put(PORT_NOT.name(), 587);
         JOB_PARAMETERS.put(KIT_NOT.name(), "KITERR-01");
-
-        BatchLauncher.JOB_PARAMETERS.put(FILE_CREDENTIALS_BD.name(), "C:\\Users\\Rover\\OneDrive\\Escritorio\\AYESA\\SDEV_BD_auth.properties");// update your local path
     }
 
     @After
@@ -87,7 +86,7 @@ public class FileUploadJobExecutableTest {
     @Test
     public void runJob01() throws Exception {
 
-        final JobNameEnum jobNameEnum = JobNameEnum.JOB01;
+        final JobNameEnum jobNameEnum = JobNameEnum.JOB02;
 
 
         try (MockedStatic<DriverManager> mockedDriverManager = mockStatic(DriverManager.class)) {
@@ -105,10 +104,13 @@ public class FileUploadJobExecutableTest {
                     .thenReturn(mockCallableStatement);
 
 
-            mockedDriverManager.when(() -> mockStatement.executeQuery(anyString()))
+            mockedDriverManager.when(() -> mockPreparedStatement.executeQuery())
                     .thenReturn(resultSetCount);
 
-            when(mockPreparedStatement.executeQuery()).thenReturn(resultSetSelect);
+            mockedDriverManager.when(() -> resultSetCount.getInt(anyString()))
+                    .thenReturn(400);
+
+            when(mockPreparedStatement.executeQuery()).thenReturn(resultSetCount);
             when(resultSetCount.next()).thenReturn(true).thenReturn(false);
             when(resultSetCount.getInt(anyString())).thenReturn(400);
             when(resultSetSelect.next()).thenReturn(true).thenReturn(true).thenReturn(false);
@@ -130,9 +132,9 @@ public class FileUploadJobExecutableTest {
 
         fileUploadJobExecutable.run();
 
-        Mockito.verify(resultSetCount, Mockito.times(2)).next();
+        Mockito.verify(resultSetCount, Mockito.times(6)).next();
         Mockito.verify(resultSetCount, Mockito.times(1)).getInt(anyString());
-        Mockito.verify(mockPreparedStatement, Mockito.times(4)).executeQuery();
+        Mockito.verify(mockPreparedStatement, Mockito.times(5)).executeQuery();
 
 
     }

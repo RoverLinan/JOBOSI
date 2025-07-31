@@ -1,13 +1,10 @@
 package com.ayesa.batch.steps;
 
 import com.ayesa.batch.BatchLauncher;
-import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.enums.JobNameEnum;
 import com.ayesa.batch.enums.JobParameterEnum;
 import com.ayesa.batch.mappers.AbstractEntityMapper;
-import com.ayesa.batch.mappers.Table1Mapper;
 import com.ayesa.batch.util.FileUtil;
-
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,9 +1,8 @@
 package com.ayesa.batch.service;
 
-import com.ayesa.batch.business.dto.notification.NotificationParameterDTO;
 import com.ayesa.batch.business.dto.notification.MailParameterDTO;
+import com.ayesa.batch.business.dto.notification.NotificationParameterDTO;
 import com.ayesa.batch.repository.NotificationRepository;
-import com.ayesa.batch.steps.DataReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

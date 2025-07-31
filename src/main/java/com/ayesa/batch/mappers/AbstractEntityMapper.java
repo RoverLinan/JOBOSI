@@ -1,13 +1,11 @@
 package com.ayesa.batch.mappers;
 
-import com.ayesa.batch.business.dto.osinergmin.AttentionRegisterRequestDTO;
 import com.ayesa.batch.mappers.fields.TableField;
 import com.ayesa.batch.mappers.fields.TableFieldTypeEnum;
 import com.ayesa.batch.util.DateUtil;
 
 import java.io.Serializable;
 import java.sql.ResultSet;
-import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;

@@ -7,9 +7,7 @@ import java.sql.ResultSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
-import static com.ayesa.batch.mappers.fields.Table4FieldEnum.FEC_ULT_APLICACION;
 import static com.ayesa.batch.mappers.fields.Table6FieldEnum.COD_DEF_TIPICA;
 import static com.ayesa.batch.mappers.fields.Table6FieldEnum.COD_SECTOR_TIPICO;
 import static com.ayesa.batch.mappers.fields.Table6FieldEnum.COD_UAP;

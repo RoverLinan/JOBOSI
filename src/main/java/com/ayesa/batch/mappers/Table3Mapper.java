@@ -7,9 +7,7 @@ import java.sql.ResultSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
-import static com.ayesa.batch.mappers.fields.Table2FieldEnum.FEC_RESPUESTA;
 import static com.ayesa.batch.mappers.fields.Table3FieldEnum.ACTA_INSPECCION;
 import static com.ayesa.batch.mappers.fields.Table3FieldEnum.CANT_SUM_AFECTADOS;
 import static com.ayesa.batch.mappers.fields.Table3FieldEnum.CARACT_TEC_PUESTA_OPER;
@@ -29,7 +27,6 @@ import static com.ayesa.batch.mappers.fields.Table3FieldEnum.SUST_TEC_C;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.CANT_ATENCIONES;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ACCION;
 import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.COD_ATENCION;
-import static com.ayesa.batch.mappers.fields.TableCommonFieldEnum.FEC_CREACION;
 
 public class Table3Mapper extends AbstractEntityMapper{
 

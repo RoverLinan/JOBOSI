@@ -10,26 +10,12 @@ import com.ayesa.batch.enums.JobParameterEnum;
 import com.ayesa.batch.mappers.Table1Mapper;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import org.apache.hc.client5.http.classic.methods.HttpPost;
-import org.apache.hc.client5.http.classic.methods.HttpPut;
-import org.apache.hc.client5.http.entity.mime.FileBody;
-import org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder;
-import org.apache.hc.client5.http.entity.mime.StringBody;
-import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
-import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
-import org.apache.hc.client5.http.impl.classic.HttpClients;
-import org.apache.hc.core5.http.ContentType;
-import org.apache.hc.core5.http.HttpEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.util.Objects;
 
 import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
 import static com.ayesa.batch.enums.JobParameterEnum.URL_ATEN;
@@ -107,7 +93,7 @@ public class PublicElectricityServiceImpl extends PublicElectricityService {
 
             abstractResponseDTO = processResponse(response);
 
-            LOGGER.info("submitInformationForProcessing: response = {}", abstractResponseDTO);
+            LOGGER.debug("submitInformationForProcessing: response = {}", abstractResponseDTO);
         } catch (Exception e) {
             LOGGER.error("Error al enviar la información para procesar", e);
             throw new RuntimeException(e);
@@ -128,7 +114,7 @@ public class PublicElectricityServiceImpl extends PublicElectricityService {
             Response response = executeRequest(body, URL_CONFI, HttpMethodEnum.PUT);
             abstractResponseDTO = processResponse(response);
 
-            LOGGER.info("confirmInformationSubmission: response = {}", abstractResponseDTO);
+            LOGGER.debug("confirmInformationSubmission: response = {}", abstractResponseDTO);
         } catch (Exception e) {
             LOGGER.error("Error al enviar la información para confirmar", e);
             throw new RuntimeException(e);

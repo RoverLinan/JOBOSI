@@ -3,9 +3,11 @@ package com.ayesa.batch.job;
 
 import com.ayesa.batch.BatchLauncher;
 import com.ayesa.batch.enums.JobNameEnum;
+import net.bytebuddy.asm.Advice;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.util.Collections;
 
 import static com.ayesa.batch.BatchLauncher.*;
@@ -40,8 +42,8 @@ public class JobExecutionTest {
         BatchLauncher.JOB_PARAMETERS.put(URL_CONFI.name(), "/tisec-ws/remote/rest/remisionDatos/confirmar");
         BatchLauncher.JOB_PARAMETERS.put(URL_REVER.name(), "/tisec-ws/remote/rest/remisionDatos/revertir");
         BatchLauncher.JOB_PARAMETERS.put(CHAR_DELIM.name(), "|");
-        BatchLauncher.JOB_PARAMETERS.put(FILE_CREDENTIALS_BD.name(), "C:\\Users\\Rover\\OneDrive\\Escritorio\\AYESA\\SDEV_BD_auth.properties");// update your local path
-        JOB_PARAMETERS.put(PERIODO_REMISION.name(), "202101");
+        BatchLauncher.JOB_PARAMETERS.put(FILE_CREDENTIALS_BD.name(), "C:\\Users\\Rover\\OneDrive\\Escritorio\\AYESA\\GIT\\JOBOSI\\config\\datasource_jobosi.properties");// update your local path
+        JOB_PARAMETERS.put(PERIODO_REMISION.name(), LocalDate.now());
         JOB_PARAMETERS.put(OSI_USER.name(), "user");
         JOB_PARAMETERS.put(OSI_PASS.name(), "pass");
         JOB_PARAMETERS.put(CODEMP.name(), "0001");

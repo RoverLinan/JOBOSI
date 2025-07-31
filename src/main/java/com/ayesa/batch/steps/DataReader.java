@@ -1,6 +1,5 @@
 package com.ayesa.batch.steps;
 
-import com.ayesa.batch.BatchLauncher;
 import com.ayesa.batch.business.exception.LogicalException;
 import com.ayesa.batch.config.DataSourceConnection;
 import com.ayesa.batch.enums.JobNameEnum;
@@ -14,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +21,6 @@ import java.util.Map;
 import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
 import static com.ayesa.batch.enums.JobParameterEnum.CHUNK_SIZE;
 import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
-import static com.ayesa.batch.util.DateUtil.FORMAT_DATETIME_3;
 import static com.ayesa.batch.util.FileUtil.PATH_RESOURCES_SQL_QUERIES;
 
 
@@ -56,7 +53,7 @@ public class DataReader {
             preparedStatement.setInt(3, chunkSize);
 
 
-            LOGGER.info("read: query = {}", queryRead);
+            LOGGER.debug("read: query = {}", queryRead);
             try (ResultSet result = preparedStatement.executeQuery()) {
                 AbstractEntityMapper entityMapper = EntityMapperCreator.create(jobName);
                 while (result.next()) {
@@ -68,14 +65,14 @@ public class DataReader {
             throw new RuntimeException(e);
         }
 
-        LOGGER.info("read: data = {}", data);
+        LOGGER.debug("read: data = {}", data);
         return data;
     }
 
     public void countElements() {
         QueryNameEnum queryNameEnum = QueryNameEnum.inverse(jobName, QueryNameEnum.QueryFunctionEnum.COUNT);
         String queryCount = FileUtil.getPropertiesFromResources(PATH_RESOURCES_SQL_QUERIES).getProperty(queryNameEnum.getPropertyName());
-        LOGGER.info("countElements: query count = {} ", queryCount);
+        LOGGER.debug("countElements: query count = {} ", queryCount);
 
         try (PreparedStatement preparedStatement = this.dataSourceConnection.getConnection().prepareStatement(queryCount)){
              LocalDate period = (LocalDate) JOB_PARAMETERS.get(PERIODO_REMISION.name());

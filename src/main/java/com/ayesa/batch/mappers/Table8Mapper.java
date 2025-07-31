@@ -6,7 +6,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-
 import static com.ayesa.batch.mappers.fields.Table8FieldEnum.COD_CENTRO_ATENCION;
 import static com.ayesa.batch.mappers.fields.Table8FieldEnum.COD_PRESUPUESTO;
 import static com.ayesa.batch.mappers.fields.Table8FieldEnum.COD_TARIF_FIN;
