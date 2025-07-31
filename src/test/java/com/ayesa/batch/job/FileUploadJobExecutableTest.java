@@ -115,10 +115,8 @@ public class FileUploadJobExecutableTest {
             doNothing().when(mockConnection).close();
 
 
-            DataSourceConnection dataSourceConnection = DataSourceConnection.getInstance();
 
-
-            DataReader dataReader = new DataReader(jobNameEnum, dataSourceConnection);
+            DataReader dataReader = new DataReader(jobNameEnum);
 
 
             DataProcessor dataProcessor = new DataProcessor(jobNameEnum);

@@ -14,6 +14,7 @@ import com.ayesa.batch.util.FileUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -118,7 +119,7 @@ public class ErrorNotificationMapper {
         Map<MailTemplateFieldEnum, Object> parameters = new HashMap<>();
 
         parameters.put(MailTemplateFieldEnum.TABLE_NAME_FIELD, jobNameEnum.getTableName().concat("( ").concat(jobNameEnum.getTableNameBD()).concat(" )"));
-        parameters.put(MailTemplateFieldEnum.PERIOD_FIELD, BatchLauncher.JOB_PARAMETERS.get(PERIODO_REMISION.name()));
+        parameters.put(MailTemplateFieldEnum.PERIOD_FIELD, DateUtil.parseFromLocalDate( BatchLauncher.JOB_PARAMETERS.get(PERIODO_REMISION.name())) );
         parameters.put(MailTemplateFieldEnum.DATE_FIELD, DateUtil.getCurrentDateTime(DateUtil.FORMAT_DATETIME_4));
         parameters.put(MailTemplateFieldEnum.ERROR_TYPE_FIELD, errorTypeEnum.name());
         parameters.put(MailTemplateFieldEnum.ERROR_CODE_FIELD, errorCode);

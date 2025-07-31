@@ -19,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -116,7 +117,7 @@ public class DataWriter {
             } else if (OSI_414.getCode().equals(responseSubmit.getCodigoMensaje())) {
 
                 StringBuilder sb = new StringBuilder(responseSubmit.getMensajeResultante());
-                sb.append(" - Periodo ").append(JOB_PARAMETERS.get(PERIODO_REMISION.name()));
+                sb.append(" - Periodo ").append(DateUtil.parseFromLocalDate( JOB_PARAMETERS.get(PERIODO_REMISION.name())));
                 responseSubmit.setMensajeResultante(sb.toString());
                 LOGGER.error("{} ERROR EN LA REMISION: {}", this.jobNameEnum.getTableName(), responseSubmit.getMensajeResultante());
                 ErrorOSIRepository.insert(

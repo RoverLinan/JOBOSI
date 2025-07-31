@@ -15,11 +15,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
 import static com.ayesa.batch.enums.JobParameterEnum.CHUNK_SIZE;
+import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
+import static com.ayesa.batch.util.DateUtil.FORMAT_DATETIME_3;
 import static com.ayesa.batch.util.FileUtil.PATH_RESOURCES_SQL_QUERIES;
 
 
@@ -33,8 +37,8 @@ public class DataReader {
 
     private final DataSourceConnection dataSourceConnection;
 
-    public DataReader(JobNameEnum jobName, DataSourceConnection dataSourceConnection) {
-        this.dataSourceConnection = dataSourceConnection;
+    public DataReader(JobNameEnum jobName) {
+        this.dataSourceConnection = DataSourceConnection.getInstance();
         this.jobName = jobName;
     }
 
@@ -45,8 +49,11 @@ public class DataReader {
         List<Map<String, Object>> data = new ArrayList<>();
 
         try (PreparedStatement preparedStatement = this.dataSourceConnection.getConnection().prepareStatement(queryRead)) {
-            preparedStatement.setInt(1, offset);
-            preparedStatement.setInt(2, chunkSize);
+            LocalDate period = (LocalDate) JOB_PARAMETERS.get(PERIODO_REMISION.name());
+
+            preparedStatement.setString(1, period.plusDays(1).toString() );
+            preparedStatement.setInt(2, offset);
+            preparedStatement.setInt(3, chunkSize);
 
 
             LOGGER.info("read: query = {}", queryRead);
@@ -70,8 +77,11 @@ public class DataReader {
         String queryCount = FileUtil.getPropertiesFromResources(PATH_RESOURCES_SQL_QUERIES).getProperty(queryNameEnum.getPropertyName());
         LOGGER.info("countElements: query count = {} ", queryCount);
 
-        try (Statement statement = this.dataSourceConnection.getConnection().createStatement();
-             ResultSet result = statement.executeQuery(queryCount)) {
+        try (PreparedStatement preparedStatement = this.dataSourceConnection.getConnection().prepareStatement(queryCount)){
+             LocalDate period = (LocalDate) JOB_PARAMETERS.get(PERIODO_REMISION.name());
+
+             preparedStatement.setString(1, period.plusDays(1).toString() );
+             ResultSet result = preparedStatement.executeQuery();
 
             while (result.next()) {
                 TOTAL_ELEMENTS = result.getInt("TOTAL");
@@ -85,6 +95,6 @@ public class DataReader {
     }
 
     private void calculateBlocks() {
-        TOTAL_BLOCKS = (int) Math.ceil((double) TOTAL_ELEMENTS / (int) BatchLauncher.JOB_PARAMETERS.get(CHUNK_SIZE.name()));
+        TOTAL_BLOCKS = (int) Math.ceil((double) TOTAL_ELEMENTS / (int) JOB_PARAMETERS.get(CHUNK_SIZE.name()));
     }
 }

@@ -7,12 +7,15 @@ import com.ayesa.batch.repository.TableRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.ayesa.batch.enums.JobParameterEnum.FILE_CREDENTIALS_BD;
 import static com.ayesa.batch.enums.JobParameterEnum.JOB_NAMES;
 import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
+import static com.ayesa.batch.util.DateUtil.FORMAT_DATETIME_3;
+import static com.ayesa.batch.util.DateUtil.parseFromString;
 
 public class BatchLauncher {
     private static final Logger LOGGER = LoggerFactory.getLogger(BatchLauncher.class);
@@ -55,7 +58,7 @@ public class BatchLauncher {
 
         JOB_PARAMETERS = new HashMap<>();
         JOB_PARAMETERS.put(JOB_NAMES.name(), jobNames);
-        JOB_PARAMETERS.put(PERIODO_REMISION.name(), periodoRemision);
+        JOB_PARAMETERS.put(PERIODO_REMISION.name(), parseFromString(periodoRemision, FORMAT_DATETIME_3));
 
         if(args.length == 3){
             String fileCredentials = args[2];

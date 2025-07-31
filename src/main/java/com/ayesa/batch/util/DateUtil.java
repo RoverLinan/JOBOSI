@@ -1,5 +1,6 @@
 package com.ayesa.batch.util;
 
+import com.ayesa.batch.BatchLauncher;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.Timestamp;
@@ -13,11 +14,16 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.ayesa.batch.enums.JobParameterEnum.HOLIDAYS;
+import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
+
 public class DateUtil {
 
     public static String FORMAT_DATETIME_1 = "yyyy-MM-dd HH:mm:ss.S";
     public static String FORMAT_DATETIME_2 = "dd/MM/yyyy HH:mm";
     public static String FORMAT_DATETIME_3 = "dd/MM/yyyy";
+
+    public static String FORMAT_DATE_4 = "YYYY-MM-DD";
 
     public static String FORMAT_DATETIME_4 = "d 'de' MMMM 'del' yyyy hh:mm:ss a";
 
@@ -55,19 +61,25 @@ public class DateUtil {
 
 
 
-    public static LocalDate getBusinessDay(String holidayDatesInYear, String period) {
+    public static void adjustPeriodForBusinessDay() {
+        LocalDate periodDate = (LocalDate) BatchLauncher.JOB_PARAMETERS.get(PERIODO_REMISION.name());
+        String holidayDatesInYear = (String) BatchLauncher.JOB_PARAMETERS.get(HOLIDAYS.name());
+
         // This method should return the next business day after a given holiday date in the year.
         // For simplicity, let's assume the holidayDateInYear is a string in the format "dd/MM/yyyy;dd/MM/yyyy;..."
-        LocalDate periodDate = parseFromString(period, FORMAT_DATETIME_3);
+
+        periodDate = periodDate.minusDays(1);
+
         periodDate = adjustForWeekend(periodDate);
 
         List<LocalDate> holidays = parseFromStringList(holidayDatesInYear, FORMAT_DATETIME_3);
         while (isHoliday(periodDate, holidays)) {
             // If it's a holiday, move to the before day
             periodDate = periodDate.minusDays(1);
+            periodDate = adjustForWeekend(periodDate);
         }
 
-        return periodDate;
+        BatchLauncher.JOB_PARAMETERS.put(PERIODO_REMISION.name(), periodDate);
     }
 
 
@@ -103,6 +115,10 @@ public class DateUtil {
         String day = String.format("%02d", input.getDayOfMonth());
 
         return year + month + day;
+    }
+
+    public static String parseFromLocalDate(Object input){
+        return ((LocalDate)input).toString();
     }
 
     @NotNull
