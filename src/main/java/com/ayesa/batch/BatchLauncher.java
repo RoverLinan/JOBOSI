@@ -4,6 +4,7 @@ import com.ayesa.batch.enums.JobNameEnum;
 import com.ayesa.batch.enums.ParameterKitEnum;
 import com.ayesa.batch.job.JobExecution;
 import com.ayesa.batch.repository.TableRepository;
+import com.ayesa.batch.util.DateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,12 +55,16 @@ public class BatchLauncher {
 
     private static void  getJobParameters(String[] args) {
         LOGGER.info("getJobParameters: args = {}", Arrays.asList(args));
-        if (args.length < 2) {
+        if (args.length < 1) {
             throw new IllegalArgumentException("Faltan parámetros. Uso: <jobNames> <periodoRemision> <fileCredentials>[Optional] ");
         }
 
         String jobNames = args[0];
-        String periodoRemision = args[1];
+        String periodoRemision = DateUtil.getCurrentDate(FORMAT_DATETIME_3);
+        if(args.length == 2){
+             periodoRemision = args[1];
+        }
+
 
         JOB_PARAMETERS = new HashMap<>();
         JOB_PARAMETERS.put(JOB_NAMES.name(), jobNames);

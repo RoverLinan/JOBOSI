@@ -19,6 +19,15 @@ public class DateUtilTest {
     }
 
     @Test
+    public void getCurrentDate() {
+        LocalDate localDate = LocalDate.now();
+        String currentDate = DateUtil.getCurrentDate(DateUtil.FORMAT_DATETIME_3);
+        Assert.assertNotNull(currentDate);
+        Assert.assertEquals(localDate.format(DateTimeFormatter.ofPattern(DateUtil.FORMAT_DATETIME_3)), currentDate); // Assuming the test is run on 07/08/2025
+
+    }
+
+    @Test
     public void getCurrentDateTimeSql() {
     }
 

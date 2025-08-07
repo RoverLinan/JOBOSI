@@ -39,6 +39,17 @@ public class DateUtil {
         return currentDate.format(formatter);
     }
 
+    public static String getCurrentDate(String format) {
+        // Zona horaria de Perú
+        ZoneId zonaPeru = ZoneId.of("America/Lima");
+
+        ZonedDateTime zonedDateTime = ZonedDateTime.now(zonaPeru);
+
+        LocalDateTime currentDate = zonedDateTime.toLocalDateTime();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format, new Locale("es-PE"));
+        return currentDate.format(formatter);
+    }
+
     public static Timestamp getCurrentDateTimeSql(String format) {
         // Zona horaria de Perú
         ZoneId zonaPeru = ZoneId.of("America/Lima");
