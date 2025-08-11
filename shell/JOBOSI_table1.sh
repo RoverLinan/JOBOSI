@@ -26,9 +26,9 @@ date >> ${archivo}
 #Ejecuta Transferencia Archivos
 echo "* Inicio JOBOSI Osinergmin" >> ${archivo}
 date  >> ${archivo}
-cantidad=`ps -fea|JOBOSI-1.0-RELEASE.jar | grep -v "grep" | wc -l`
+cantidad=`ps -fea|grep JOBOSI-1.0-RELEASE.jar | grep -v "grep" | wc -l`
 if [ $cantidad -lt 1 ]; then
-     java -jar C:/Users/Rover/JOBOSI-1.0-RELEASE.jar JOB01 >> ${archivo}
+     java -jar C:/Users/Rover/JOBOSI-1.0-RELEASE.jar JOB01
 fi
 date  >> ${archivo}
 echo "* Fin JOBOSI Osinergmin" >> ${archivo}
