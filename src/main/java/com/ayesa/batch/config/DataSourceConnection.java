@@ -4,6 +4,7 @@ import com.ayesa.batch.BatchLauncher;
 import com.ayesa.batch.business.exception.LogicalException;
 import com.ayesa.batch.util.FileUtil;
 
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -24,7 +25,7 @@ public class DataSourceConnection {
     private DataSourceConnection() {
         String path = (String) BatchLauncher.JOB_PARAMETERS.get(FILE_CREDENTIALS_BD.name());
         if(Objects.isNull(path)){
-            path = "config/datasource_jobosi.properties";
+            path = Paths.get("config", "datasource_jobosi.properties").toString();
         }
         Properties properties = FileUtil.loadProperties(path);
         this.dbUrl = properties.getProperty("db.url");

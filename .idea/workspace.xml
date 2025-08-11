@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/DateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/util/DateUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ayesa/batch/util/DateUtilTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/config/DataSourceConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/config/DataSourceConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +80,11 @@
       <recent name="com.ayesa.batch.job" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DateUtilTest.getCurrentDate">
+  <component name="RunManager" selected="Application.BatchLauncher">
     <configuration name="BatchLauncher" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ayesa.batch.BatchLauncher" />
       <module name="JOBOSI" />
-      <option name="PROGRAM_PARAMETERS" value="JOB02 14/03/2025" />
+      <option name="PROGRAM_PARAMETERS" value="JOB01" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.ayesa.batch.*" />
@@ -244,7 +244,9 @@
       <workItem from="1753990603876" duration="2716000" />
       <workItem from="1754583995211" duration="611000" />
       <workItem from="1754599257027" duration="3000" />
-      <workItem from="1754599292560" duration="673000" />
+      <workItem from="1754599292560" duration="1477000" />
+      <workItem from="1754600835538" duration="2000" />
+      <workItem from="1754684553890" duration="4901000" />
     </task>
     <servers />
   </component>
@@ -268,6 +270,21 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/ayesa/batch/job/FileUploadJobExecutableTest.java</url>
           <line>132</line>
           <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/ayesa/batch/util/DateUtilTest.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/config/DataSourceConnection.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataReader.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

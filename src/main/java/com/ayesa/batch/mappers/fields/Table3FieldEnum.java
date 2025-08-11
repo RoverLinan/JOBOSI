@@ -9,7 +9,7 @@ public enum Table3FieldEnum  implements TableField {
     FASE_INTERRUMPIDA(TableFieldTypeEnum.STRING),
     POTENCIA_INTERRUMPIDA(TableFieldTypeEnum.DECIMAL),
     ENERGIA_NO_SUMINISTRADA(TableFieldTypeEnum.DECIMAL),
-    COD_MOTIVO_FALLA(TableFieldTypeEnum.INTEGER),
+    COD_MOTIVO_FALLA(TableFieldTypeEnum.STRING),
     DESCRIPCION_MOTIVO(TableFieldTypeEnum.STRING),
     LOCALIZACION_FALLA(TableFieldTypeEnum.STRING),
     SUST_TEC_A_INTERR_4_12(TableFieldTypeEnum.STRING),
