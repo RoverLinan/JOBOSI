@@ -193,7 +193,12 @@ public class Table1Mapper extends AbstractEntityMapper{
         builder.addFormDataPart("ubigeo", attentionRegisterRequestDTO.getUbigeo());
         builder.addFormDataPart("codigoAsunto", String.valueOf(attentionRegisterRequestDTO.getCodigoAsunto()));
         builder.addFormDataPart("fechaHoraSolucion", attentionRegisterRequestDTO.getFechaHoraSolucion());
-        builder.addFormDataPart("descripcion", attentionRegisterRequestDTO.getDescripcion());
+
+        if(Objects.nonNull(attentionRegisterRequestDTO.getDescripcion())){
+            builder.addFormDataPart("descripcion", attentionRegisterRequestDTO.getDescripcion());
+        }else {
+            builder.addFormDataPart("descripcion", "");
+        }
 
         return builder;
     }

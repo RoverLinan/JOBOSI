@@ -121,6 +121,8 @@ public class DateUtil {
             throw new IllegalArgumentException("La fecha de entrada no puede ser nula.");
         }
 
+        input = input.minusDays(1);
+
         String year = String.format("%02d", input.getYear() % 100);
         String month = String.format("%02d", input.getMonthValue());
         String day = String.format("%02d", input.getDayOfMonth());

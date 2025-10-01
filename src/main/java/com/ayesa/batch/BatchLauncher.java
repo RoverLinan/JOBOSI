@@ -19,7 +19,10 @@ import java.util.stream.Collectors;
 
 import static com.ayesa.batch.enums.JobParameterEnum.FILE_CREDENTIALS_BD;
 import static com.ayesa.batch.enums.JobParameterEnum.JOB_NAMES;
+import static com.ayesa.batch.enums.JobParameterEnum.OSI_PASS;
+import static com.ayesa.batch.enums.JobParameterEnum.OSI_USER;
 import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
+import static com.ayesa.batch.enums.JobParameterEnum.URL_OSI;
 import static com.ayesa.batch.util.DateUtil.FORMAT_DATETIME_3;
 import static com.ayesa.batch.util.DateUtil.parseFromString;
 
@@ -77,6 +80,11 @@ public class BatchLauncher {
 
         loadParametersFromDb(ParameterKitEnum.BATCH_OSI_PARAMETERS);
         loadParametersFromDb(ParameterKitEnum.GENERIC_PARAMETERS);
+       /*
+        PRODUCCION
+        JOB_PARAMETERS.put(URL_OSI.name(), "https://prie.osinergmin.gob.pe");
+        JOB_PARAMETERS.put(OSI_USER.name(),"lescobar");
+        JOB_PARAMETERS.put(OSI_PASS.name(),"90AGxdGyz");*/
         LOGGER.info("getJobParameters: parameters = {}", JOB_PARAMETERS);
     }
 
