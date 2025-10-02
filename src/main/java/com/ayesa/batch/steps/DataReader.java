@@ -19,7 +19,9 @@ import java.util.List;
 import java.util.Map;
 
 import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
+import static com.ayesa.batch.enums.JobNameEnum.JOB01;
 import static com.ayesa.batch.enums.JobParameterEnum.CHUNK_SIZE;
+import static com.ayesa.batch.enums.JobParameterEnum.JOB_NAMES;
 import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
 import static com.ayesa.batch.util.FileUtil.PATH_RESOURCES_SQL_QUERIES;
 
@@ -47,8 +49,10 @@ public class DataReader {
 
         try (PreparedStatement preparedStatement = this.dataSourceConnection.getConnection().prepareStatement(queryRead)) {
             LocalDate period = (LocalDate) JOB_PARAMETERS.get(PERIODO_REMISION.name());
-
-            preparedStatement.setString(1, period.plusDays(1).toString() );
+            if(!JOB01.equals(jobName)){
+                period = period.plusDays(1);
+            }
+            preparedStatement.setString(1, period.toString() );
             preparedStatement.setInt(2, offset);
             preparedStatement.setInt(3, chunkSize);
 
@@ -76,8 +80,10 @@ public class DataReader {
 
         try (PreparedStatement preparedStatement = this.dataSourceConnection.getConnection().prepareStatement(queryCount)){
              LocalDate period = (LocalDate) JOB_PARAMETERS.get(PERIODO_REMISION.name());
-
-             preparedStatement.setString(1, period.plusDays(1).toString() );
+            if(!JOB01.equals(jobName)){
+                period = period.plusDays(1);
+            }
+             preparedStatement.setString(1, period.toString() );
              ResultSet result = preparedStatement.executeQuery();
 
             while (result.next()) {

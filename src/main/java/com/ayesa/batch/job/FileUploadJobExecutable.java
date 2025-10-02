@@ -43,15 +43,13 @@ public class FileUploadJobExecutable implements Job {
         FileUtil.createFolder();
         TABLE_ENTITIES_IN_PROGRESS.put(jobNameEnum, new ArrayList<>());
         final String fileName = FileUtil.createFileName(jobNameEnum.getTableName(), FileUtil.FileTypeEnum.TXT);;
-        boolean hasData = false;
-        for (int block = 0; block < DataReader.TOTAL_BLOCKS; block++) {
-            int offset = block * CHUNK_SIZE;
-            List<Map<String, Object>> dataRead =  dataReader.read(offset, CHUNK_SIZE);
+        for (int block = 0; block < 1; block++) {
+
+            List<Map<String, Object>> dataRead =  dataReader.read(0, CHUNK_SIZE);
             TABLE_ENTITIES_IN_PROGRESS.get(jobNameEnum).addAll(dataRead);
             dataProcessor.process(dataRead,fileName);
-            hasData = true;
         }
-        if (hasData){
+        if (TABLE_ENTITIES_IN_PROGRESS.get(jobNameEnum).isEmpty()){
             dataWriter.writer(fileName);
         }
         LOGGER.info("JobExecutable: run end");

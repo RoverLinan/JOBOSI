@@ -42,9 +42,9 @@ public class AttentionRegisterJobExecutable implements Job{
         LOGGER.info("JobExecutable: run init");
         List<Serializable>  attentionRegisters = new ArrayList<>();
         AbstractEntityMapper mapper = EntityMapperCreator.create(jobNameEnum);
-        for (int block = 0; block < DataReader.TOTAL_BLOCKS; block++) {
-            int offset = block * CHUNK_SIZE;
-            List<Map<String, Object>> dataRead =  dataReader.read(offset, CHUNK_SIZE);
+        for (int block = 0; block < 1; block++) {
+
+            List<Map<String, Object>> dataRead =  dataReader.read(0, 5000);
             attentionRegisters = dataProcessor.process(dataRead, mapper);
         }
         if (!attentionRegisters.isEmpty()){

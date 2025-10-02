@@ -1,5 +1,6 @@
 package com.ayesa.batch;
 
+import com.ayesa.batch.config.DataSourceConnection;
 import com.ayesa.batch.enums.JobNameEnum;
 import com.ayesa.batch.enums.ParameterKitEnum;
 import com.ayesa.batch.job.JobExecution;
@@ -35,9 +36,10 @@ public class BatchLauncher {
 
 
     public static void main(String[] args) {
+        DataSourceConnection.getInstance();
         getJobParameters(args);
         new JobExecution().start(getJobNames((String) JOB_PARAMETERS.get(JOB_NAMES.name())));
-
+        DataSourceConnection.closeConnection();
     }
 
     private static List<JobNameEnum> getJobNames(String jobNamesString) {
@@ -80,11 +82,10 @@ public class BatchLauncher {
 
         loadParametersFromDb(ParameterKitEnum.BATCH_OSI_PARAMETERS);
         loadParametersFromDb(ParameterKitEnum.GENERIC_PARAMETERS);
-       /*
-        PRODUCCION
+
         JOB_PARAMETERS.put(URL_OSI.name(), "https://prie.osinergmin.gob.pe");
         JOB_PARAMETERS.put(OSI_USER.name(),"lescobar");
-        JOB_PARAMETERS.put(OSI_PASS.name(),"90AGxdGyz");*/
+        JOB_PARAMETERS.put(OSI_PASS.name(),"90AGxdGyz");
         LOGGER.info("getJobParameters: parameters = {}", JOB_PARAMETERS);
     }
 

@@ -21,7 +21,9 @@ import org.apache.hc.client5.http.entity.mime.StringBody;
 import org.apache.hc.core5.http.ContentType;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.time.LocalDate;
+import java.util.concurrent.TimeUnit;
 
 import static com.ayesa.batch.BatchLauncher.JOB_PARAMETERS;
 import static com.ayesa.batch.enums.JobParameterEnum.PERIODO_REMISION;
@@ -79,7 +81,11 @@ public abstract class PublicElectricityService {
                 .url(getURL(parameter))
                 .method(httpMethod.toString(), body)
                 .build();
-        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                        .connectTimeout(30, TimeUnit.SECONDS)
+                        .readTimeout(30, TimeUnit.SECONDS)
+                        .writeTimeout(30, TimeUnit.SECONDS)
+                        .build();
         return client.newCall(request).execute();
     }
 

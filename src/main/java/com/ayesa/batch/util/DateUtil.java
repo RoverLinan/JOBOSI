@@ -100,6 +100,9 @@ public class DateUtil {
     }
 
     public static List<LocalDate> parseFromStringList(String dates, String format) {
+        if(dates == null || dates.isEmpty()){
+            throw new IllegalArgumentException("La cadena de fechas  de feriados no puede ser nula o vacía.");
+        }
         return Stream.of(dates.split(";"))
                 .map(date -> parseFromString(date, format))
                 .collect(Collectors.toList());

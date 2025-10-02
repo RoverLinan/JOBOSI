@@ -7,8 +7,14 @@
     <list default="true" id="5b70c196-43fa-49a8-9424-3031c481eaf8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/datasource_jobosi.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config/datasource_jobosi.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shell/JOBOSI_table1.sh" beforeDir="false" afterPath="$PROJECT_DIR$/shell/JOBOSI_table1.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shell/JOBOSI_table2-8.sh" beforeDir="false" afterPath="$PROJECT_DIR$/shell/JOBOSI_table2-8.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/BatchLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table1Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/mappers/Table1Mapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/config/DataSourceConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/config/DataSourceConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/AttentionRegisterJobExecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/AttentionRegisterJobExecutable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/FileUploadJobExecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/FileUploadJobExecutable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/service/PublicElectricityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/DateUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/sql-TABLES.properties" afterDir="false" />
     </list>
@@ -258,7 +264,7 @@
       <workItem from="1755624988806" duration="648000" />
       <workItem from="1759266960500" duration="294000" />
       <workItem from="1759272563794" duration="5187000" />
-      <workItem from="1759334469391" duration="697000" />
+      <workItem from="1759334469391" duration="21133000" />
     </task>
     <servers />
   </component>
@@ -284,11 +290,6 @@
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/FileUploadJobExecutable.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/steps/DataWriter.java</url>
           <line>57</line>
           <option name="timeStamp" value="33" />
@@ -299,9 +300,14 @@
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/util/DateUtil.java</url>
-          <line>125</line>
-          <option name="timeStamp" value="36" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/FileUploadJobExecutable.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ayesa/batch/job/FileUploadJobExecutable.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

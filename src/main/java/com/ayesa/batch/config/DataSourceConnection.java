@@ -57,4 +57,14 @@ public class DataSourceConnection {
         return this.connection;
     }
 
+    public static void closeConnection(){
+        try {
+            if (Objects.nonNull(dataSourceConnection) && !dataSourceConnection.connection.isClosed()) {
+                dataSourceConnection.connection.close();
+            }
+        }catch (SQLException e){
+            throw new LogicalException("002",Boolean.FALSE,"Error DataSource",e);
+        }
+    }
+
 }
