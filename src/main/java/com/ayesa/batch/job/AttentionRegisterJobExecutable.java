@@ -44,7 +44,7 @@ public class AttentionRegisterJobExecutable implements Job{
         AbstractEntityMapper mapper = EntityMapperCreator.create(jobNameEnum);
         for (int block = 0; block < 1; block++) {
 
-            List<Map<String, Object>> dataRead =  dataReader.read(0, 5000);
+            List<Map<String, Object>> dataRead =  dataReader.read(0, 4000);
             attentionRegisters = dataProcessor.process(dataRead, mapper);
         }
         if (!attentionRegisters.isEmpty()){

@@ -25,7 +25,7 @@ public abstract class AbstractEntityMapper {
             TableFieldTypeEnum fieldType = field.getFieldType();
             switch (fieldType) {
                 case STRING:
-                    map.put( field.getFieldName(), trim( resultSet.getString(field.getFieldName())) );
+                    map.put( field.getFieldName(), stripLineBreaks( trim( resultSet.getString(field.getFieldName())) ));
                     break;
                 case INTEGER:
                     map.put( field.getFieldName(), resultSet.getInt(field.getFieldName()) );
@@ -48,6 +48,13 @@ public abstract class AbstractEntityMapper {
             return null;
         }
         return value.trim();
+    }
+
+    private String stripLineBreaks(String value){
+        if(Objects.isNull(value)){
+            return null;
+        }
+        return value.replace("\n", " ").replace("\r", " ");
     }
 
     protected void changeFormatDate(Map<String, Object> entity, TableField field, String formatSource, String formatTarget) {

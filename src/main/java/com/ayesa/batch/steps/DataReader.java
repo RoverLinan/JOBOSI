@@ -49,12 +49,17 @@ public class DataReader {
 
         try (PreparedStatement preparedStatement = this.dataSourceConnection.getConnection().prepareStatement(queryRead)) {
             LocalDate period = (LocalDate) JOB_PARAMETERS.get(PERIODO_REMISION.name());
-            if(!JOB01.equals(jobName)){
+            if(JOB01.equals(jobName)){
+                preparedStatement.setString(2, period.toString() );
+                preparedStatement.setInt(3, offset);
+                preparedStatement.setInt(4, chunkSize);
+            }else{
                 period = period.plusDays(1);
+                preparedStatement.setInt(2, offset);
+                preparedStatement.setInt(3, chunkSize);
             }
             preparedStatement.setString(1, period.toString() );
-            preparedStatement.setInt(2, offset);
-            preparedStatement.setInt(3, chunkSize);
+
 
 
             LOGGER.debug("read: query = {}", queryRead);
@@ -80,7 +85,9 @@ public class DataReader {
 
         try (PreparedStatement preparedStatement = this.dataSourceConnection.getConnection().prepareStatement(queryCount)){
              LocalDate period = (LocalDate) JOB_PARAMETERS.get(PERIODO_REMISION.name());
-            if(!JOB01.equals(jobName)){
+            if(JOB01.equals(jobName)){
+                preparedStatement.setString(2, period.toString() );
+            }else{
                 period = period.plusDays(1);
             }
              preparedStatement.setString(1, period.toString() );

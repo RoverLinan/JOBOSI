@@ -9,6 +9,7 @@ import com.ayesa.batch.util.DateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,6 +20,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static com.ayesa.batch.enums.JobParameterEnum.FILE_CREDENTIALS_BD;
+import static com.ayesa.batch.enums.JobParameterEnum.HOLIDAYS;
 import static com.ayesa.batch.enums.JobParameterEnum.JOB_NAMES;
 import static com.ayesa.batch.enums.JobParameterEnum.OSI_PASS;
 import static com.ayesa.batch.enums.JobParameterEnum.OSI_USER;
@@ -70,10 +72,11 @@ public class BatchLauncher {
              periodoRemision = args[1];
         }
 
-
+        LocalDate localDate = parseFromString(periodoRemision, FORMAT_DATETIME_3);
         JOB_PARAMETERS = new HashMap<>();
         JOB_PARAMETERS.put(JOB_NAMES.name(), jobNames);
-        JOB_PARAMETERS.put(PERIODO_REMISION.name(), parseFromString(periodoRemision, FORMAT_DATETIME_3));
+        //JOB_PARAMETERS.put(PERIODO_REMISION.name(), parseFromString(periodoRemision, FORMAT_DATETIME_3));
+        JOB_PARAMETERS.put(PERIODO_REMISION.name(), localDate.minusDays(1));
 
         if(args.length == 3){
             String fileCredentials = args[2];
@@ -86,6 +89,7 @@ public class BatchLauncher {
         JOB_PARAMETERS.put(URL_OSI.name(), "https://prie.osinergmin.gob.pe");
         JOB_PARAMETERS.put(OSI_USER.name(),"lescobar");
         JOB_PARAMETERS.put(OSI_PASS.name(),"90AGxdGyz");
+        JOB_PARAMETERS.put(HOLIDAYS.name(),"08/10/2025");
         LOGGER.info("getJobParameters: parameters = {}", JOB_PARAMETERS);
     }
 
